@@ -1,0 +1,24 @@
+{
+  "name": "vizs-p670",
+  "version": "1.0.0",
+  "description": "An interactive, web-based visualization tool designed for beginner investors and students to explore the relationship between geography, industry clusters, and stock market performance.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamiMelhem/VizS-P670.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamiMelhem/VizS-P670/issues"
+  },
+  "homepage": "https://github.com/SamiMelhem/VizS-P670#readme",
+  "dependencies": {
+    "csv-parser": "^3.2.0",
+    "express": "^5.2.1"
+  }
+}

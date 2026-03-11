@@ -1,0 +1,11 @@
+body {
+    font-family: sans-serif;
+}
+
+svg {
+    border: 1px solid #ccc;
+}
+
+circle:hover {
+    fill: red;
+}   
