@@ -423,46 +423,22 @@ Promise.all([
   // Draw circles
   const pointsG = viewport.append("g").attr("class", "company-points");
 
-  const circles = pointsG.selectAll("circle")
-    .data(companies, d => d.Name)
-    .join("circle")
-    .attr("cx", d => {
-      const coords = projection([+d.lon, +d.lat]);
-      return coords ? coords[0] : -9999;
-    })
-    .attr("cy", d => {
-      const coords = projection([+d.lon, +d.lat]);
-      return coords ? coords[1] : -9999;
-    })
-    .attr("r", 4)
-    .attr("fill", "steelblue")
-    .attr("opacity", 0.7)
-    .style("pointer-events", "all")
-    .on("mouseover", (event, d) => {
-      tooltip
-        .style("opacity", 1)
-        .html(`
-          <strong>${d.Name}</strong><br/>
-          Location: ${d["Headquarters Location"]}<br/>
-          Industry: ${d.Industry}
-        `);
-    })
-    .on("mousemove", (event) => {
-      tooltip
-        .style("left", (event.pageX + 10) + "px")
-        .style("top", (event.pageY + 10) + "px");
-    })
-    .on("mouseout", () => {
-      tooltip.style("opacity", 0);
-    })
-    .on("click", (event, d) => {
-      event.stopPropagation();
-      fetchStockData(d.Ticker, d.Name, circles);
   function visibleCompanies(selectedIndustry) {
     if (selectedIndustry === "All") {
       return projectedCompanies;
     }
     return projectedCompanies.filter(d => d.Industry === selectedIndustry);
+  }
+
+  function setSelectedCompany(company) {
+    if (!company) {
+      return;
+    }
+    selectedCompanyKey = company.key;
+    syncCompanySearchWidget();
+    if (company.Ticker) {
+      fetchStockData(company.Ticker, company.Name, pointsG.selectAll("circle"));
+    }
   }
 
   function renderPoints() {
@@ -524,8 +500,7 @@ Promise.all([
 
     if (selectedMode === "companies") {
       circles.on("click", (event, d) => {
-        selectedCompanyKey = d.key;
-        syncCompanySearchWidget();
+        setSelectedCompany(d);
       });
     }
   }
@@ -644,8 +619,7 @@ Promise.all([
       .attr("class", d => d.key === selectedCompanyKey ? "is-selected" : null)
       .text(d => d.Name)
       .on("click", (event, d) => {
-        selectedCompanyKey = d.key;
-        syncCompanySearchWidget();
+        setSelectedCompany(d);
       });
 
     companySearchResults.attr("hidden", matching.length === 0 ? true : null);
