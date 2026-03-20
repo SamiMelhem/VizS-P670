@@ -9,6 +9,9 @@ const projection = d3.geoAlbersUsa()
 
 const path = d3.geoPath().projection(projection);
 
+const tooltip = d3.select("#tooltip");
+const select = d3.select("#industryFilter");
+
 Promise.all([
     d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json"),
     d3.json("/data")
@@ -16,6 +19,7 @@ Promise.all([
 
     const states = topojson.feature(us, us.objects.states);
 
+    // Draw states
     svg.append("g")
         .selectAll("path")
         .data(states.features)
@@ -25,7 +29,17 @@ Promise.all([
         .attr("fill", "#eee")
         .attr("stroke", "#999");
 
-    svg.append("g")
+    // Industry dropdown
+    const industries = Array.from(new Set(companies.map(d => d.Industry)));
+
+    industries.forEach(ind => {
+        select.append("option")
+            .attr("value", ind)
+            .text(ind);
+    });
+
+    // Draw circles
+    const circles = svg.append("g")
         .selectAll("circle")
         .data(companies)
         .enter()
@@ -41,6 +55,34 @@ Promise.all([
         .attr("r", 4)
         .attr("fill", "steelblue")
         .attr("opacity", 0.7)
-        .append("title")
-        .text(d => `${d.Name}\n${d["Headquarters Location"]}`);
+
+        // Tooltip events
+        .on("mouseover", (event, d) => {
+            tooltip
+                .style("opacity", 1)
+                .html(`
+                    <strong>${d.Name}</strong><br/>
+                    Location: ${d["Headquarters Location"]}<br/>
+                    Industry: ${d.Industry}
+                `);
+        })
+        .on("mousemove", (event) => {
+            tooltip
+                .style("left", (event.pageX + 10) + "px")
+                .style("top", (event.pageY + 10) + "px");
+        })
+        .on("mouseout", () => {
+            tooltip.style("opacity", 0);
+        });
+
+    select.on("change", function () {
+        const selected = this.value;
+
+        circles
+            .transition()
+            .duration(300)
+            .attr("opacity", d =>
+                selected === "All" || d.Industry === selected ? 0.7 : 0);
+    });
+
 });

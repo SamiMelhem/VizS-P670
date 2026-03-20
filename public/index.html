@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="utf-8">
-<title>Company Headquarters Map</title>
+    <meta charset="utf-8">
+    <title>Company Headquarters Map</title>
 
-<script src="https://d3js.org/d3.v7.min.js"></script>
-<script src="https://unpkg.com/topojson@3"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/topojson@3"></script>
 
-<link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<h2>US Company Headquarters</h2>
+    <h2>US Company Headquarters</h2>
 
-<svg id="map" width="960" height="600"></svg>
+    <label for="industryFilter">Filter by Industry:</label>
+    <select id="industryFilter">
+        <option value="All">All Industries</option>
+    </select>
 
-<script src="script.js"></script>
+    <div id="tooltip"></div>
+
+    <svg id="map" width="960" height="600"></svg>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
