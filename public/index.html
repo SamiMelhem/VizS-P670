@@ -1,32 +1,55 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <title>Company Headquarters Map</title>
-
-    <script src="https://d3js.org/d3.v7.min.js"></script>
-    <script src="https://unpkg.com/topojson@3"></script>
-
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="utf-8">
+  <title>Company Headquarters Map</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/topojson@3"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+  <div id="dashboard">
+    <h2>Company Headquarters Map</h2>
 
-    <h2>US Company Headquarters</h2>
+    <div id="topbar">
+      <div>
+        <label for="displayMode">Mode:</label>
+        <select id="displayMode">
+          <option value="cities">Cities</option>
+          <option value="companies">Companies</option>
+        </select>
+      </div>
 
-    <label for="industryFilter">Filter by Industry:</label>
-    <select id="industryFilter">
-        <option value="All">All Industries</option>
-    </select>
+      <div>
+        <label for="industryFilter">Industry:</label>
+        <select id="industryFilter">
+          <option value="All">All</option>
+        </select>
+      </div>
+
+      <button type="button" onclick="resetMapZoom()">Reset zoom</button>
+    </div>
+
+    <div id="content">
+      <div class="panel" id="map-panel">
+        <div class="panel-header">Map</div>
+        <div class="panel-body" style="padding:0;">
+          <svg id="map" width="960" height="600"></svg>
+        </div>
+      </div>
+
+      <div class="panel" id="interactions-panel">
+        <div class="panel-header">Interactions / Widgets</div>
+        <div class="panel-body">
+          <div id="widget-area-1"></div>
+          <div id="widget-area-2" style="margin-top:12px;">Widget Area 2 (blank)</div>
+        </div>
+      </div>
+    </div>
 
     <div id="tooltip"></div>
+  </div>
 
-    <svg id="map" width="960" height="600"></svg>
-
-    <script src="script.js"></script>
-
+  <script src="script.js"></script>
 </body>
-
 </html>
