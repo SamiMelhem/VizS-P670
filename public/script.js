@@ -18,6 +18,65 @@ const path = d3.geoPath(projection);
 
 const tooltip = d3.select("#tooltip");
 const select = d3.select("#industryFilter");
+const modeSelect = d3.select("#displayMode");
+
+function groupedByCoordinates(companies) {
+  const withProjectedCoords = companies
+    .map(d => {
+      const coords = projection([+d.lon, +d.lat]);
+      return coords ? { ...d, x: coords[0], y: coords[1] } : null;
+    })
+    .filter(Boolean);
+
+  const groups = d3.group(withProjectedCoords, d => `${d.lat}|${d.lon}`);
+
+  return Array.from(groups, ([key, members]) => {
+    const first = members[0];
+    return {
+      key,
+      x: first.x,
+      y: first.y,
+      members
+    };
+  });
+}
+
+function visibleMembers(cluster, selectedIndustry) {
+  if (selectedIndustry === "All") {
+    return cluster.members;
+  }
+  return cluster.members.filter(d => d.Industry === selectedIndustry);
+}
+
+function clusterRadius(count) {
+  return 3 + Math.min(14, Math.sqrt(count) * 2.2);
+}
+
+function formatTooltip(cluster, selectedIndustry) {
+  const visible = visibleMembers(cluster, selectedIndustry);
+  if (!visible.length) {
+    return "";
+  }
+
+  const location = visible[0]["Headquarters Location"] || "Unknown";
+  const preview = visible.slice(0, 6).map(d => d.Name);
+  const overflow = visible.length - preview.length;
+
+  return `
+    <strong>${location}</strong><br/>
+    Companies shown: ${visible.length}<br/>
+    ${preview.join("<br/>")}
+    ${overflow > 0 ? `<br/>+ ${overflow} more` : ""}
+  `;
+}
+
+function companyTooltip(company) {
+  return `
+    <strong>${company.Name}</strong><br/>
+    Location: ${company["Headquarters Location"] || "Unknown"}<br/>
+    Industry: ${company.Industry}
+  `;
+}
 
 // ----- ZOOM -----
 const zoom = d3.zoom()
@@ -43,6 +102,13 @@ Promise.all([
   d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json"),
   d3.json("/data")
 ]).then(([us, companies]) => {
+  const projectedCompanies = companies
+    .map(d => {
+      const coords = projection([+d.lon, +d.lat]);
+      return coords ? { ...d, x: coords[0], y: coords[1], key: d.Name } : null;
+    })
+    .filter(Boolean);
+
   const states = topojson.feature(us, us.objects.states);
 
   // Draw states
@@ -59,60 +125,92 @@ Promise.all([
   select.selectAll("option").remove();
   select.append("option").attr("value", "All").text("All");
 
-  const industries = Array.from(new Set(companies.map(d => d.Industry))).sort();
+  const industries = Array.from(new Set(projectedCompanies.map(d => d.Industry))).sort();
   industries.forEach(ind => {
     select.append("option").attr("value", ind).text(ind);
   });
 
+  const clusters = groupedByCoordinates(projectedCompanies);
+  const cityToCompanyCount = d3.rollup(projectedCompanies, v => v.length, d => d["Headquarters Location"] || "Unknown");
+  const overlappedCityCount = Array.from(cityToCompanyCount.values()).filter(v => v > 1).length;
+
   // Draw circles
   const pointsG = viewport.append("g").attr("class", "company-points");
 
-  const circles = pointsG.selectAll("circle")
-    .data(companies, d => d.Name)
-    .join("circle")
-    .attr("cx", d => {
-      const coords = projection([+d.lon, +d.lat]);
-      return coords ? coords[0] : -9999;
-    })
-    .attr("cy", d => {
-      const coords = projection([+d.lon, +d.lat]);
-      return coords ? coords[1] : -9999;
-    })
-    .attr("r", 4)
-    .attr("fill", "steelblue")
-    .attr("opacity", 0.7)
-    .style("pointer-events", "all")
-    .on("mouseover", (event, d) => {
-      tooltip
-        .style("opacity", 1)
-        .html(`
-          <strong>${d.Name}</strong><br/>
-          Location: ${d["Headquarters Location"]}<br/>
-          Industry: ${d.Industry}
-        `);
-    })
-    .on("mousemove", (event) => {
-      tooltip
-        .style("left", (event.pageX + 10) + "px")
-        .style("top", (event.pageY + 10) + "px");
-    })
-    .on("mouseout", () => {
-      tooltip.style("opacity", 0);
-    });
+  function visibleCompanies(selectedIndustry) {
+    if (selectedIndustry === "All") {
+      return projectedCompanies;
+    }
+    return projectedCompanies.filter(d => d.Industry === selectedIndustry);
+  }
+
+  function renderPoints() {
+    const selectedIndustry = select.property("value");
+    const selectedMode = modeSelect.property("value");
+
+    const renderedData = selectedMode === "companies"
+      ? visibleCompanies(selectedIndustry).map(d => ({ ...d, mode: "company" }))
+      : clusters
+          .map(c => ({ ...c, mode: "city", visible: visibleMembers(c, selectedIndustry) }))
+          .filter(c => c.visible.length > 0);
+
+    const circles = pointsG.selectAll("circle")
+      .data(renderedData, d => `${d.mode}:${d.key}`)
+      .join(
+        enter => enter
+          .append("circle")
+          .attr("cx", d => d.x)
+          .attr("cy", d => d.y)
+          .attr("r", 0)
+          .attr("fill", "steelblue")
+          .attr("opacity", 0.8)
+          .style("pointer-events", "all")
+          .call(enter => enter.transition().duration(200).attr("r", d => d.mode === "city" ? clusterRadius(d.visible.length) : 4)),
+        update => update
+          .call(update => update.transition().duration(200)
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y)
+            .attr("r", d => d.mode === "city" ? clusterRadius(d.visible.length) : 4)
+            .attr("opacity", 0.8)),
+        exit => exit
+          .call(exit => exit.transition().duration(150).attr("r", 0).remove())
+      );
+
+    circles
+      .on("mouseover", (event, d) => {
+        const html = d.mode === "city"
+          ? formatTooltip({ ...d, members: d.visible }, "All")
+          : companyTooltip(d);
+        tooltip
+          .style("opacity", 1)
+          .html(html);
+      })
+      .on("mousemove", (event) => {
+        tooltip
+          .style("left", (event.pageX + 10) + "px")
+          .style("top", (event.pageY + 10) + "px");
+      })
+      .on("mouseout", () => {
+        tooltip.style("opacity", 0);
+      });
+  }
+
+  renderPoints();
 
   // Filter
   select.on("change", function () {
-    const selected = this.value;
-    circles
-      .transition()
-      .duration(200)
-      .attr("opacity", d => (selected === "All" || d.Industry === selected) ? 0.7 : 0);
+    renderPoints();
+  });
+
+  modeSelect.on("change", function () {
+    tooltip.style("opacity", 0);
+    renderPoints();
   });
 
   // ----- “BLANK DASHBOARD” HOOKS (placeholders teammates can implement) -----
   // Example: show counts somewhere
   if (document.querySelector("#kpi-total")) {
-    document.querySelector("#kpi-total").textContent = companies.length.toLocaleString();
+    document.querySelector("#kpi-total").textContent = projectedCompanies.length.toLocaleString();
   }
 
 }).catch(err => {
