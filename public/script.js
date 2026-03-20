@@ -19,6 +19,7 @@ const path = d3.geoPath(projection);
 const tooltip = d3.select("#tooltip");
 const select = d3.select("#industryFilter");
 const modeSelect = d3.select("#displayMode");
+const widgetArea1 = d3.select("#widget-area-1");
 
 function groupedByCoordinates(companies) {
   const withProjectedCoords = companies
@@ -78,6 +79,10 @@ function companyTooltip(company) {
   `;
 }
 
+function cityName(cluster) {
+  return cluster.members[0]["Headquarters Location"] || "Unknown";
+}
+
 // ----- ZOOM -----
 const zoom = d3.zoom()
   .scaleExtent([1, 8])
@@ -131,8 +136,38 @@ Promise.all([
   });
 
   const clusters = groupedByCoordinates(projectedCompanies);
-  const cityToCompanyCount = d3.rollup(projectedCompanies, v => v.length, d => d["Headquarters Location"] || "Unknown");
-  const overlappedCityCount = Array.from(cityToCompanyCount.values()).filter(v => v > 1).length;
+
+  widgetArea1.html(`
+    <div id="city-widget" class="city-widget">
+      <div class="city-widget-title">City Companies</div>
+      <div>
+        <label for="cityFilter">City:</label>
+        <select id="cityFilter"></select>
+      </div>
+      <ul id="city-company-list" class="company-list"></ul>
+      <div id="city-widget-empty" class="city-widget-empty" hidden>No companies for this city and industry filter.</div>
+    </div>
+    <div id="company-search-widget" class="company-search-widget" hidden>
+      <div class="city-widget-title">Company Search</div>
+      <input id="companySearchInput" class="company-search-input" type="text" placeholder="Search companies..." />
+      <ul id="company-search-results" class="company-list"></ul>
+      <div id="company-search-empty" class="city-widget-empty" hidden>No matching companies.</div>
+      <div id="company-info-card" class="company-info-card">Search and select a company to view details.</div>
+    </div>
+  `);
+
+  const cityWidget = d3.select("#city-widget");
+  const citySelect = d3.select("#cityFilter");
+  const cityCompanyList = d3.select("#city-company-list");
+  const cityWidgetEmpty = d3.select("#city-widget-empty");
+  const companySearchWidget = d3.select("#company-search-widget");
+  const companySearchInput = d3.select("#companySearchInput");
+  const companySearchResults = d3.select("#company-search-results");
+  const companySearchEmpty = d3.select("#company-search-empty");
+  const companyInfoCard = d3.select("#company-info-card");
+
+  let selectedCityKey = null;
+  let selectedCompanyKey = null;
 
   // Draw circles
   const pointsG = viewport.append("g").attr("class", "company-points");
@@ -150,8 +185,8 @@ Promise.all([
 
     const renderedData = selectedMode === "companies"
       ? visibleCompanies(selectedIndustry).map(d => ({ ...d, mode: "company" }))
-      : clusters
-          .map(c => ({ ...c, mode: "city", visible: visibleMembers(c, selectedIndustry) }))
+        : clusters
+          .map(c => ({ ...c, mode: "city", cityKey: c.key, cityLabel: cityName(c), visible: visibleMembers(c, selectedIndustry) }))
           .filter(c => c.visible.length > 0);
 
     const circles = pointsG.selectAll("circle")
@@ -193,18 +228,172 @@ Promise.all([
       .on("mouseout", () => {
         tooltip.style("opacity", 0);
       });
+
+    if (selectedMode === "cities") {
+      circles.on("click", (event, d) => {
+        selectedCityKey = d.cityKey;
+        syncCitySelectionAndList();
+      });
+    }
+
+    if (selectedMode === "companies") {
+      circles.on("click", (event, d) => {
+        selectedCompanyKey = d.key;
+        syncCompanySearchWidget();
+      });
+    }
+  }
+
+  function visibleCityClusters(selectedIndustry) {
+    return clusters
+      .map(c => ({
+        key: c.key,
+        label: cityName(c),
+        companies: visibleMembers(c, selectedIndustry).slice().sort((a, b) => d3.ascending(a.Name, b.Name))
+      }))
+      .filter(c => c.companies.length > 0)
+      .sort((a, b) => d3.ascending(a.label, b.label));
+  }
+
+  function syncCitySelectionAndList() {
+    const selectedIndustry = select.property("value");
+    const selectedMode = modeSelect.property("value");
+
+    if (selectedMode !== "cities") {
+      cityWidget.attr("hidden", true);
+      return;
+    }
+
+    cityWidget.attr("hidden", null);
+
+    const cityOptions = visibleCityClusters(selectedIndustry);
+    if (!cityOptions.length) {
+      citySelect.selectAll("option").remove();
+      cityCompanyList.selectAll("li").remove();
+      cityCompanyList.attr("hidden", true);
+      cityWidgetEmpty.attr("hidden", null);
+      selectedCityKey = null;
+      return;
+    }
+
+    if (!selectedCityKey || !cityOptions.some(c => c.key === selectedCityKey)) {
+      selectedCityKey = cityOptions[0].key;
+    }
+
+    const cityOptionJoin = citySelect
+      .selectAll("option")
+      .data(cityOptions, d => d.key)
+      .join("option")
+      .attr("value", d => d.key)
+      .text(d => `${d.label} (${d.companies.length})`);
+
+    cityOptionJoin.property("selected", d => d.key === selectedCityKey);
+
+    const activeCity = cityOptions.find(c => c.key === selectedCityKey);
+    const activeCompanies = activeCity ? activeCity.companies : [];
+
+    cityCompanyList
+      .attr("hidden", activeCompanies.length === 0 ? true : null)
+      .selectAll("li")
+      .data(activeCompanies, d => d.Name)
+      .join("li")
+      .text(d => d.Name);
+
+    cityWidgetEmpty.attr("hidden", activeCompanies.length === 0 ? null : true);
+  }
+
+  function formatCompanyInfo(company) {
+    if (!company) {
+      return "Search and select a company to view details.";
+    }
+
+    return `
+      <strong>${company.Name}</strong><br/>
+      Location: ${company["Headquarters Location"] || "Unknown"}<br/>
+      Industry: ${company.Industry || "Unknown"}<br/>
+      Coordinates: ${Number(company.lat).toFixed(4)}, ${Number(company.lon).toFixed(4)}
+    `;
+  }
+
+  function syncCompanySearchWidget() {
+    const selectedMode = modeSelect.property("value");
+    const selectedIndustry = select.property("value");
+
+    if (selectedMode !== "companies") {
+      companySearchWidget.attr("hidden", true);
+      return;
+    }
+
+    companySearchWidget.attr("hidden", null);
+
+    const query = (companySearchInput.property("value") || "").trim().toLowerCase();
+    const companiesForMode = visibleCompanies(selectedIndustry)
+      .slice()
+      .sort((a, b) => d3.ascending(a.Name, b.Name));
+
+    const matching = companiesForMode.filter(d => {
+      if (!query) {
+        return true;
+      }
+      const name = (d.Name || "").toLowerCase();
+      const location = (d["Headquarters Location"] || "").toLowerCase();
+      const industry = (d.Industry || "").toLowerCase();
+      return name.includes(query) || location.includes(query) || industry.includes(query);
+    });
+
+    if (matching.length && (!selectedCompanyKey || !matching.some(c => c.key === selectedCompanyKey))) {
+      selectedCompanyKey = matching[0].key;
+    }
+
+    if (!matching.length) {
+      selectedCompanyKey = null;
+    }
+
+    const items = companySearchResults
+      .selectAll("li")
+      .data(matching, d => d.key)
+      .join("li");
+
+    items
+      .attr("class", d => d.key === selectedCompanyKey ? "is-selected" : null)
+      .text(d => d.Name)
+      .on("click", (event, d) => {
+        selectedCompanyKey = d.key;
+        syncCompanySearchWidget();
+      });
+
+    companySearchResults.attr("hidden", matching.length === 0 ? true : null);
+    companySearchEmpty.attr("hidden", matching.length === 0 ? null : true);
+
+    const selectedCompany = matching.find(c => c.key === selectedCompanyKey) || null;
+    companyInfoCard.html(formatCompanyInfo(selectedCompany));
   }
 
   renderPoints();
+  syncCitySelectionAndList();
+  syncCompanySearchWidget();
 
   // Filter
   select.on("change", function () {
     renderPoints();
+    syncCitySelectionAndList();
+    syncCompanySearchWidget();
   });
 
   modeSelect.on("change", function () {
     tooltip.style("opacity", 0);
     renderPoints();
+    syncCitySelectionAndList();
+    syncCompanySearchWidget();
+  });
+
+  citySelect.on("change", function () {
+    selectedCityKey = this.value;
+    syncCitySelectionAndList();
+  });
+
+  companySearchInput.on("input", function () {
+    syncCompanySearchWidget();
   });
 
   // ----- “BLANK DASHBOARD” HOOKS (placeholders teammates can implement) -----
