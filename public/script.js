@@ -20,6 +20,15 @@ const tooltip = d3.select("#tooltip");
 const select = d3.select("#industryFilter");
 const modeSelect = d3.select("#displayMode");
 const widgetArea1 = d3.select("#widget-area-1");
+const heatmapToggle = d3.select("#heatmapToggle");
+
+let returnsPayload = null;
+let returnsFetchPromise = null;
+
+function heatmapShowing() {
+  const el = document.getElementById("heatmapToggle");
+  return !!(el && el.checked && returnsPayload);
+}
 
 function groupedByCoordinates(companies) {
   const withProjectedCoords = companies
@@ -63,24 +72,141 @@ function formatTooltip(cluster, selectedIndustry) {
   const preview = visible.slice(0, 6).map(d => d.Name);
   const overflow = visible.length - preview.length;
 
+  let avgLine = "";
+  if (heatmapShowing() && returnsPayload.returns) {
+    const nums = visible
+      .map(c => returnsPayload.returns[c.Ticker])
+      .filter(v => v != null && Number.isFinite(v));
+    if (nums.length) {
+      const mean = d3.mean(nums);
+      avgLine = `<br/>Avg 1Y (shown): ${mean >= 0 ? "+" : ""}${mean.toFixed(2)}%`;
+    }
+  }
+
   return `
     <strong>${location}</strong><br/>
     Companies shown: ${visible.length}<br/>
     ${preview.join("<br/>")}
     ${overflow > 0 ? `<br/>+ ${overflow} more` : ""}
+    ${avgLine}
   `;
 }
 
 function companyTooltip(company) {
+  let retLine = "";
+  if (heatmapShowing() && returnsPayload.returns) {
+    const ret = returnsPayload.returns[company.Ticker];
+    if (ret != null && Number.isFinite(ret)) {
+      retLine = `<br/>1Y return: ${ret >= 0 ? "+" : ""}${ret.toFixed(2)}%`;
+    }
+  }
   return `
     <strong>${company.Name}</strong><br/>
     Location: ${company["Headquarters Location"] || "Unknown"}<br/>
     Industry: ${company.Industry}
+    ${retLine}
   `;
 }
 
 function cityName(cluster) {
   return cluster.members[0]["Headquarters Location"] || "Unknown";
+}
+
+function buildHeatmapColorScale(returnsMap) {
+  const vals = Object.values(returnsMap).filter(v => typeof v === "number" && Number.isFinite(v));
+  if (!vals.length) {
+    return null;
+  }
+  const sorted = vals.slice().sort((a, b) => a - b);
+  const n = sorted.length;
+  const lo = sorted[Math.min(Math.floor(n * 0.05), n - 1)];
+  const hi = sorted[Math.max(Math.floor(n * 0.95), 0)];
+  let maxAbs = Math.max(Math.abs(lo), Math.abs(hi), 1e-6);
+  maxAbs = Math.min(maxAbs, 150);
+  const scale = d3.scaleDiverging(d3.interpolateRdYlGn).domain([-maxAbs, 0, maxAbs]);
+  return { scale, maxAbs };
+}
+
+function paintHeatmapLegend(colorInfo) {
+  const box = d3.select("#heatmap-legend");
+  box.selectAll("*").remove();
+  if (!colorInfo) {
+    box.attr("hidden", true);
+    return;
+  }
+  const { maxAbs, scale } = colorInfo;
+  const w = 200;
+  const h = 12;
+  box.attr("hidden", null);
+  const wrapper = box.append("div");
+  wrapper.append("div").attr("class", "heatmap-legend-title").text("1-year return (%)");
+  const svg = wrapper.append("svg").attr("width", w).attr("height", h + 2);
+  const grad = svg.append("defs")
+    .append("linearGradient")
+    .attr("id", "heatmap-legend-grad")
+    .attr("x1", "0%")
+    .attr("y1", "0%")
+    .attr("x2", "100%")
+    .attr("y2", "0%");
+  const nStops = 24;
+  for (let i = 0; i <= nStops; i++) {
+    const t = i / nStops;
+    const v = -maxAbs + t * 2 * maxAbs;
+    grad.append("stop")
+      .attr("offset", `${t * 100}%`)
+      .attr("stop-color", scale(v));
+  }
+  svg.append("rect")
+    .attr("width", w)
+    .attr("height", h)
+    .attr("rx", 3)
+    .attr("fill", "url(#heatmap-legend-grad)")
+    .attr("stroke", "rgba(11,27,51,0.22)");
+  const labels = wrapper.append("div").attr("class", "heatmap-legend-labels").style("width", `${w}px`);
+  labels.append("span").text(`-${maxAbs.toFixed(0)}%`);
+  labels.append("span").text("0");
+  labels.append("span").text(`+${maxAbs.toFixed(0)}%`);
+}
+
+function loadReturns1y() {
+  if (returnsPayload) {
+    return Promise.resolve(returnsPayload);
+  }
+  if (returnsFetchPromise) {
+    return returnsFetchPromise;
+  }
+  returnsFetchPromise = fetch("/api/returns/1y")
+    .then(res => {
+      if (!res.ok) throw new Error("Network response was not ok");
+      return res.json();
+    })
+    .then(data => {
+      returnsPayload = data;
+      return data;
+    })
+    .finally(() => {
+      returnsFetchPromise = null;
+    });
+  return returnsFetchPromise;
+}
+
+function mapFillForDatum(d, colorInfo, returnsMap) {
+  if (!colorInfo) {
+    return "steelblue";
+  }
+  let pct = null;
+  if (d.mode === "company") {
+    pct = returnsMap[d.Ticker];
+  } else {
+    const nums = d.visible
+      .map(m => returnsMap[m.Ticker])
+      .filter(v => v != null && Number.isFinite(v));
+    pct = nums.length ? d3.mean(nums) : null;
+  }
+  if (pct == null || !Number.isFinite(pct)) {
+    return "#9aa0a8";
+  }
+  return colorInfo.scale(pct);
 }
 
 // ----- ZOOM -----
@@ -446,6 +572,13 @@ Promise.all([
     const selectedIndustry = select.property("value");
     const selectedMode = modeSelect.property("value");
 
+    const heatmapChecked = heatmapToggle.property("checked");
+    const returnsMap = returnsPayload && returnsPayload.returns ? returnsPayload.returns : {};
+    const colorInfo = heatmapChecked && returnsPayload
+      ? buildHeatmapColorScale(returnsMap)
+      : null;
+    const heatmapActive = !!(heatmapChecked && colorInfo);
+
     const renderedData = selectedMode === "companies"
       ? visibleCompanies(selectedIndustry).map(d => ({ ...d, mode: "company" }))
         : clusters
@@ -460,7 +593,9 @@ Promise.all([
           .attr("cx", d => d.x)
           .attr("cy", d => d.y)
           .attr("r", 0)
-          .attr("fill", "steelblue")
+          .attr("fill", d => mapFillForDatum(d, colorInfo, returnsMap))
+          .attr("stroke", heatmapActive ? "rgba(7, 22, 44, 0.45)" : "none")
+          .attr("stroke-width", heatmapActive ? 1 : 0)
           .attr("opacity", 0.8)
           .style("pointer-events", "all")
           .call(enter => enter.transition().duration(200).attr("r", d => d.mode === "city" ? clusterRadius(d.visible.length) : 4)),
@@ -469,6 +604,9 @@ Promise.all([
             .attr("cx", d => d.x)
             .attr("cy", d => d.y)
             .attr("r", d => d.mode === "city" ? clusterRadius(d.visible.length) : 4)
+            .attr("fill", d => mapFillForDatum(d, colorInfo, returnsMap))
+            .attr("stroke", heatmapActive ? "rgba(7, 22, 44, 0.45)" : "none")
+            .attr("stroke-width", heatmapActive ? 1 : 0)
             .attr("opacity", 0.8)),
         exit => exit
           .call(exit => exit.transition().duration(150).attr("r", 0).remove())
@@ -672,6 +810,40 @@ Promise.all([
 
   companySearchInput.on("input", function () {
     syncCompanySearchWidget();
+  });
+
+  const heatmapStatus = d3.select("#heatmap-status");
+
+  heatmapToggle.on("change", function () {
+    const on = this.checked;
+    if (on) {
+      if (returnsPayload) {
+        const ci = buildHeatmapColorScale(returnsPayload.returns);
+        paintHeatmapLegend(ci);
+        heatmapStatus.attr("hidden", true).classed("is-error", false);
+        renderPoints();
+        return;
+      }
+      heatmapStatus.attr("hidden", null).classed("is-error", false).text("Loading 1-year returns…");
+      loadReturns1y()
+        .then(data => {
+          heatmapStatus.attr("hidden", true);
+          const ci = buildHeatmapColorScale(data.returns || {});
+          paintHeatmapLegend(ci);
+          renderPoints();
+        })
+        .catch(() => {
+          heatmapStatus
+            .attr("hidden", null)
+            .classed("is-error", true)
+            .text("Could not load annual returns. Try again later.");
+          this.checked = false;
+        });
+    } else {
+      heatmapStatus.attr("hidden", true).classed("is-error", false);
+      d3.select("#heatmap-legend").attr("hidden", true).selectAll("*").remove();
+      renderPoints();
+    }
   });
 
   // ----- “BLANK DASHBOARD” HOOKS (placeholders teammates can implement) -----

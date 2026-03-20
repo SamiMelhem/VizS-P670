@@ -27,13 +27,20 @@
         </select>
       </div>
 
+      <div class="topbar-toggle">
+        <input type="checkbox" id="heatmapToggle" />
+        <label for="heatmapToggle">Annual return heatmap</label>
+      </div>
+
       <button type="button" onclick="resetMapZoom()">Reset zoom</button>
     </div>
 
     <div id="content">
       <div class="panel" id="map-panel">
         <div class="panel-header">Map</div>
-        <div class="panel-body" style="padding:0;">
+        <div class="panel-body map-panel-body" style="padding:0;">
+          <div id="heatmap-status" class="heatmap-status" hidden></div>
+          <div id="heatmap-legend" class="heatmap-legend" hidden></div>
           <svg id="map" width="960" height="600"></svg>
         </div>
       </div>
