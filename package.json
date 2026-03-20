@@ -4,6 +4,7 @@
   "description": "An interactive, web-based visualization tool designed for beginner investors and students to explore the relationship between geography, industry clusters, and stock market performance.",
   "main": "index.js",
   "scripts": {
+    "dev": "node server/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +20,7 @@
   "homepage": "https://github.com/SamiMelhem/VizS-P670#readme",
   "dependencies": {
     "csv-parser": "^3.2.0",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "yahoo-finance2": "^3.13.2"
   }
 }
