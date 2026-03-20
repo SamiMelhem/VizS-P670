@@ -430,13 +430,14 @@ Promise.all([
     return projectedCompanies.filter(d => d.Industry === selectedIndustry);
   }
 
-  function setSelectedCompany(company) {
+  function setSelectedCompany(company, options = {}) {
+    const { forceFetch = false } = options;
     if (!company) {
       return;
     }
     selectedCompanyKey = company.key;
     syncCompanySearchWidget();
-    if (company.Ticker) {
+    if (company.Ticker && (forceFetch || selectedTicker !== company.Ticker)) {
       fetchStockData(company.Ticker, company.Name, pointsG.selectAll("circle"));
     }
   }
@@ -553,14 +554,31 @@ Promise.all([
     const activeCity = cityOptions.find(c => c.key === selectedCityKey);
     const activeCompanies = activeCity ? activeCity.companies : [];
 
-    cityCompanyList
+    if (activeCompanies.length && !activeCompanies.some(c => c.key === selectedCompanyKey)) {
+      selectedCompanyKey = activeCompanies[0].key;
+    }
+
+    const selectedCityCompany = activeCompanies.find(c => c.key === selectedCompanyKey) || activeCompanies[0] || null;
+
+    const cityItems = cityCompanyList
       .attr("hidden", activeCompanies.length === 0 ? true : null)
       .selectAll("li")
       .data(activeCompanies, d => d.Name)
-      .join("li")
-      .text(d => d.Name);
+      .join("li");
+
+    cityItems
+      .attr("class", d => d.key === (selectedCityCompany ? selectedCityCompany.key : null) ? "is-selected" : null)
+      .text(d => d.Name)
+      .on("click", (event, d) => {
+        setSelectedCompany(d);
+        syncCitySelectionAndList();
+      });
 
     cityWidgetEmpty.attr("hidden", activeCompanies.length === 0 ? null : true);
+
+    if (selectedCityCompany) {
+      setSelectedCompany(selectedCityCompany);
+    }
   }
 
   function formatCompanyInfo(company) {
