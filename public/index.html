@@ -19,18 +19,27 @@
           <option value="companies">Companies</option>
         </select>
       </div>
-
       <div>
         <label for="industryFilter">Industry:</label>
         <select id="industryFilter">
           <option value="All">All</option>
         </select>
       </div>
-
       <button type="button" onclick="resetMapZoom()">Reset zoom</button>
     </div>
 
     <div id="content">
+      <!-- NEW: left aggregates panel -->
+      <div class="panel" id="aggregate-panel">
+        <div class="panel-header">Area Selection / Aggregates</div>
+        <div class="panel-body">
+          <div id="aggregate-container"></div>
+          <div id="aggregate-stock-chart-container" style="margin-top:12px;">
+            <p class="chart-placeholder">Select an area to see an aggregate “basket” chart.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="panel" id="map-panel">
         <div class="panel-header">Map</div>
         <div class="panel-body" style="padding:0;">
