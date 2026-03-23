@@ -72,10 +72,15 @@ function formatTooltip(cluster, selectedIndustry) {
 }
 
 function companyTooltip(company) {
+  const cap = company.marketCap
+    ? `$${(company.marketCap / 1e9).toFixed(2)}B`
+    : "N/A";
+
   return `
     <strong>${company.Name}</strong><br/>
     Location: ${company["Headquarters Location"] || "Unknown"}<br/>
-    Industry: ${company.Industry}
+    Industry: ${company.Industry}<br/>
+    Market Cap: ${cap}
   `;
 }
 
@@ -365,6 +370,17 @@ Promise.all([
     })
     .filter(Boolean);
 
+  const marketCaps = projectedCompanies
+    .map(d => +d.marketCap)
+    .filter(v => !isNaN(v) && v > 0);
+
+  console.log(projectedCompanies[0]);
+
+  const radiusScale = d3.scaleSqrt()
+    .domain(d3.extent(marketCaps))
+    .range([3, 18]) // adjust size range if needed
+    .clamp(true);
+
   const states = topojson.feature(us, us.objects.states);
 
   // Draw states
@@ -448,9 +464,9 @@ Promise.all([
 
     const renderedData = selectedMode === "companies"
       ? visibleCompanies(selectedIndustry).map(d => ({ ...d, mode: "company" }))
-        : clusters
-          .map(c => ({ ...c, mode: "city", cityKey: c.key, cityLabel: cityName(c), visible: visibleMembers(c, selectedIndustry) }))
-          .filter(c => c.visible.length > 0);
+      : clusters
+        .map(c => ({ ...c, mode: "city", cityKey: c.key, cityLabel: cityName(c), visible: visibleMembers(c, selectedIndustry) }))
+        .filter(c => c.visible.length > 0);
 
     const circles = pointsG.selectAll("circle")
       .data(renderedData, d => `${d.mode}:${d.key}`)
@@ -463,12 +479,22 @@ Promise.all([
           .attr("fill", "steelblue")
           .attr("opacity", 0.8)
           .style("pointer-events", "all")
-          .call(enter => enter.transition().duration(200).attr("r", d => d.mode === "city" ? clusterRadius(d.visible.length) : 4)),
+          .call(enter => enter.transition().duration(200).attr("r", d => {
+            if (d.mode === "city") {
+              return clusterRadius(d.visible.length);
+            }
+            return d.marketCap ? radiusScale(d.marketCap) : 4;
+          })),
         update => update
           .call(update => update.transition().duration(200)
             .attr("cx", d => d.x)
             .attr("cy", d => d.y)
-            .attr("r", d => d.mode === "city" ? clusterRadius(d.visible.length) : 4)
+            .attr("r", d => {
+              if (d.mode === "city") {
+                return clusterRadius(d.visible.length);
+              }
+              return d.marketCap ? radiusScale(d.marketCap) : 4;
+            })
             .attr("opacity", 0.8)),
         exit => exit
           .call(exit => exit.transition().duration(150).attr("r", 0).remove())
@@ -586,10 +612,27 @@ Promise.all([
       return "Search and select a company to view details.";
     }
 
+    // Format market cap 
+    let marketCapText = "N/A";
+    if (company.marketCap) {
+      const cap = company.marketCap;
+
+      if (cap >= 1e12) {
+        marketCapText = `$${(cap / 1e12).toFixed(2)}T`;
+      } else if (cap >= 1e9) {
+        marketCapText = `$${(cap / 1e9).toFixed(2)}B`;
+      } else if (cap >= 1e6) {
+        marketCapText = `$${(cap / 1e6).toFixed(2)}M`;
+      } else {
+        marketCapText = `$${cap.toLocaleString()}`;
+      }
+    }
+
     return `
       <strong>${company.Name}</strong><br/>
       Location: ${company["Headquarters Location"] || "Unknown"}<br/>
       Industry: ${company.Industry || "Unknown"}<br/>
+      Market Cap: ${marketCapText}<br/>
       Coordinates: ${Number(company.lat).toFixed(4)}, ${Number(company.lon).toFixed(4)}
     `;
   }
