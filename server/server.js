@@ -29,7 +29,7 @@ app.get("/data", async (req, res) => {
       .map(d => ({ ...d, lat: +d.lat, lon: +d.lon }))
       .filter(d => Number.isFinite(d.lat) && Number.isFinite(d.lon));
 
-    // ⚡ Fetch market caps in parallel (limit to avoid overload)
+    // Fetch market caps in parallel
     const results = await Promise.all(
       cleaned.map(async (company) => {
         try {
