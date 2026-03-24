@@ -1,6 +1,8 @@
 const width = 960;
 const height = 600;
 
+const loadingIndicator = d3.select("#loading-indicator");
+
 const svg = d3
   .select("#map")
   .attr("viewBox", [0, 0, width, height])
@@ -358,11 +360,14 @@ function fetchStockData(ticker, companyName, circles, range) {
     });
 }
 
+loadingIndicator.style("display", "block");
+
 // ----- LOAD DATA -----
 Promise.all([
   d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json"),
   d3.json("/data")
 ]).then(([us, companies]) => {
+  loadingIndicator.style("display", "none");
   const projectedCompanies = companies
     .map(d => {
       const coords = projection([+d.lon, +d.lat]);
@@ -378,7 +383,7 @@ Promise.all([
 
   const radiusScale = d3.scaleSqrt()
     .domain(d3.extent(marketCaps))
-    .range([3, 18]) // adjust size range if needed
+    .range([3, 18]) 
     .clamp(true);
 
   const states = topojson.feature(us, us.objects.states);
