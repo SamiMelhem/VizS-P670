@@ -1,367 +1,525 @@
 /* =========================
-   THEME VARIABLES (soft LIGHT-BLUE dashboard, not white)
+   MODERN DARK DASHBOARD (NO GRADIENTS)
    ========================= */
 :root{
- --bg: #99d0ef;        /* page base (darker) */
- --bg-grad: #73a2df;
-  --panel: #8fbaf0;     /* panels (darker) */
-  --panel-2: #7faef0;  /* gradient end (darker) */
-  --map-top: #cbe6ff;
-  --map-bottom: #a9d0ff; /* your “darker” version */
-  --text: #07162c;
-  --muted: #1f3c5a;
-  --border: rgba(7, 22, 44, 0.26);
-  /* less green: more “true” blue */
-  --accent: #143192;    /* dots */
-  --accent-2: #0f2f7a;  /* headers */
+  /* Core */
+  --bg: #0b1220;
+  --panel: #0f192b;
+  --panel-2: #0b1424;
+
+  /* Text */
+  --text: #e7eefc;
+  --muted: rgba(231, 238, 252, 0.68);
+
+  /* UI */
+  --border: rgba(255,255,255,0.10);
+  --border-2: rgba(255,255,255,0.16);
+
+  --surface: rgba(255,255,255,0.04);
+  --surface-2: rgba(255,255,255,0.07);
+
+  --shadow: 0 16px 40px rgba(0,0,0,0.50);
+
+  /* Accent */
+  --accent: #60a5fa;
+  --accent-2: #b7d2ff;
+  --focus: rgba(96, 165, 250, 0.28);
+
+  /* Status */
+  --good: #22c55e;
+  --bad: #ef4444;
+  --warn: #f59e0b;
+
+  /* Map */
+  --map: #0b1528;
+
+  /* Radius */
+  --r-lg: 16px;
+  --r-md: 12px;
+  --r-sm: 10px;
 }
 
-/* Make padding/border count toward element width/height (easier layouts) */
-* { box-sizing: border-box; }
-
-* {
-  scrollbar-width: thin;
-  /* thumb / track */
-  scrollbar-color: rgba(20, 49, 146, 0.75) rgba(170, 205, 245, 0.95);
-}
-
-*::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-
-*::-webkit-scrollbar-track {
-  background: rgba(170, 205, 245, 0.95); /* lighter track so thumb pops */
-  border-radius: 999px;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, rgba(20, 49, 146, 0.85), rgba(15, 47, 122, 0.85));
-  border-radius: 999px;
-  border: 2px solid rgba(170, 205, 245, 0.95); /* match track, increases contrast */
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(180deg, rgba(20, 49, 146, 0.98), rgba(15, 47, 122, 0.98));
-}
-
-*::-webkit-scrollbar-corner {
-  background: rgba(12, 15, 24, 0.85);
-}
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
 
 body{
   margin: 0;
   padding: 20px;
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
   color: var(--text);
-
-  /* Center dashboard */
+  background: var(--bg);
   display: flex;
   justify-content: center;
   align-items: flex-start;
-
-  /* Light-blue gradient background (no white) */
-  background: radial-gradient(1200px 600px at 20% 0%, var(--bg-grad) 0%, var(--bg) 60%);
-  min-height: 100vh; /* (or 100svh for mobile-safe viewport) */
-
-  /* Make the gradient fill the entire viewport (not stop at content end) */
-  background-repeat: no-repeat;
-  background-attachment: fixed; /* keeps gradient “screen-based” while scrolling */
-  background-size: 100% 100%;
 }
 
-/* Page title spacing + weight */
-h2 { margin: 0 0 14px 0; font-weight: 650; }
-
-/* =========================
-   DASHBOARD LAYOUT WRAPPERS
-   ========================= */
-#dashboard {
+#dashboard{
   width: min(1200px, 100%);
   margin: 0 auto;
 }
 
-/* Top control bar */
-#topbar {
+h2{
+  margin: 0 0 14px 0;
+  font-weight: 750;
+  letter-spacing: 0.2px;
+}
+
+/* =========================
+   SCROLLBARS
+   ========================= */
+*{
+  scrollbar-width: thin;
+  scrollbar-color: rgba(96,165,250,0.55) rgba(255,255,255,0.06);
+}
+*::-webkit-scrollbar{ width: 10px; height: 10px; }
+*::-webkit-scrollbar-track{
+  background: rgba(255,255,255,0.06);
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-thumb{
+  background: rgba(96,165,250,0.52);
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,0.06);
+}
+*::-webkit-scrollbar-thumb:hover{ background: rgba(96,165,250,0.72); }
+*::-webkit-scrollbar-corner{ background: transparent; }
+
+/* =========================
+   LAYOUT
+   ========================= */
+#topbar{
   display: flex;
   flex-wrap: wrap;
   gap: 10px 12px;
   align-items: center;
   padding: 12px;
-  border: 1px solid var(--border);
-  border-radius: 14px;
 
-  /* Light-blue card gradient */
-  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  background: var(--panel);
+  box-shadow: var(--shadow);
 }
 
-/* Main content area (MERGED: now supports a LEFT aggregate panel) */
-#content {
+#content{
   margin-top: 14px;
   display: grid;
-
-  /* 3 columns: LEFT aggregates / MAP / RIGHT widgets */
   grid-template-columns: 320px 1fr 320px;
-
   gap: 14px;
 }
 
-/* Responsive layout: stack panels vertically on smaller screens */
-@media (max-width: 1150px) {
-  #content { grid-template-columns: 1fr; }
+@media (max-width: 1150px){
+  body{ padding: 14px; }
+  #content{ grid-template-columns: 1fr; }
 }
 
-/* Generic panel style */
-.panel {
+/* =========================
+   PANELS / CARDS
+   ========================= */
+.panel{
   border: 1px solid var(--border);
-  border-radius: 14px;
-
-  /* Light-blue card gradient (not white) */
-  background: linear-gradient(180deg, var(--panel), var(--panel-2));
-  box-shadow: 0 10px 24px rgba(11, 27, 51, 0.12);
+  border-radius: var(--r-lg);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  overflow: clip; /* keeps rounded corners for inner content */
 }
 
-/* Panel header */
-.panel-header {
+.panel-header{
   padding: 10px 12px;
-  border-bottom: 1px solid rgba(11, 27, 51, 0.14);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
   color: var(--accent-2);
-  font-size: 13px;
-  letter-spacing: 0.2px;
+  font-size: 12px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
 }
 
-/* Panel body */
-.panel-body {
+.panel-body{
   padding: 12px;
   min-height: 120px;
 }
 
-/* =========================
-   FORM CONTROLS
-   ========================= */
-label { color: var(--muted); margin-right: 6px; }
+/* Nested panels should feel slightly “inset” */
+.panel .panel{
+  background: var(--panel-2);
+  box-shadow: none;
+}
 
-select, button {
-  /* Light-blue controls to match theme */
-  background: rgba(199, 228, 255, 0.95);
+/* =========================
+   FORMS / BUTTONS
+   ========================= */
+label{
+  color: var(--muted);
+  font-size: 13px;
+  margin-right: 6px;
+}
+
+select, button, input{
+  font: inherit;
+}
+
+/* Buttons */
+button{
+  background: rgba(255,255,255,0.06);
   color: var(--text);
-  border: 1px solid rgba(11, 27, 51, 0.22);
-  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: var(--r-sm);
+  padding: 8px 10px;
+  outline: none;
+  cursor: pointer;
+}
+
+button:hover{
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(96,165,250,0.55);
+}
+
+button:focus{
+  border-color: rgba(96,165,250,0.55);
+  box-shadow: 0 0 0 3px var(--focus);
+}
+
+button:active{ transform: translateY(0.5px); }
+
+button:disabled{
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Text input */
+.company-search-input{
+  width: 100%;
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--r-sm);
   padding: 8px 10px;
   outline: none;
 }
 
-select:focus, button:focus {
-  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.18);
-  border-color: rgba(29, 78, 216, 0.45);
+.company-search-input:hover{
+  border-color: rgba(255,255,255,0.18);
 }
 
-button { cursor: pointer; }
-
-button:hover {
-  border-color: rgba(29, 78, 216, 0.45);
+.company-search-input:focus{
+  border-color: rgba(96,165,250,0.55);
+  box-shadow: 0 0 0 3px var(--focus);
 }
 
 /* =========================
-   MAP (SVG container)
+   DROPDOWNS (theme-matched)
    ========================= */
-#map {
+select{
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background-color: rgba(255,255,255,0.06);
+  color: var(--text);
+
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--r-sm);
+
+  padding: 8px 36px 8px 10px; /* room for arrow */
+  line-height: 1.2;
+  outline: none;
+
+  /* caret */
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(231,238,252,0.75) 50%),
+    linear-gradient(135deg, rgba(231,238,252,0.75) 50%, transparent 50%);
+  background-position:
+    calc(100% - 16px) 50%,
+    calc(100% - 11px) 50%;
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+}
+
+select:hover{
+  border-color: rgba(255,255,255,0.18);
+  background-color: rgba(255,255,255,0.08);
+}
+
+select:focus{
+  border-color: rgba(96,165,250,0.55);
+  box-shadow: 0 0 0 3px var(--focus);
+}
+
+select:disabled{
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Options dropdown list (limited cross-browser support) */
+select option{
+  background: var(--panel);
+  color: var(--text);
+}
+
+/* =========================
+   MAP
+   ========================= */
+#map{
   display: block;
   width: 100%;
   height: auto;
-  border-radius: 14px;
-
-  /* Slightly different light-blue background so states read well */
-  background: linear-gradient(180deg, var(--map-top), var(--map-bottom));
+  border-radius: var(--r-lg);
+  background: var(--map);
+  border: 1px solid var(--border);
 }
+
+.states path{
+  fill: rgba(96,165,250,0.08);
+  stroke: rgba(231,238,252,0.18);
+  stroke-width: 1;
+}
+
+.company-points circle{
+  fill: var(--accent);
+  stroke: rgba(11, 18, 32, 0.90);
+  stroke-width: 1.2;
+  opacity: 0.92;
+}
+
+.company-points circle:hover{
+  opacity: 1;
+  stroke: rgba(231,238,252,0.70);
+  stroke-width: 1.6;
+}
+
+.company-points circle.brush-selected{
+  opacity: 1;
+  stroke: rgba(231,238,252,0.92);
+  stroke-width: 2.2;
+  filter: drop-shadow(0 8px 18px rgba(96,165,250,0.26));
+}
+
+/* Brush rectangle styling */
+.brush .selection{
+  fill: rgba(96,165,250,0.16);
+  stroke: rgba(96,165,250,0.75);
+  stroke-width: 1.2;
+}
+.brush .handle{ fill: rgba(96,165,250,0.80); }
 
 /* =========================
    TOOLTIP
    ========================= */
-#tooltip {
+#tooltip{
   position: absolute;
   pointer-events: none;
   opacity: 0;
-  max-width: 260px;
+  max-width: 280px;
   padding: 10px 12px;
-  border-radius: 12px;
-  border: 1px solid rgba(11, 27, 51, 0.18);
 
-  /* Light-blue tooltip (not white) */
-  background: rgba(198, 226, 255, 0.94);
-  backdrop-filter: blur(6px);
+  border-radius: var(--r-md);
+  border: 1px solid var(--border-2);
+  background: rgba(15, 25, 43, 0.92);
+  backdrop-filter: blur(10px);
+
   color: var(--text);
   font-size: 13px;
   line-height: 1.35;
-  box-shadow: 0 12px 30px rgba(11, 27, 51, 0.18);
+
+  box-shadow: 0 18px 48px rgba(0,0,0,0.60);
 }
 
 /* =========================
-   SVG ELEMENT STYLING
+   LEFT AGGREGATE AREA
    ========================= */
-.states path {
-  /* Soft blue fill for states, darker outline for definition */
-  fill: rgba(30, 64, 175, 0.09);
-  stroke: rgba(7, 22, 44, 0.32);
-  stroke-width: 1;
-}
-
-.company-points circle {
-  /* Strong dot + light ring to pop on light-blue background */
-  fill: var(--accent);
-  stroke: rgba(235, 248, 255, 0.98); /* bright ring for contrast */
-  stroke-width: 1.4;
-  opacity: 0.9;
-}
-
-.company-points circle:hover {
-  stroke: rgba(11, 27, 51, 0.55);
-  stroke-width: 1.8;
-  opacity: 1;
-}
-
-/* Brush selection highlight for circles (MERGED) */
-.company-points circle.brush-selected {
-  opacity: 1;
-  stroke: rgba(255, 255, 255, 0.98);
-  stroke-width: 2.2;
-  filter: drop-shadow(0 2px 6px rgba(20, 49, 146, 0.35));
-}
-
-/* Brush rectangle styling (MERGED) */
-.brush .selection {
-  fill: rgba(20, 49, 146, 0.18);
-  stroke: rgba(20, 49, 146, 0.75);
-  stroke-width: 1.2;
-}
-
-.brush .handle {
-  fill: rgba(20, 49, 146, 0.75);
-}
-
-/* =========================
-   LEFT AGGREGATE PANEL (MERGED)
-   ========================= */
-#aggregate-container {
+#aggregate-container{
   display: flex;
   flex-direction: column;
   gap: 10px;
   font-size: 13px;
 }
 
-.aggregate-hint {
+.aggregate-hint{
   color: var(--muted);
   font-size: 12px;
   line-height: 1.35;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--r-sm);
+  background: rgba(255,255,255,0.04);
 }
 
-.aggregate-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 8px 10px;
-  border: 1px solid rgba(7, 22, 44, 0.18);
-  border-radius: 10px;
-  background: rgba(199, 228, 255, 0.55);
-}
-
-.aggregate-row strong {
-  color: var(--accent-2);
-}
-
-.aggregate-list {
+.aggregate-list{
   margin: 0;
   padding-left: 16px;
   color: var(--text);
 }
 
-.aggregate-actions {
+.aggregate-actions{
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
 
 /* =========================
-   WIDGET AREA STYLES
+   RIGHT WIDGET AREA
    ========================= */
-#widget-area-1 {
-  min-height: 120px;
-}
+#widget-area-1{ min-height: 120px; }
 
-.city-widget {
+.city-widget,
+.company-search-widget{
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
 .city-widget[hidden],
-.company-search-widget[hidden] {
-  display: none;
-}
+.company-search-widget[hidden]{ display: none; }
 
-.city-widget-title {
+.city-widget-title{
   color: var(--accent-2);
-  font-size: 13px;
-  letter-spacing: 0.2px;
+  font-size: 12px;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
 }
 
-.company-list {
+.company-list{
   margin: 0;
   padding: 0;
   list-style: none;
+
   max-height: 240px;
   overflow-y: auto;
-  border: 1px solid rgba(7, 22, 44, 0.22);
-  border-radius: 10px;
-  background: rgba(199, 228, 255, 0.65);
+
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--r-sm);
+  background: rgba(255,255,255,0.04);
 }
 
-.company-list li {
+.company-list li{
   padding: 8px 10px;
-  border-bottom: 1px solid rgba(7, 22, 44, 0.10);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   font-size: 13px;
   cursor: pointer;
 }
 
-.company-list li:last-child {
-  border-bottom: none;
-}
+.company-list li:last-child{ border-bottom: none; }
+.company-list li:hover{ background: rgba(255,255,255,0.06); }
+.company-list li.is-selected{ background: rgba(96,165,250,0.14); }
 
-.city-widget-empty {
+.city-widget-empty{
   color: var(--muted);
   font-size: 12px;
 }
 
-.company-search-widget {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.company-search-input {
-  width: 100%;
-  background: rgba(199, 228, 255, 0.95);
-  color: var(--text);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 8px 10px;
-  outline: none;
-}
-
-.company-search-input:focus {
-  border-color: rgba(122, 166, 194, 0.8);
-}
-
-.company-list li.is-selected {
-  background: rgba(20, 49, 146, 0.14);
-}
-
-/* Fixed typo + consistent card background */
-.company-info-card {
-  border: 1px solid var(--border);
-  border-radius: 10px;
+.company-info-card{
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--r-sm);
   padding: 10px;
-  background: rgba(199, 228, 255, 0.65);
+  background: rgba(255,255,255,0.04);
   font-size: 13px;
   line-height: 1.35;
+}
+
+/* =========================
+   STOCK CHART UI (single + basket)
+   ========================= */
+.chart-placeholder,
+.chart-loading,
+.chart-error{
+  margin: 0;
+  padding: 10px;
+  border-radius: var(--r-sm);
+  border: 1px dashed rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.03);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+.chart-error{
+  border-style: solid;
+  border-color: rgba(239,68,68,0.35);
+  color: rgba(239,68,68,0.9);
+  background: rgba(239,68,68,0.08);
+}
+
+.chart-loading{
+  border-style: solid;
+  border-color: rgba(245,158,11,0.30);
+  color: rgba(245,158,11,0.95);
+  background: rgba(245,158,11,0.08);
+}
+
+.stock-chart-title{
+  margin: 0 0 2px 0;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.stock-chart-price{
+  margin: 0 0 2px 0;
+  font-weight: 800;
+  font-size: 18px;
+}
+
+.stock-chart-change{
+  margin: 0 0 8px 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.stock-chart-change.positive{ color: rgba(34,197,94,0.95); }
+.stock-chart-change.negative{ color: rgba(239,68,68,0.95); }
+
+.range-toggle-bar{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0 10px 0;
+}
+
+.range-btn{
+  padding: 6px 8px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1;
+}
+
+.range-btn:hover{
+  border-color: rgba(96,165,250,0.55);
+  background: rgba(255,255,255,0.08);
+}
+
+.range-btn.active{
+  border-color: rgba(96,165,250,0.65);
+  background: rgba(96,165,250,0.18);
+}
+
+/* Chart SVG styling helpers */
+.grid line{ stroke: rgba(231,238,252,0.08); }
+.grid path{ stroke: none; }
+
+.axis path,
+.axis line{ stroke: rgba(231,238,252,0.16); }
+
+.axis text{
+  fill: rgba(231,238,252,0.65);
+  font-size: 11px;
+}
+
+/* Tooltip inside chart container */
+.chart-tooltip-box{
+  position: absolute;
+  pointer-events: none;
+  padding: 8px 10px;
+  border-radius: var(--r-sm);
+  border: 1px solid var(--border-2);
+  background: rgba(15, 25, 43, 0.94);
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.35;
+  box-shadow: 0 18px 48px rgba(0,0,0,0.60);
+}
+
+/* Ensure chart tooltips position correctly */
+#stock-chart-container,
+#aggregate-stock-chart-container{
+  position: relative;
 }

@@ -21,7 +21,7 @@ const select = d3.select("#industryFilter");
 const modeSelect = d3.select("#displayMode");
 const widgetArea1 = d3.select("#widget-area-1");
 
-// NEW: aggregate panel target
+// aggregate panel target
 const aggregateContainer = d3.select("#aggregate-container");
 
 function groupedByCoordinates(companies) {
@@ -52,9 +52,11 @@ function clusterRadius(count) {
 function formatTooltip(cluster, selectedIndustry) {
   const visible = visibleMembers(cluster, selectedIndustry);
   if (!visible.length) return "";
+
   const location = visible[0]["Headquarters Location"] || "Unknown";
   const preview = visible.slice(0, 6).map(d => d.Name);
   const overflow = visible.length - preview.length;
+
   return `
     <strong>${location}</strong><br/>
     Companies shown: ${visible.length}<br/>
@@ -114,11 +116,13 @@ function renderStockChart(ticker, companyName, data, containerId = "stock-chart-
   }
 
   const quotes = data.quotes.map(q => ({ ...q, date: new Date(q.date) }));
+
   const latestClose = quotes[quotes.length - 1].close;
   const firstClose = quotes[0].close;
   const change = latestClose - firstClose;
   const changePct = (change / firstClose) * 100;
   const isPositive = change >= 0;
+
   const activeRange = data.range || selectedRange;
   const rangeLabel = RANGE_LABELS[activeRange] || activeRange;
 
@@ -134,13 +138,12 @@ function renderStockChart(ticker, companyName, data, containerId = "stock-chart-
 
   const toggleBar = document.createElement("div");
   toggleBar.className = "range-toggle-bar";
-
   RANGES.forEach(r => {
     const btn = document.createElement("button");
     btn.className = "range-btn" + (r === activeRange ? " active" : "");
     btn.textContent = r;
 
-    // CHANGE #2: only wire default single-stock behavior for the main chart container
+    // only wire default single-stock behavior for the main chart container
     if (containerId === "stock-chart-container") {
       btn.addEventListener("click", () => {
         selectedRange = r;
@@ -150,7 +153,6 @@ function renderStockChart(ticker, companyName, data, containerId = "stock-chart-
 
     toggleBar.appendChild(btn);
   });
-
   container.appendChild(toggleBar);
 
   const margin = { top: 8, right: 12, bottom: 28, left: 48 };
@@ -313,12 +315,14 @@ function renderStockChart(ticker, companyName, data, containerId = "stock-chart-
 
 function fetchStockData(ticker, companyName, circles, range) {
   const isRangeSwitch = range && ticker === selectedTicker;
+
   selectedTicker = ticker;
   selectedCompanyName = companyName;
   currentCircles = circles;
   if (range) selectedRange = range;
 
   const container = document.getElementById("stock-chart-container");
+
   if (isRangeSwitch) {
     container.classList.add("chart-fetching");
     const btns = container.querySelectorAll(".range-btn");
@@ -346,6 +350,7 @@ function fetchStockData(ticker, companyName, circles, range) {
     });
 }
 
+// ----- BASKET CHART -----
 let selectedBasketRange = "1W";
 let selectedBasketTickersKey = ""; // to avoid refetch loops
 
@@ -353,7 +358,6 @@ function fetchBasketStockData(tickers, range) {
   const containerId = "aggregate-stock-chart-container";
   const container = document.getElementById(containerId);
 
-  // (optional but good) normalize here too
   const normalized = (tickers || [])
     .map(t => String(t || "").trim().toUpperCase())
     .filter(t => t && t !== "NULL" && t !== "N/A" && t !== "NA")
@@ -361,8 +365,9 @@ function fetchBasketStockData(tickers, range) {
 
   const key = normalized.join(",");
 
+  // REQUIRED: show "No basket data selected" if none
   if (!normalized.length) {
-    container.innerHTML = '<p class="chart-placeholder">Select an area to see an aggregate “basket” chart.</p>';
+    container.innerHTML = '<p class="chart-placeholder">No basket data selected.</p>';
     selectedBasketTickersKey = "";
     return;
   }
@@ -404,14 +409,14 @@ function fetchBasketStockData(tickers, range) {
 }
 
 // ----- AGGREGATION + BRUSH HELPERS -----
-function renderAggregatePanel({ mode, industry, selection, selectedCompanies }) {
-  const hasSelection = !!selection && selectedCompanies && selectedCompanies.length > 0;
+function renderAggregatePanel({ selection, selectedCompanies }) {
+  // Remove the Mode/Industry/Selected area/Companies boxes entirely.
+  // Keep only: hint (when no selection), top industries, and clear selection.
 
   if (!selection) {
     aggregateContainer.html(`
       <div class="aggregate-hint">
-        Drag a rectangle on the map to select an area.<br/>
-        Aggregates will reflect the current <strong>Mode</strong> and <strong>Industry</strong> filter.
+        Drag a rectangle on the map to select an area.
       </div>
       <div class="aggregate-actions">
         <button type="button" id="clear-selection" disabled>Clear selection</button>
@@ -419,9 +424,6 @@ function renderAggregatePanel({ mode, industry, selection, selectedCompanies }) 
     `);
     return;
   }
-
-  const [[x0, y0], [x1, y1]] = selection;
-  const count = selectedCompanies.length;
 
   const byIndustry = d3.rollups(
     selectedCompanies,
@@ -432,23 +434,6 @@ function renderAggregatePanel({ mode, industry, selection, selectedCompanies }) 
   const top = byIndustry.slice(0, 8);
 
   aggregateContainer.html(`
-    <div class="aggregate-row">
-      <span><strong>Mode</strong></span>
-      <span>${mode}</span>
-    </div>
-    <div class="aggregate-row">
-      <span><strong>Industry filter</strong></span>
-      <span>${industry}</span>
-    </div>
-    <div class="aggregate-row">
-      <span><strong>Selected area</strong></span>
-      <span>x:${Math.round(x0)}–${Math.round(x1)}, y:${Math.round(y0)}–${Math.round(y1)}</span>
-    </div>
-    <div class="aggregate-row">
-      <span><strong>Companies in selection</strong></span>
-      <span>${count.toLocaleString()}</span>
-    </div>
-
     <div>
       <div class="city-widget-title" style="margin-bottom:6px;">Top industries (in selection)</div>
       <ul class="aggregate-list">
@@ -456,7 +441,6 @@ function renderAggregatePanel({ mode, industry, selection, selectedCompanies }) 
         ${byIndustry.length > top.length ? `<li>+ ${byIndustry.length - top.length} more</li>` : ""}
       </ul>
     </div>
-
     <div class="aggregate-actions">
       <button type="button" id="clear-selection">Clear selection</button>
     </div>
@@ -482,10 +466,8 @@ function clearBrushSelection() {
 function companiesInSelection({ selection, mode, industry, projectedCompanies, clusters }) {
   if (!selection) return [];
 
-  // Brush selection is in SVG (screen) coords; points are in viewport coords.
   // Convert selection bounds into viewport coords by inverting the current zoom transform.
   const t = d3.zoomTransform(svg.node());
-
   const [[sx0, sy0], [sx1, sy1]] = selection;
   const [x0, y0] = t.invert([sx0, sy0]);
   const [x1, y1] = t.invert([sx1, sy1]);
@@ -501,7 +483,6 @@ function companiesInSelection({ selection, mode, industry, projectedCompanies, c
     const base = industry === "All"
       ? projectedCompanies
       : projectedCompanies.filter(d => d.Industry === industry);
-
     return base.filter(d => inside(d.x, d.y));
   }
 
@@ -520,7 +501,6 @@ function applySelectionStyling(circles, selection) {
   }
 
   const t = d3.zoomTransform(svg.node());
-
   const [[sx0, sy0], [sx1, sy1]] = selection;
   const [x0, y0] = t.invert([sx0, sy0]);
   const [x1, y1] = t.invert([sx1, sy1]);
@@ -540,7 +520,6 @@ Promise.all([
   d3.json("https://cdn.jsdelivr.net/npm/us-atlas@3/states-10m.json"),
   d3.json("/data")
 ]).then(([us, companies]) => {
-
   const projectedCompanies = companies
     .map(d => {
       const coords = projection([+d.lon, +d.lat]);
@@ -556,9 +535,7 @@ Promise.all([
     .selectAll("path")
     .data(states.features)
     .join("path")
-    .attr("d", path)
-    .attr("fill", "#eee")
-    .attr("stroke", "#999");
+    .attr("d", path);
 
   // Populate industry dropdown
   select.selectAll("option").remove();
@@ -570,7 +547,7 @@ Promise.all([
 
   const clusters = groupedByCoordinates(projectedCompanies);
 
-  // Build right-side widget area (unchanged)
+  // Build right-side widget area
   widgetArea1.html(`
     <div id="city-widget" class="city-widget">
       <div class="city-widget-title">City Companies</div>
@@ -581,6 +558,7 @@ Promise.all([
       <ul id="city-company-list" class="company-list"></ul>
       <div id="city-widget-empty" class="city-widget-empty" hidden>No companies for this city and industry filter.</div>
     </div>
+
     <div id="company-search-widget" class="company-search-widget" hidden>
       <div class="city-widget-title">Company Search</div>
       <input id="companySearchInput" class="company-search-input" type="text" placeholder="Search companies..." />
@@ -614,6 +592,7 @@ Promise.all([
 
   function setSelectedCompany(company) {
     if (!company) return;
+
     selectedCompanyKey = company.key;
     syncCompanySearchWidget();
 
@@ -633,14 +612,14 @@ Promise.all([
     const renderedData = selectedMode === "companies"
       ? visibleCompanies(selectedIndustry).map(d => ({ ...d, mode: "company" }))
       : clusters
-          .map(c => ({
-            ...c,
-            mode: "city",
-            cityKey: c.key,
-            cityLabel: cityName(c),
-            visible: visibleMembers(c, selectedIndustry)
-          }))
-          .filter(c => c.visible.length > 0);
+        .map(c => ({
+          ...c,
+          mode: "city",
+          cityKey: c.key,
+          cityLabel: cityName(c),
+          visible: visibleMembers(c, selectedIndustry)
+        }))
+        .filter(c => c.visible.length > 0);
 
     const circles = pointsG.selectAll("circle")
       .data(renderedData, d => `${d.mode}:${d.key}`)
@@ -650,8 +629,6 @@ Promise.all([
           .attr("cx", d => d.x)
           .attr("cy", d => d.y)
           .attr("r", 0)
-          .attr("fill", "steelblue")
-          .attr("opacity", 0.8)
           .style("pointer-events", "all")
           .call(enter => enter.transition().duration(200)
             .attr("r", d => d.mode === "city" ? clusterRadius(d.visible.length) : 4)
@@ -661,7 +638,6 @@ Promise.all([
             .attr("cx", d => d.x)
             .attr("cy", d => d.y)
             .attr("r", d => d.mode === "city" ? clusterRadius(d.visible.length) : 4)
-            .attr("opacity", 0.8)
           ),
         exit => exit.call(exit => exit.transition().duration(150).attr("r", 0).remove())
       );
@@ -721,10 +697,10 @@ Promise.all([
       cityWidget.attr("hidden", true);
       return;
     }
+
     cityWidget.attr("hidden", null);
 
     const cityOptions = visibleCityClusters(selectedIndustry);
-
     if (!cityOptions.length) {
       citySelect.selectAll("option").remove();
       cityCompanyList.selectAll("li").remove();
@@ -778,9 +754,11 @@ Promise.all([
       companySearchWidget.attr("hidden", true);
       return;
     }
+
     companySearchWidget.attr("hidden", null);
 
     const query = (companySearchInput.property("value") || "").trim().toLowerCase();
+
     const companiesForMode = visibleCompanies(selectedIndustry)
       .slice()
       .sort((a, b) => d3.ascending(a.Name, b.Name));
@@ -796,6 +774,7 @@ Promise.all([
     if (matching.length && (!selectedCompanyKey || !matching.some(c => c.key === selectedCompanyKey))) {
       selectedCompanyKey = matching[0].key;
     }
+
     if (!matching.length) selectedCompanyKey = null;
 
     const items = companySearchResults
@@ -839,8 +818,6 @@ Promise.all([
 
     if (!currentBrushSelection) {
       renderAggregatePanel({
-        mode,
-        industry,
         selection: null,
         selectedCompanies: []
       });
@@ -856,19 +833,15 @@ Promise.all([
       clusters
     });
 
-    // CHANGE #1: robust ticker filtering for basket
     const tickers = Array.from(new Set(
       selectedCompanies
         .map(d => String(d.Ticker || "").trim().toUpperCase())
         .filter(t => t && t !== "NULL" && t !== "N/A" && t !== "NA")
     ));
 
-    if (tickers.length >= 1) fetchBasketStockData(tickers);
-    else fetchBasketStockData([]);
+    fetchBasketStockData(tickers);
 
     renderAggregatePanel({
-      mode,
-      industry,
       selection: currentBrushSelection,
       selectedCompanies
     });
@@ -909,7 +882,6 @@ Promise.all([
   if (document.querySelector("#kpi-total")) {
     document.querySelector("#kpi-total").textContent = projectedCompanies.length.toLocaleString();
   }
-
 }).catch(err => {
   console.error(err);
 });
