@@ -152,7 +152,6 @@ app.get("/api/stock-basket", async (req, res) => {
     const MAX = 30;
     const basketTickers = tickers.slice(0, MAX);
     
-    console.log(`📊 Fetching basket data for ${basketTickers.length} tickers:`, basketTickers);
     
     // Calculate date range
     const now = new Date();
