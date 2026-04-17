@@ -1,58 +1,81 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Company Headquarters Map</title>
-  <script src="https://d3js.org/d3.v7.min.js"></script>
-  <script src="https://unpkg.com/topojson@3"></script>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="dashboard">
-    <h2>Company Headquarters Map</h2>
-
-    <div id="topbar">
-      <div>
-        <label for="displayMode">Mode:</label>
-        <select id="displayMode">
-          <option value="cities">Cities</option>
-          <option value="companies">Companies</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="industryFilter">Industry:</label>
-        <select id="industryFilter">
-          <option value="All">All</option>
-        </select>
-      </div>
-
-      <button type="button" onclick="resetMapZoom()">Reset zoom</button>
+    <h2>Company Map Dashboard</h2>
+    <div id="topbar" class="panel">
+      <label for="displayMode">Mode:</label>
+      <select id="displayMode">
+        <option value="cities" selected>Cities</option>
+        <option value="companies">Companies</option>
+      </select>
+      <label for="industryFilter">Industry:</label>
+      <select id="industryFilter"></select>
+      <button type="button" onclick="resetMapZoom()">Reset Zoom</button>
     </div>
-
     <div id="content">
+      <!-- LEFT: aggregates + basket chart -->
+      <div class="panel" id="left-panel">
+        <div class="panel-header">Selection Summary</div>
+        <div class="panel-body">
+          <div id="aggregate-container"></div>
+          <!-- Basket chart boxed panel -->
+          <div class="panel" id="basket-panel" style="margin-top:12px;">
+            <div class="panel-header">Basket Chart</div>
+            <div class="panel-body">
+              <!-- Range selector for basket chart - INSIDE BASKET PANEL -->
+              <div class="basket-range-controls">
+                <label style="font-size: 11px; font-weight: bold; display: block; margin-bottom: 8px; text-transform: uppercase; color: #666;">Select Date Range:</label>
+                <div class="basket-range-buttons">
+                  <button class="basket-range-btn" data-range="1D">1D</button>
+                  <button class="basket-range-btn active" data-range="1W">1W</button>
+                  <button class="basket-range-btn" data-range="1M">1M</button>
+                  <button class="basket-range-btn" data-range="3M">3M</button>
+                  <button class="basket-range-btn" data-range="1Y">1Y</button>
+                  <button class="basket-range-btn" data-range="5Y">5Y</button>
+                  <button class="basket-range-btn" data-range="YTD">YTD</button>
+                </div>
+              </div>
+              <div id="aggregate-stock-chart-container">
+                <p class="chart-placeholder">No basket data selected.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- MAP -->
       <div class="panel" id="map-panel">
         <div class="panel-header">Map</div>
         <div class="panel-body" style="padding:0;">
-          <div id="loading-indicator">Loading data...</div>
-          <svg id="map" width="960" height="600"></svg>
+          <svg id="map"></svg>
         </div>
       </div>
-
-      <div class="panel" id="interactions-panel">
-        <div class="panel-header">Interactions / Widgets</div>
+      <!-- RIGHT: widgets + single stock chart -->
+      <div class="panel" id="right-panel">
+        <div class="panel-header">Details</div>
         <div class="panel-body">
           <div id="widget-area-1"></div>
-          <div id="stock-chart-container" style="margin-top:12px;">
-            <p class="chart-placeholder">Click a company on the map to view its stock performance</p>
+          <div class="panel" style="margin-top:12px;">
+            <div class="panel-header">Stock Chart</div>
+            <div class="panel-body">
+              <div id="stock-chart-container">
+                <p class="chart-placeholder">Select a company to view stock data.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
     <div id="tooltip"></div>
   </div>
-
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
   <script src="script.js"></script>
 </body>
 </html>
