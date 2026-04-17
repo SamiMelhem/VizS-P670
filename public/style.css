@@ -520,6 +520,46 @@ select option{
 
 /* Ensure chart tooltips position correctly */
 #stock-chart-container,
-#aggregate-stock-chart-container{
+#aggregate-stock-chart-container {
   position: relative;
+}
+
+/* Basket range controls container */
+.basket-range-controls {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 12px;
+}
+
+.basket-range-buttons {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* Basket range control buttons */
+.basket-range-btn {
+  padding: 6px 11px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.basket-range-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.basket-range-btn.active {
+  background: #007bff;
+  color: white;
+  border-color: #0056b3;
 }

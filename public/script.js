@@ -1,5 +1,6 @@
 const width = 960;
 const height = 600;
+const BASKET_RANGES = ["1D", "1W", "1M", "3M", "1Y", "5Y", "YTD"];
 
 const svg = d3
   .select("#map")
@@ -78,6 +79,7 @@ function cityName(cluster) {
 }
 
 // ----- ZOOM -----
+// ----- ZOOM -----
 const zoom = d3.zoom()
   .scaleExtent([1, 8])
   .translateExtent([[0, 0], [width, height]])
@@ -85,9 +87,42 @@ const zoom = d3.zoom()
   .on("zoom", (event) => {
     viewport.attr("transform", event.transform);
   });
-
 svg.call(zoom);
 svg.on("dblclick.zoom", null);
+
+// ----- PAN WITH RIGHT CLICK -----
+let isPanning = false;
+let panStartX = 0;
+let panStartY = 0;
+let currentTransform = d3.zoomIdentity;
+
+svg.on("contextmenu", (event) => {
+  event.preventDefault();
+});
+
+svg.on("mousedown", (event) => {
+  if (event.button === 2) { // Right mouse button
+    isPanning = true;
+    panStartX = event.clientX;
+    panStartY = event.clientY;
+    currentTransform = d3.zoomTransform(svg.node());
+  }
+});
+
+document.addEventListener("mousemove", (event) => {
+  if (isPanning) {
+    const dx = event.clientX - panStartX;
+    const dy = event.clientY - panStartY;
+    const newTransform = currentTransform.translate(dx, dy);
+    svg.call(zoom.transform, newTransform);
+  }
+});
+
+document.addEventListener("mouseup", (event) => {
+  if (event.button === 2) {
+    isPanning = false;
+  }
+});
 
 window.resetMapZoom = function resetMapZoom() {
   svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
@@ -136,13 +171,12 @@ function renderStockChart(ticker, companyName, data, containerId = "stock-chart-
   `;
   container.appendChild(header);
 
-  const toggleBar = document.createElement("div");
+    const toggleBar = document.createElement("div");
   toggleBar.className = "range-toggle-bar";
   RANGES.forEach(r => {
     const btn = document.createElement("button");
     btn.className = "range-btn" + (r === activeRange ? " active" : "");
     btn.textContent = r;
-
     // only wire default single-stock behavior for the main chart container
     if (containerId === "stock-chart-container") {
       btn.addEventListener("click", () => {
@@ -150,10 +184,12 @@ function renderStockChart(ticker, companyName, data, containerId = "stock-chart-
         fetchStockData(selectedTicker, selectedCompanyName, currentCircles, r);
       });
     }
-
     toggleBar.appendChild(btn);
   });
-  container.appendChild(toggleBar);
+  // Only append toggle bar for single stock chart, not basket chart
+  if (containerId === "stock-chart-container") {
+    container.appendChild(toggleBar);
+  }
 
   const margin = { top: 8, right: 12, bottom: 28, left: 48 };
   const containerWidth = container.clientWidth || 296;
@@ -350,22 +386,18 @@ function fetchStockData(ticker, companyName, circles, range) {
     });
 }
 
-// ----- BASKET CHART -----
 let selectedBasketRange = "1W";
-let selectedBasketTickersKey = ""; // to avoid refetch loops
+let selectedBasketTickersKey = "";
 
 function fetchBasketStockData(tickers, range) {
   const containerId = "aggregate-stock-chart-container";
   const container = document.getElementById(containerId);
-
   const normalized = (tickers || [])
     .map(t => String(t || "").trim().toUpperCase())
     .filter(t => t && t !== "NULL" && t !== "N/A" && t !== "NA")
     .sort();
-
   const key = normalized.join(",");
 
-  // REQUIRED: show "No basket data selected" if none
   if (!normalized.length) {
     container.innerHTML = '<p class="chart-placeholder">No basket data selected.</p>';
     selectedBasketTickersKey = "";
@@ -376,6 +408,7 @@ function fetchBasketStockData(tickers, range) {
 
   const shouldRefetch = key !== selectedBasketTickersKey || !!range;
   selectedBasketTickersKey = key;
+
   if (!shouldRefetch) return;
 
   container.innerHTML = '<p class="chart-loading">Loading basket stock data</p>';
@@ -392,7 +425,7 @@ function fetchBasketStockData(tickers, range) {
         data,
         containerId
       );
-
+      
       // Rewire the range bar for basket chart only
       const c = document.getElementById(containerId);
       const bar = c.querySelector(".range-toggle-bar");
@@ -402,11 +435,18 @@ function fetchBasketStockData(tickers, range) {
           btn.onclick = () => fetchBasketStockData(normalized, r);
         });
       }
+      
+      // Also wire up the quick-select buttons
+      document.querySelectorAll(".basket-range-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.range === selectedBasketRange);
+        btn.onclick = () => fetchBasketStockData(normalized, btn.dataset.range);
+      });
     })
     .catch(() => {
       container.innerHTML = '<p class="chart-error">Failed to load basket stock data.</p>';
     });
 }
+
 
 // ----- AGGREGATION + BRUSH HELPERS -----
 function renderAggregatePanel({ selection, selectedCompanies }) {
