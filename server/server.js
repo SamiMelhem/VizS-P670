@@ -281,6 +281,19 @@ app.get("/api/stock-basket", async (req, res) => {
   }
 });
 
+// GET /api/returns — serve static 1Y return data for heat map
+app.get("/api/returns", (req, res) => {
+  try {
+    const filePath = path.join(__dirname, "returns_1y_cache.json");
+    const raw = fs.readFileSync(filePath, "utf8");
+    const data = JSON.parse(raw);
+    res.json(data.returns);
+  } catch (err) {
+    console.error("Failed to serve /api/returns:", err);
+    res.status(500).json({ error: "Failed to load returns data" });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

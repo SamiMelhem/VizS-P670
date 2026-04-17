@@ -18,6 +18,7 @@
       <label for="industryFilter">Industry:</label>
       <select id="industryFilter"></select>
       <button type="button" onclick="resetMapZoom()">Reset Zoom</button>
+      <button type="button" id="heatmapToggle" class="topbar-toggle">🔥 Heat Map</button>
     </div>
     <div id="content">
       <!-- LEFT: basket chart + aggregates -->
@@ -53,8 +54,15 @@
       <!-- MAP -->
       <div class="panel" id="map-panel">
         <div class="panel-header">Map</div>
-        <div class="panel-body" style="padding:0;">
+        <div class="panel-body" style="padding:0;position:relative;">
           <svg id="map"></svg>
+          <div id="heatmap-legend" class="heatmap-legend" hidden>
+            <div class="legend-title">1Y Return</div>
+            <div class="legend-gradient"></div>
+            <div class="legend-labels">
+              <span>-50%</span><span>0%</span><span>+50%</span>
+            </div>
+          </div>
         </div>
       </div>
       <!-- RIGHT: widgets + single stock chart -->

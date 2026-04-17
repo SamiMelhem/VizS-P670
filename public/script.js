@@ -126,6 +126,15 @@ let selectedCompanyName = null;
 let selectedRange = "1W";
 let currentCircles = null;
 
+// ----- HEAT MAP STATE -----
+let heatmapActive = false;
+let heatmapReturns = {};   // { "AAPL": 13.62, ... }
+let heatmapFetched = false;
+const heatmapColor = d3.scaleLinear()
+  .domain([-50, 0, 50])
+  .range(["#ef4444", "#555", "#22c55e"])
+  .clamp(true);
+
 function renderStockChart(ticker, companyName, data, containerId = "stock-chart-container") {
   const container = document.getElementById(containerId);
   container.innerHTML = "";
@@ -659,11 +668,65 @@ Promise.all([
           .call(exit => exit.transition().duration(150).attr("r", 0).remove())
       );
 
+    // Apply heat map coloring
+    if (heatmapActive && Object.keys(heatmapReturns).length) {
+      circles.each(function(d) {
+        const el = d3.select(this);
+        if (d.mode === "company") {
+          const ticker = (d.Ticker || "").toUpperCase();
+          const ret = heatmapReturns[ticker];
+          if (ret !== undefined && ret !== null) {
+            el.style("fill", heatmapColor(ret))
+              .classed("heatmap-no-data", false);
+          } else {
+            el.style("fill", null)
+              .classed("heatmap-no-data", true);
+          }
+        } else {
+          // Cities mode: average return of cluster members
+          const returns = d.visible
+            .map(m => heatmapReturns[(m.Ticker || "").toUpperCase()])
+            .filter(v => v !== undefined && v !== null);
+          if (returns.length) {
+            const avg = returns.reduce((a, b) => a + b, 0) / returns.length;
+            el.style("fill", heatmapColor(avg))
+              .classed("heatmap-no-data", false);
+          } else {
+            el.style("fill", null)
+              .classed("heatmap-no-data", true);
+          }
+        }
+      });
+    } else {
+      circles.style("fill", null).classed("heatmap-no-data", false);
+    }
+
     circles
       .on("mouseover", (event, d) => {
-        const html = d.mode === "city"
+        let html = d.mode === "city"
           ? formatTooltip({ ...d, members: d.visible }, "All")
           : companyTooltip(d);
+        // Append return data when heat map is active
+        if (heatmapActive && Object.keys(heatmapReturns).length) {
+          if (d.mode === "company") {
+            const ret = heatmapReturns[(d.Ticker || "").toUpperCase()];
+            if (ret !== undefined && ret !== null) {
+              const sign = ret >= 0 ? "+" : "";
+              const color = ret >= 0 ? "#22c55e" : "#ef4444";
+              html += `<br/><span style="color:${color};font-weight:700">Return (1Y): ${sign}${ret.toFixed(2)}%</span>`;
+            }
+          } else {
+            const returns = d.visible
+              .map(m => heatmapReturns[(m.Ticker || "").toUpperCase()])
+              .filter(v => v !== undefined && v !== null);
+            if (returns.length) {
+              const avg = returns.reduce((a, b) => a + b, 0) / returns.length;
+              const sign = avg >= 0 ? "+" : "";
+              const color = avg >= 0 ? "#22c55e" : "#ef4444";
+              html += `<br/><span style="color:${color};font-weight:700">Avg Return (1Y): ${sign}${avg.toFixed(2)}%</span>`;
+            }
+          }
+        }
         tooltip.style("opacity", 1).html(html);
       })
       .on("mousemove", (event) => {
@@ -968,6 +1031,34 @@ Promise.all([
   });
   companySearchInput.on("input", function () {
     syncCompanySearchWidget();
+  });
+
+  // ----- HEAT MAP TOGGLE -----
+  const heatmapToggleBtn = document.getElementById("heatmapToggle");
+  const heatmapLegend = document.getElementById("heatmap-legend");
+
+  heatmapToggleBtn.addEventListener("click", () => {
+    heatmapActive = !heatmapActive;
+    heatmapToggleBtn.classList.toggle("active", heatmapActive);
+    heatmapLegend.hidden = !heatmapActive;
+
+    if (heatmapActive && !heatmapFetched) {
+      fetch("/api/returns")
+        .then(res => res.json())
+        .then(data => {
+          heatmapReturns = data;
+          heatmapFetched = true;
+          renderPoints();
+        })
+        .catch(err => {
+          console.error("Failed to fetch returns:", err);
+          heatmapActive = false;
+          heatmapToggleBtn.classList.remove("active");
+          heatmapLegend.hidden = true;
+        });
+    } else {
+      renderPoints();
+    }
   });
 
   // KPI hook
