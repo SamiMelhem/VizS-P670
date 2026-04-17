@@ -167,7 +167,6 @@ app.get("/api/stock-basket", async (req, res) => {
       basketTickers.map(t =>
         yahooFinance.chart(t, { period1, period2: now, interval: config.interval })
           .catch(err => {
-            console.log(`❌ Failed to fetch ${t}:`, err.message);
             return null;
           })
       )
