@@ -2,6 +2,10 @@ const express = require("express");
 const fs = require("fs");
 const path = require("path");
 
+function normalizeTicker(ticker) {
+  return ticker.replace(".", "-");
+}
+
 let yahooFinance;
 const yfReady = import("yahoo-finance2").then((mod) => {
   const YahooFinance = mod.default;
@@ -13,8 +17,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.static(path.join(__dirname, "..", "public")));
 
-app.get("/data", (req, res) => {
+app.get("/data", async (req, res) => {
   try {
+    await yfReady;
+
     const filePath = path.join(__dirname, "companies_geocoded.json");
     const raw = fs.readFileSync(filePath, "utf8");
     const data = JSON.parse(raw);
@@ -23,7 +29,27 @@ app.get("/data", (req, res) => {
       .map(d => ({ ...d, lat: +d.lat, lon: +d.lon }))
       .filter(d => Number.isFinite(d.lat) && Number.isFinite(d.lon));
 
-    res.json(cleaned);
+    // Fetch market caps in parallel
+    const results = await Promise.all(
+      cleaned.map(async (company) => {
+        try {
+          const safeTicker = normalizeTicker(company.Ticker);
+          const quote = await yahooFinance.quote(safeTicker);
+          return {
+            ...company,
+            marketCap: quote.marketCap || null
+          };
+        } catch (err) {
+          return {
+            ...company,
+            marketCap: null
+          };
+        }
+      })
+    );
+
+    res.json(results);
+
   } catch (err) {
     console.error("Failed to serve /data:", err);
     res.status(500).json({ error: "Failed to load companies data" });

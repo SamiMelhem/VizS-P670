@@ -6,42 +6,32 @@
   --bg: #0b1220;
   --panel: #0f192b;
   --panel-2: #0b1424;
-
   /* Text */
   --text: #e7eefc;
   --muted: rgba(231, 238, 252, 0.68);
-
   /* UI */
   --border: rgba(255,255,255,0.10);
   --border-2: rgba(255,255,255,0.16);
-
   --surface: rgba(255,255,255,0.04);
   --surface-2: rgba(255,255,255,0.07);
-
   --shadow: 0 16px 40px rgba(0,0,0,0.50);
-
   /* Accent */
   --accent: #60a5fa;
   --accent-2: #b7d2ff;
   --focus: rgba(96, 165, 250, 0.28);
-
   /* Status */
   --good: #22c55e;
   --bad: #ef4444;
   --warn: #f59e0b;
-
   /* Map */
   --map: #0b1528;
-
   /* Radius */
   --r-lg: 16px;
   --r-md: 12px;
   --r-sm: 10px;
 }
-
 *{ box-sizing: border-box; }
 html, body{ height: 100%; }
-
 body{
   margin: 0;
   padding: 20px;
@@ -52,18 +42,15 @@ body{
   justify-content: center;
   align-items: flex-start;
 }
-
 #dashboard{
   width: min(1200px, 100%);
   margin: 0 auto;
 }
-
 h2{
   margin: 0 0 14px 0;
   font-weight: 750;
   letter-spacing: 0.2px;
 }
-
 /* =========================
    SCROLLBARS
    ========================= */
@@ -83,7 +70,6 @@ h2{
 }
 *::-webkit-scrollbar-thumb:hover{ background: rgba(96,165,250,0.72); }
 *::-webkit-scrollbar-corner{ background: transparent; }
-
 /* =========================
    LAYOUT
    ========================= */
@@ -93,25 +79,21 @@ h2{
   gap: 10px 12px;
   align-items: center;
   padding: 12px;
-
   border: 1px solid var(--border);
   border-radius: var(--r-lg);
   background: var(--panel);
   box-shadow: var(--shadow);
 }
-
 #content{
   margin-top: 14px;
   display: grid;
   grid-template-columns: 320px 1fr 320px;
   gap: 14px;
 }
-
 @media (max-width: 1150px){
   body{ padding: 14px; }
   #content{ grid-template-columns: 1fr; }
 }
-
 /* =========================
    PANELS / CARDS
    ========================= */
@@ -122,7 +104,6 @@ h2{
   box-shadow: var(--shadow);
   overflow: clip; /* keeps rounded corners for inner content */
 }
-
 .panel-header{
   padding: 10px 12px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -131,18 +112,15 @@ h2{
   letter-spacing: 0.7px;
   text-transform: uppercase;
 }
-
 .panel-body{
   padding: 12px;
   min-height: 120px;
 }
-
-/* Nested panels should feel slightly “inset” */
+/* Nested panels should feel slightly "inset" */
 .panel .panel{
   background: var(--panel-2);
   box-shadow: none;
 }
-
 /* =========================
    FORMS / BUTTONS
    ========================= */
@@ -151,11 +129,9 @@ label{
   font-size: 13px;
   margin-right: 6px;
 }
-
 select, button, input{
   font: inherit;
 }
-
 /* Buttons */
 button{
   background: rgba(255,255,255,0.06);
@@ -166,24 +142,19 @@ button{
   outline: none;
   cursor: pointer;
 }
-
 button:hover{
   background: rgba(255,255,255,0.09);
   border-color: rgba(96,165,250,0.55);
 }
-
 button:focus{
   border-color: rgba(96,165,250,0.55);
   box-shadow: 0 0 0 3px var(--focus);
 }
-
 button:active{ transform: translateY(0.5px); }
-
 button:disabled{
   opacity: 0.55;
   cursor: not-allowed;
 }
-
 /* Text input */
 .company-search-input{
   width: 100%;
@@ -194,16 +165,13 @@ button:disabled{
   padding: 8px 10px;
   outline: none;
 }
-
 .company-search-input:hover{
   border-color: rgba(255,255,255,0.18);
 }
-
 .company-search-input:focus{
   border-color: rgba(96,165,250,0.55);
   box-shadow: 0 0 0 3px var(--focus);
 }
-
 /* =========================
    DROPDOWNS (theme-matched)
    ========================= */
@@ -211,17 +179,13 @@ select{
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-
   background-color: rgba(255,255,255,0.06);
   color: var(--text);
-
   border: 1px solid rgba(255,255,255,0.12);
   border-radius: var(--r-sm);
-
   padding: 8px 36px 8px 10px; /* room for arrow */
   line-height: 1.2;
   outline: none;
-
   /* caret */
   background-image:
     linear-gradient(45deg, transparent 50%, rgba(231,238,252,0.75) 50%),
@@ -232,28 +196,23 @@ select{
   background-size: 6px 6px, 6px 6px;
   background-repeat: no-repeat;
 }
-
 select:hover{
   border-color: rgba(255,255,255,0.18);
   background-color: rgba(255,255,255,0.08);
 }
-
 select:focus{
   border-color: rgba(96,165,250,0.55);
   box-shadow: 0 0 0 3px var(--focus);
 }
-
 select:disabled{
   opacity: 0.55;
   cursor: not-allowed;
 }
-
 /* Options dropdown list (limited cross-browser support) */
 select option{
   background: var(--panel);
   color: var(--text);
 }
-
 /* =========================
    MAP
    ========================= */
@@ -265,33 +224,28 @@ select option{
   background: var(--map);
   border: 1px solid var(--border);
 }
-
 .states path{
   fill: rgba(96,165,250,0.08);
   stroke: rgba(231,238,252,0.18);
   stroke-width: 1;
 }
-
 .company-points circle{
   fill: var(--accent);
   stroke: rgba(11, 18, 32, 0.90);
   stroke-width: 1.2;
   opacity: 0.92;
 }
-
 .company-points circle:hover{
   opacity: 1;
   stroke: rgba(231,238,252,0.70);
   stroke-width: 1.6;
 }
-
 .company-points circle.brush-selected{
   opacity: 1;
   stroke: rgba(231,238,252,0.92);
   stroke-width: 2.2;
   filter: drop-shadow(0 8px 18px rgba(96,165,250,0.26));
 }
-
 /* Brush rectangle styling */
 .brush .selection{
   fill: rgba(96,165,250,0.16);
@@ -299,7 +253,6 @@ select option{
   stroke-width: 1.2;
 }
 .brush .handle{ fill: rgba(96,165,250,0.80); }
-
 /* =========================
    TOOLTIP
    ========================= */
@@ -309,19 +262,15 @@ select option{
   opacity: 0;
   max-width: 280px;
   padding: 10px 12px;
-
   border-radius: var(--r-md);
   border: 1px solid var(--border-2);
   background: rgba(15, 25, 43, 0.92);
   backdrop-filter: blur(10px);
-
   color: var(--text);
   font-size: 13px;
   line-height: 1.35;
-
   box-shadow: 0 18px 48px rgba(0,0,0,0.60);
 }
-
 /* =========================
    LEFT AGGREGATE AREA
    ========================= */
@@ -331,7 +280,6 @@ select option{
   gap: 10px;
   font-size: 13px;
 }
-
 .aggregate-hint{
   color: var(--muted);
   font-size: 12px;
@@ -341,70 +289,57 @@ select option{
   border-radius: var(--r-sm);
   background: rgba(255,255,255,0.04);
 }
-
 .aggregate-list{
   margin: 0;
   padding-left: 16px;
   color: var(--text);
 }
-
 .aggregate-actions{
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
 }
-
 /* =========================
    RIGHT WIDGET AREA
    ========================= */
 #widget-area-1{ min-height: 120px; }
-
 .city-widget,
 .company-search-widget{
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-
 .city-widget[hidden],
 .company-search-widget[hidden]{ display: none; }
-
 .city-widget-title{
   color: var(--accent-2);
   font-size: 12px;
   letter-spacing: 0.7px;
   text-transform: uppercase;
 }
-
 .company-list{
   margin: 0;
   padding: 0;
   list-style: none;
-
   max-height: 240px;
   overflow-y: auto;
-
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: var(--r-sm);
   background: rgba(255,255,255,0.04);
 }
-
 .company-list li{
   padding: 8px 10px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
   font-size: 13px;
   cursor: pointer;
 }
-
 .company-list li:last-child{ border-bottom: none; }
 .company-list li:hover{ background: rgba(255,255,255,0.06); }
 .company-list li.is-selected{ background: rgba(96,165,250,0.14); }
-
 .city-widget-empty{
   color: var(--muted);
   font-size: 12px;
 }
-
 .company-info-card{
   border: 1px solid rgba(255,255,255,0.10);
   border-radius: var(--r-sm);
@@ -413,7 +348,6 @@ select option{
   font-size: 13px;
   line-height: 1.35;
 }
-
 /* =========================
    STOCK CHART UI (single + basket)
    ========================= */
@@ -429,49 +363,41 @@ select option{
   font-size: 13px;
   line-height: 1.35;
 }
-
 .chart-error{
   border-style: solid;
   border-color: rgba(239,68,68,0.35);
   color: rgba(239,68,68,0.9);
   background: rgba(239,68,68,0.08);
 }
-
 .chart-loading{
   border-style: solid;
   border-color: rgba(245,158,11,0.30);
   color: rgba(245,158,11,0.95);
   background: rgba(245,158,11,0.08);
 }
-
 .stock-chart-title{
   margin: 0 0 2px 0;
   font-weight: 700;
   letter-spacing: 0.2px;
 }
-
 .stock-chart-price{
   margin: 0 0 2px 0;
   font-weight: 800;
   font-size: 18px;
 }
-
 .stock-chart-change{
   margin: 0 0 8px 0;
   font-size: 13px;
   color: var(--muted);
 }
-
 .stock-chart-change.positive{ color: rgba(34,197,94,0.95); }
 .stock-chart-change.negative{ color: rgba(239,68,68,0.95); }
-
 .range-toggle-bar{
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin: 6px 0 10px 0;
 }
-
 .range-btn{
   padding: 6px 8px;
   border-radius: 999px;
@@ -481,29 +407,23 @@ select option{
   font-size: 12px;
   line-height: 1;
 }
-
 .range-btn:hover{
   border-color: rgba(96,165,250,0.55);
   background: rgba(255,255,255,0.08);
 }
-
 .range-btn.active{
   border-color: rgba(96,165,250,0.65);
   background: rgba(96,165,250,0.18);
 }
-
 /* Chart SVG styling helpers */
 .grid line{ stroke: rgba(231,238,252,0.08); }
 .grid path{ stroke: none; }
-
 .axis path,
 .axis line{ stroke: rgba(231,238,252,0.16); }
-
 .axis text{
   fill: rgba(231,238,252,0.65);
   font-size: 11px;
 }
-
 /* Tooltip inside chart container */
 .chart-tooltip-box{
   position: absolute;
@@ -517,13 +437,11 @@ select option{
   line-height: 1.35;
   box-shadow: 0 18px 48px rgba(0,0,0,0.60);
 }
-
 /* Ensure chart tooltips position correctly */
 #stock-chart-container,
 #aggregate-stock-chart-container {
   position: relative;
 }
-
 /* Basket range controls container */
 .basket-range-controls {
   padding: 12px;
@@ -532,13 +450,11 @@ select option{
   border: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 12px;
 }
-
 .basket-range-buttons {
   display: flex;
   gap: 6px;
   flex-wrap: wrap;
 }
-
 /* Basket range control buttons */
 .basket-range-btn {
   padding: 6px 11px;
@@ -551,13 +467,11 @@ select option{
   font-weight: 600;
   transition: all 0.2s ease;
 }
-
 .basket-range-btn:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.3);
   color: #fff;
 }
-
 .basket-range-btn.active {
   background: #007bff;
   color: white;
