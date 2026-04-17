@@ -736,7 +736,11 @@ Promise.all([
       .selectAll("li")
       .data(activeCompanies, d => d.Name)
       .join("li")
-      .text(d => d.Name);
+      .text(d => d.Name)
+      .style("cursor", "pointer")
+      .on("click", (event, d) => {
+        setSelectedCompany(d);
+      });
     cityWidgetEmpty.attr("hidden", activeCompanies.length === 0 ? null : true);
   }
 

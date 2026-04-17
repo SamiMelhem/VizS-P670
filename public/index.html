@@ -20,13 +20,12 @@
       <button type="button" onclick="resetMapZoom()">Reset Zoom</button>
     </div>
     <div id="content">
-      <!-- LEFT: aggregates + basket chart -->
+      <!-- LEFT: basket chart + aggregates -->
       <div class="panel" id="left-panel">
         <div class="panel-header">Selection Summary</div>
         <div class="panel-body">
-          <div id="aggregate-container"></div>
           <!-- Basket chart boxed panel -->
-          <div class="panel" id="basket-panel" style="margin-top:12px;">
+          <div class="panel" id="basket-panel">
             <div class="panel-header">Basket Chart</div>
             <div class="panel-body">
               <!-- Range selector for basket chart - INSIDE BASKET PANEL -->
@@ -47,6 +46,8 @@
               </div>
             </div>
           </div>
+          <!-- Selection details below basket chart -->
+          <div id="aggregate-container" style="margin-top:12px;"></div>
         </div>
       </div>
       <!-- MAP -->
