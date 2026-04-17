@@ -54,7 +54,7 @@ function formatTooltip(cluster, selectedIndustry) {
 function companyTooltip(company) {
   const cap = company.marketCap
     ? `$${(company.marketCap / 1e9).toFixed(2)}B`
-    : "N/A";
+    : "Loading...";
   return `
     <strong>${company.Name}</strong><br/>
     Location: ${company["Headquarters Location"] || "Unknown"}<br/>
@@ -344,33 +344,56 @@ let selectedBasketTickersKey = "";
 function fetchBasketStockData(tickers, range) {
   const containerId = "aggregate-stock-chart-container";
   const container = document.getElementById(containerId);
+  
   const normalized = (tickers || [])
     .map(t => String(t || "").trim().toUpperCase())
     .filter(t => t && t !== "NULL" && t !== "N/A" && t !== "NA")
     .sort();
+  
   const key = normalized.join(",");
-
+  
   if (!normalized.length) {
     container.innerHTML = '<p class="chart-placeholder">No basket data selected.</p>';
     selectedBasketTickersKey = "";
     return;
   }
-
+  
   if (range) selectedBasketRange = range;
-
+  
   const shouldRefetch = key !== selectedBasketTickersKey || !!range;
   selectedBasketTickersKey = key;
-
+  
   if (!shouldRefetch) return;
-
+  
   container.innerHTML = '<p class="chart-loading">Loading basket stock data</p>';
-
-  fetch(`/api/stock-basket?tickers=${encodeURIComponent(key)}&range=${encodeURIComponent(selectedBasketRange)}`)
+  
+  const url = `/api/stock-basket?tickers=${encodeURIComponent(key)}&range=${encodeURIComponent(selectedBasketRange)}`;
+  console.log("📡 Fetching basket from:", url);
+  
+  fetch(url)
     .then(res => {
-      if (!res.ok) throw new Error("Network response was not ok");
+      console.log("📥 Response status:", res.status, res.statusText);
+      if (!res.ok) {
+        return res.json().then(err => {
+          throw new Error(err.error || `Server error: ${res.status}`);
+        });
+      }
       return res.json();
     })
     .then(data => {
+      console.log("📊 Basket data received:", {
+        ticker: data.ticker,
+        quotesCount: data.quotes?.length,
+        componentsUsed: data.componentsUsed,
+        componentsRequested: data.componentsRequested
+      });
+      
+      // Check if we have valid quotes
+      if (!data.quotes || data.quotes.length === 0) {
+        container.innerHTML = '<p class="chart-error">No trading data available for selected companies in this time range.</p>';
+        return;
+      }
+      
       renderStockChart(
         data.ticker || "BASKET",
         data.name || "Selection basket",
@@ -380,25 +403,22 @@ function fetchBasketStockData(tickers, range) {
       
       // Update range buttons to reflect current range
       updateBasketRangeButtons(selectedBasketRange);
-      
-      // Rewire the range bar for basket chart only
-      const c = document.getElementById(containerId);
-      const bar = c.querySelector(".range-toggle-bar");
-      if (bar) {
-        bar.querySelectorAll("button").forEach(btn => {
-          const r = btn.textContent;
-          btn.onclick = () => fetchBasketStockData(normalized, r);
-        });
-      }
     })
-    .catch(() => {
-      container.innerHTML = '<p class="chart-error">Failed to load basket stock data.</p>';
+    .catch(err => {
+      console.error("❌ Basket fetch error:", err);
+      container.innerHTML = `<p class="chart-error">Failed to load basket stock data: ${err.message}</p>`;
     });
 }
 
 // ----- AGGREGATION + BRUSH HELPERS -----
+function updateBasketRangeButtons(range) {
+  const buttons = document.querySelectorAll(".basket-range-btn");
+  buttons.forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.range === range);
+  });
+}
 function renderAggregatePanel({ selection, selectedCompanies }) {
-  if (!selection) {
+  if (!selection || !selectedCompanies.length) {
     aggregateContainer.html(`
       <div class="aggregate-hint">
         Drag a rectangle on the map to select an area.
@@ -407,17 +427,31 @@ function renderAggregatePanel({ selection, selectedCompanies }) {
         <button type="button" id="clear-selection" disabled>Clear selection</button>
       </div>
     `);
+    
+    // Wire up disabled clear button
+    const btn = document.getElementById("clear-selection");
+    if (btn) {
+      btn.addEventListener("click", clearBrushSelection);
+    }
     return;
   }
+  
   const byIndustry = d3.rollups(
     selectedCompanies,
     v => v.length,
     d => d.Industry || "Unknown"
   ).sort((a, b) => d3.descending(a[1], b[1]));
+  
   const top = byIndustry.slice(0, 8);
+  
   aggregateContainer.html(`
     <div>
-      <div class="city-widget-title" style="margin-bottom:6px;">Top industries (in selection)</div>
+      <div class="city-widget-title" style="margin-bottom:6px;">
+        Selected: ${selectedCompanies.length} companies
+      </div>
+      <div class="city-widget-title" style="margin-bottom:6px; margin-top:12px;">
+        Top industries
+      </div>
       <ul class="aggregate-list">
         ${top.map(([k, v]) => `<li>${k}: ${v}</li>`).join("")}
         ${byIndustry.length > top.length ? `<li>+ ${byIndustry.length - top.length} more</li>` : ""}
@@ -427,9 +461,11 @@ function renderAggregatePanel({ selection, selectedCompanies }) {
       <button type="button" id="clear-selection">Clear selection</button>
     </div>
   `);
-  document.getElementById("clear-selection")?.addEventListener("click", () => {
-    clearBrushSelection();
-  });
+  
+  const btn = document.getElementById("clear-selection");
+  if (btn) {
+    btn.addEventListener("click", clearBrushSelection);
+  }
 }
 
 let currentBrushSelection = null;
@@ -785,7 +821,10 @@ Promise.all([
   function updateAggregatesFromSelection() {
     const mode = modeSelect.property("value");
     const industry = select.property("value");
+    console.log("Selection updated:", { currentBrushSelection, mode, industry });
+    
     if (!currentBrushSelection) {
+      console.log("No brush selection yet");
       renderAggregatePanel({
         selection: null,
         selectedCompanies: []
@@ -800,11 +839,13 @@ Promise.all([
       projectedCompanies,
       clusters
     });
+    console.log("Selected companies:", selectedCompanies.length);
     const tickers = Array.from(new Set(
       selectedCompanies
         .map(d => String(d.Ticker || "").trim().toUpperCase())
         .filter(t => t && t !== "NULL" && t !== "N/A" && t !== "NA")
     ));
+    console.log("Tickers to fetch:", tickers);
     fetchBasketStockData(tickers);
     renderAggregatePanel({
       selection: currentBrushSelection,
@@ -812,12 +853,57 @@ Promise.all([
     });
   }
 
-  // Wire up basket range buttons - initialize
-  function updateBasketRangeButtons(range) {
-    document.querySelectorAll(".basket-range-btn").forEach(btn => {
-      btn.classList.toggle("active", btn.dataset.range === range);
+
+  
+  function setupBasketRangeButtons() {
+    console.log("Setting up basket range buttons...");
+    const buttons = document.querySelectorAll(".basket-range-btn");
+    console.log("Found buttons:", buttons.length);
+    if (buttons.length === 0) {
+      console.warn("No basket range buttons found in DOM");
+      return;
+    }
+    
+    buttons.forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const range = e.target.dataset.range;
+        
+        if (!range) {
+          console.error("Button missing data-range attribute");
+          return;
+        }
+        
+        selectedBasketRange = range;
+        updateBasketRangeButtons(range);
+        
+        // Fetch with current selection (if any)
+        if (currentBrushSelection) {
+          const mode = modeSelect.property("value");
+          const industry = select.property("value");
+          const selectedCompanies = companiesInSelection({
+            selection: currentBrushSelection,
+            mode,
+            industry,
+            projectedCompanies,
+            clusters
+          });
+          const tickers = Array.from(new Set(
+            selectedCompanies
+              .map(d => String(d.Ticker || "").trim().toUpperCase())
+              .filter(t => t && t !== "NULL" && t !== "N/A" && t !== "NA")
+          ));
+          fetchBasketStockData(tickers, range);
+        } else {
+          fetchBasketStockData([], range);
+        }
+      });
     });
   }
+  
+  // Initialize basket range buttons
+  setupBasketRangeButtons();
+  updateBasketRangeButtons(selectedBasketRange);
 
   document.querySelectorAll(".basket-range-btn").forEach(btn => {
     btn.addEventListener("click", (e) => {

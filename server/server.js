@@ -20,39 +20,36 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 app.get("/data", async (req, res) => {
   try {
     await yfReady;
-
     const filePath = path.join(__dirname, "companies_geocoded.json");
     const raw = fs.readFileSync(filePath, "utf8");
     const data = JSON.parse(raw);
-
     const cleaned = data
       .map(d => ({ ...d, lat: +d.lat, lon: +d.lon }))
       .filter(d => Number.isFinite(d.lat) && Number.isFinite(d.lon));
-
-    // Fetch market caps in parallel
-    const results = await Promise.all(
-      cleaned.map(async (company) => {
-        try {
-          const safeTicker = normalizeTicker(company.Ticker);
-          const quote = await yahooFinance.quote(safeTicker);
-          return {
-            ...company,
-            marketCap: quote.marketCap || null
-          };
-        } catch (err) {
-          return {
-            ...company,
-            marketCap: null
-          };
-        }
-      })
-    );
-
-    res.json(results);
-
+    
+    // Don't fetch market caps on initial load - return data immediately
+    res.json(cleaned);
   } catch (err) {
     console.error("Failed to serve /data:", err);
     res.status(500).json({ error: "Failed to load companies data" });
+  }
+});
+
+// Add new endpoint for fetching market cap on demand
+app.get("/api/marketcap/:ticker", async (req, res) => {
+  try {
+    await yfReady;
+    const safeTicker = normalizeTicker(req.params.ticker);
+    const quote = await yahooFinance.quote(safeTicker);
+    res.json({ 
+      ticker: req.params.ticker,
+      marketCap: quote.marketCap || null 
+    });
+  } catch (err) {
+    res.json({ 
+      ticker: req.params.ticker,
+      marketCap: null 
+    });
   }
 });
 
@@ -117,7 +114,7 @@ app.get("/api/stock/:ticker", async (req, res) => {
 
 app.get("/api/stock-basket", async (req, res) => {
   try {
-    await yfReady;
+    await yfReady; // Make sure Yahoo Finance is loaded
     
     // Validate and normalize range
     const range = (req.query.range || "1W").toUpperCase();
@@ -140,11 +137,22 @@ app.get("/api/stock-basket", async (req, res) => {
       .filter(t => t !== "NULL" && t !== "N/A" && t !== "NA");
     
     if (!tickers.length) {
-      return res.status(400).json({ error: "tickers is required" });
+      return res.status(200).json({
+        ticker: "BASKET",
+        name: "Selection basket (0/0 tickers)",
+        range,
+        quotes: [],
+        componentsUsed: 0,
+        componentsRequested: 0,
+        components: [],
+        supportedRanges: Object.keys(RANGE_CONFIG)
+      });
     }
     
     const MAX = 30;
     const basketTickers = tickers.slice(0, MAX);
+    
+    console.log(`📊 Fetching basket data for ${basketTickers.length} tickers:`, basketTickers);
     
     // Calculate date range
     const now = new Date();
@@ -159,12 +167,17 @@ app.get("/api/stock-basket", async (req, res) => {
     const results = await Promise.allSettled(
       basketTickers.map(t =>
         yahooFinance.chart(t, { period1, period2: now, interval: config.interval })
+          .catch(err => {
+            console.log(`❌ Failed to fetch ${t}:`, err.message);
+            return null;
+          })
       )
     );
     
+    
     // Process successful results
     const series = results
-      .filter(r => r.status === "fulfilled")
+      .filter(r => r.status === "fulfilled" && r.value)
       .map(r => r.value)
       .filter(r => r?.meta?.symbol && Array.isArray(r?.quotes) && r.quotes.length)
       .map(r => {
@@ -175,7 +188,6 @@ app.get("/api/stock-basket", async (req, res) => {
           .filter(q => Number.isFinite(q.t) && Number.isFinite(q.close))
           .sort((a, b) => a.t - b.t);
         
-        // Use first close as baseline for normalization
         const baseline = quotes.length ? quotes[0].close : null;
         
         if (!baseline || !Number.isFinite(baseline) || baseline <= 0) {
@@ -186,32 +198,23 @@ app.get("/api/stock-basket", async (req, res) => {
       })
       .filter(Boolean);
     
+    
     // Helper functions
     const round4 = (v) => (v != null ? Math.round(v * 10000) / 10000 : null);
     const round2 = (v) => (v != null ? Math.round(v * 100) / 100 : null);
     
-    // Default response structure
-    const baseResponse = {
-      ticker: "BASKET",
-      name: `Selection basket (0/${basketTickers.length} tickers)`,
-      range,
-      quotes: [],
-      componentsUsed: 0,
-      componentsRequested: basketTickers.length,
-      componentsRequested: basketTickers.length,
-      components: [],
-      minContrib: 0,
-      base: 100,
-      supportedRanges: Object.keys(RANGE_CONFIG),
-      currency: null
-    };
-    
     // Return early if no valid data
     if (!series.length) {
+      console.log("⚠️ No valid series data");
       return res.status(200).json({
-        ...baseResponse,
-        components: basketTickers, // Show what was requested
-        componentsRequested: basketTickers.length
+        ticker: "BASKET",
+        name: `Selection basket (0/${basketTickers.length} tickers)`,
+        range,
+        quotes: [],
+        componentsUsed: 0,
+        componentsRequested: basketTickers.length,
+        components: basketTickers,
+        supportedRanges: Object.keys(RANGE_CONFIG)
       });
     }
     
@@ -219,7 +222,7 @@ app.get("/api/stock-basket", async (req, res) => {
     const byTime = new Map();
     for (const s of series) {
       for (const q of s.quotes) {
-        const idx = q.close / s.baseline; // normalized to baseline
+        const idx = q.close / s.baseline;
         
         if (!Number.isFinite(idx)) continue;
         
@@ -232,7 +235,7 @@ app.get("/api/stock-basket", async (req, res) => {
     
     const times = Array.from(byTime.keys()).sort((a, b) => a - b);
     
-    // Require minimum contributors at each timestamp (60% or at least 2)
+    // Require minimum contributors
     const minContrib = Math.max(2, Math.ceil(series.length * 0.6));
     
     // Build basket index (starting at 100)
@@ -257,27 +260,22 @@ app.get("/api/stock-basket", async (req, res) => {
       });
     }
     
-    // Return successful response with only tickers that had data
+    
     return res.json({
       ticker: "BASKET",
-      currency: series[0]?.meta?.currency || null,
+      currency: "USD",
       name: `Selection basket (${series.length}/${basketTickers.length} tickers)`,
       range,
       quotes,
       componentsUsed: series.length,
       componentsRequested: basketTickers.length,
-      components: series.map(s => s.symbol), // Only successful tickers
+      components: series.map(s => s.symbol),
       minContrib,
       base: 100,
-      supportedRanges: Object.keys(RANGE_CONFIG),
-      dateRange: {
-        start: period1.toISOString(),
-        end: now.toISOString()
-      }
+      supportedRanges: Object.keys(RANGE_CONFIG)
     });
     
   } catch (err) {
-    console.error("Failed to fetch basket data:", err.message);
     res.status(500).json({ 
       error: "Failed to fetch basket data",
       message: err.message 
