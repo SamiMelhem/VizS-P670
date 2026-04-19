@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Dashboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div id="dashboard">
     <h2>Company Map Dashboard</h2>
@@ -19,6 +21,15 @@
       <select id="industryFilter"></select>
       <button type="button" onclick="resetMapZoom()">Reset Zoom</button>
       <button type="button" id="heatmapToggle" class="topbar-toggle">🔥 Heat Map</button>
+      <select id="heatmapRange" class="heatmap-range-select" disabled>
+        <option value="1D">1D</option>
+        <option value="1W">1W</option>
+        <option value="1M">1M</option>
+        <option value="3M">3M</option>
+        <option value="YTD">YTD</option>
+        <option value="1Y" selected>1Y</option>
+        <option value="5Y">5Y</option>
+      </select>
     </div>
     <div id="content">
       <!-- LEFT: basket chart + aggregates -->
@@ -31,7 +42,9 @@
             <div class="panel-body">
               <!-- Range selector for basket chart - INSIDE BASKET PANEL -->
               <div class="basket-range-controls">
-                <label style="font-size: 11px; font-weight: bold; display: block; margin-bottom: 8px; text-transform: uppercase; color: #666;">Select Date Range:</label>
+                <label
+                  style="font-size: 11px; font-weight: bold; display: block; margin-bottom: 8px; text-transform: uppercase; color: #666;">Select
+                  Date Range:</label>
                 <div class="basket-range-buttons">
                   <button class="basket-range-btn" data-range="1D">1D</button>
                   <button class="basket-range-btn active" data-range="1W">1W</button>
@@ -57,7 +70,7 @@
         <div class="panel-body" style="padding:0;position:relative;">
           <svg id="map"></svg>
           <div id="heatmap-legend" class="heatmap-legend" hidden>
-            <div class="legend-title">1Y Return</div>
+            <div class="legend-title" id="heatmap-legend-title">1Y Return</div>
             <div class="legend-gradient"></div>
             <div class="legend-labels">
               <span>-50%</span><span>0%</span><span>+50%</span>
@@ -87,4 +100,5 @@
   <script src="https://cdn.jsdelivr.net/npm/topojson-client@3"></script>
   <script src="script.js"></script>
 </body>
+
 </html>

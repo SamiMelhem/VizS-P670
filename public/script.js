@@ -128,12 +128,65 @@ let currentCircles = null;
 
 // ----- HEAT MAP STATE -----
 let heatmapActive = false;
-let heatmapReturns = {};   // { "AAPL": 13.62, ... }
+let heatmapAllReturns = {};   // { "1Y": { "AAPL": 13.62 }, "1M": {...}, ... }
+let heatmapReturns = {};      // current period: { "AAPL": 13.62, ... }
+let heatmapRange = "1Y";
 let heatmapFetched = false;
 const heatmapColor = d3.scaleLinear()
   .domain([-50, 0, 50])
   .range(["#ef4444", "#555", "#22c55e"])
   .clamp(true);
+
+// State choropleth color scale (less extreme range for state averages)
+const stateColor = d3.scaleLinear()
+  .domain([-20, 0, 20])
+  .range(["#ef4444", "#555", "#22c55e"])
+  .clamp(true);
+
+// Per-period color scale ranges (dot max, state max)
+const HEATMAP_SCALE_RANGES = {
+  "1D": { dot: 3,   state: 1.5 },
+  "1W": { dot: 8,   state: 4   },
+  "1M": { dot: 15,  state: 8   },
+  "3M": { dot: 25,  state: 12  },
+  "YTD": { dot: 35,  state: 15  },
+  "1Y":  { dot: 50,  state: 20  },
+  "5Y":  { dot: 80,  state: 35  },
+};
+
+function updateHeatmapScales(range) {
+  const r = HEATMAP_SCALE_RANGES[range] || HEATMAP_SCALE_RANGES["1Y"];
+  heatmapColor.domain([-r.dot, 0, r.dot]);
+  stateColor.domain([-r.state, 0, r.state]);
+  // Update legend labels
+  const legendLabels = document.querySelector(".legend-labels");
+  if (legendLabels) {
+    const spans = legendLabels.querySelectorAll("span");
+    if (spans.length >= 3) {
+      spans[0].textContent = `-${r.dot}%`;
+      spans[2].textContent = `+${r.dot}%`;
+    }
+  }
+}
+
+// FIPS code to state name mapping for TopoJSON features
+const FIPS_TO_STATE = {
+  "01": "Alabama", "02": "Alaska", "04": "Arizona", "05": "Arkansas",
+  "06": "California", "08": "Colorado", "09": "Connecticut", "10": "Delaware",
+  "11": "District of Columbia", "12": "Florida", "13": "Georgia", "15": "Hawaii",
+  "16": "Idaho", "17": "Illinois", "18": "Indiana", "19": "Iowa",
+  "20": "Kansas", "21": "Kentucky", "22": "Louisiana", "23": "Maine",
+  "24": "Maryland", "25": "Massachusetts", "26": "Michigan", "27": "Minnesota",
+  "28": "Mississippi", "29": "Missouri", "30": "Montana", "31": "Nebraska",
+  "32": "Nevada", "33": "New Hampshire", "34": "New Jersey", "35": "New Mexico",
+  "36": "New York", "37": "North Carolina", "38": "North Dakota", "39": "Ohio",
+  "40": "Oklahoma", "41": "Oregon", "42": "Pennsylvania", "44": "Rhode Island",
+  "45": "South Carolina", "46": "South Dakota", "47": "Tennessee", "48": "Texas",
+  "49": "Utah", "50": "Vermont", "51": "Virginia", "53": "Washington",
+  "54": "West Virginia", "55": "Wisconsin", "56": "Wyoming",
+  "60": "American Samoa", "66": "Guam", "69": "Northern Mariana Islands",
+  "72": "Puerto Rico", "78": "Virgin Islands"
+};
 
 function renderStockChart(ticker, companyName, data, containerId = "stock-chart-container") {
   const container = document.getElementById(containerId);
@@ -369,8 +422,10 @@ function fetchBasketStockData(tickers, range) {
   
   if (range) selectedBasketRange = range;
   
-  const shouldRefetch = key !== selectedBasketTickersKey || !!range;
-  selectedBasketTickersKey = key;
+  // Include range in cache key so changing period always triggers refetch
+  const cacheKey = `${key}|${selectedBasketRange}`;
+  const shouldRefetch = cacheKey !== selectedBasketTickersKey;
+  selectedBasketTickersKey = cacheKey;
   
   if (!shouldRefetch) return;
   
@@ -549,13 +604,54 @@ Promise.all([
 
   const states = topojson.feature(us, us.objects.states);
   
+  // Build company → state mapping
+  const companyStateMap = {};  // ticker → state name
+  projectedCompanies.forEach(c => {
+    const loc = c["Headquarters Location"] || "";
+    const parts = loc.split(",");
+    if (parts.length >= 2) {
+      const stateName = parts[parts.length - 1].trim();
+      const ticker = (c.Ticker || "").toUpperCase();
+      if (ticker) companyStateMap[ticker] = stateName;
+    }
+  });
+
   // Draw states
-  viewport.append("g")
-    .attr("class", "states")
-    .selectAll("path")
+  const statesG = viewport.append("g")
+    .attr("class", "states");
+  const statePaths = statesG.selectAll("path")
     .data(states.features)
     .join("path")
     .attr("d", path);
+
+  // Function to color states based on heatmap returns
+  function updateStateColors() {
+    if (!heatmapActive || !Object.keys(heatmapReturns).length) {
+      statePaths.style("fill", null);
+      return;
+    }
+    // Aggregate returns by state
+    const stateReturns = {}; // state name → [returns]
+    for (const [ticker, ret] of Object.entries(heatmapReturns)) {
+      if (ret === null || ret === undefined) continue;
+      const stateName = companyStateMap[ticker];
+      if (!stateName) continue;
+      if (!stateReturns[stateName]) stateReturns[stateName] = [];
+      stateReturns[stateName].push(ret);
+    }
+
+    statePaths.each(function(d) {
+      const fips = d.id;
+      const stateName = FIPS_TO_STATE[fips];
+      const returns = stateName ? stateReturns[stateName] : null;
+      if (returns && returns.length) {
+        const avg = returns.reduce((a, b) => a + b, 0) / returns.length;
+        d3.select(this).style("fill", stateColor(avg));
+      } else {
+        d3.select(this).style("fill", null);
+      }
+    });
+  }
 
   // Populate industry dropdown
   select.selectAll("option").remove();
@@ -614,7 +710,9 @@ Promise.all([
     syncCompanySearchWidget();
     const t = String(company.Ticker || "").trim().toUpperCase();
     if (t && t !== "NULL" && t !== "N/A" && t !== "NA") {
-      fetchStockData(t, company.Name, pointsG.selectAll("circle"));
+      // When heatmap is active, use the heatmap's selected range
+      const range = heatmapActive ? heatmapRange : undefined;
+      fetchStockData(t, company.Name, pointsG.selectAll("circle"), range);
     }
   }
 
@@ -701,6 +799,12 @@ Promise.all([
       circles.style("fill", null).classed("heatmap-no-data", false);
     }
 
+    // Toggle heatmap-active class on SVG for CSS black outlines
+    svg.classed("heatmap-active", heatmapActive && Object.keys(heatmapReturns).length > 0);
+
+    // Update state choropleth colors
+    updateStateColors();
+
     circles
       .on("mouseover", (event, d) => {
         let html = d.mode === "city"
@@ -713,7 +817,7 @@ Promise.all([
             if (ret !== undefined && ret !== null) {
               const sign = ret >= 0 ? "+" : "";
               const color = ret >= 0 ? "#22c55e" : "#ef4444";
-              html += `<br/><span style="color:${color};font-weight:700">Return (1Y): ${sign}${ret.toFixed(2)}%</span>`;
+              html += `<br/><span style="color:${color};font-weight:700">Return (${heatmapRange}): ${sign}${ret.toFixed(2)}%</span>`;
             }
           } else {
             const returns = d.visible
@@ -723,7 +827,7 @@ Promise.all([
               const avg = returns.reduce((a, b) => a + b, 0) / returns.length;
               const sign = avg >= 0 ? "+" : "";
               const color = avg >= 0 ? "#22c55e" : "#ef4444";
-              html += `<br/><span style="color:${color};font-weight:700">Avg Return (1Y): ${sign}${avg.toFixed(2)}%</span>`;
+              html += `<br/><span style="color:${color};font-weight:700">Avg Return (${heatmapRange}): ${sign}${avg.toFixed(2)}%</span>`;
             }
           }
         }
@@ -913,7 +1017,12 @@ Promise.all([
         .filter(t => t && t !== "NULL" && t !== "N/A" && t !== "NA")
     ));
     console.log("Tickers to fetch:", tickers);
-    fetchBasketStockData(tickers);
+    // When heatmap is active, use the heatmap's selected range for basket chart
+    if (heatmapActive) {
+      selectedBasketRange = heatmapRange;
+      updateBasketRangeButtons(selectedBasketRange);
+    }
+    fetchBasketStockData(tickers, selectedBasketRange);
     renderAggregatePanel({
       selection: currentBrushSelection,
       selectedCompanies
@@ -1033,21 +1142,41 @@ Promise.all([
     syncCompanySearchWidget();
   });
 
-  // ----- HEAT MAP TOGGLE -----
+  // ----- HEAT MAP TOGGLE + RANGE -----
   const heatmapToggleBtn = document.getElementById("heatmapToggle");
   const heatmapLegend = document.getElementById("heatmap-legend");
+  const heatmapLegendTitle = document.getElementById("heatmap-legend-title");
+  const heatmapRangeSelect = document.getElementById("heatmapRange");
+
+  function applyHeatmapRange() {
+    heatmapRange = heatmapRangeSelect.value;
+    heatmapReturns = heatmapAllReturns[heatmapRange] || {};
+    heatmapLegendTitle.textContent = `${heatmapRange} Return`;
+    updateHeatmapScales(heatmapRange);
+    renderPoints();
+    // Re-fetch basket chart with new heatmap range if there's an active selection
+    if (currentBrushSelection) {
+      selectedBasketRange = heatmapRange;
+      updateBasketRangeButtons(selectedBasketRange);
+      updateAggregatesFromSelection();
+    }
+  }
 
   heatmapToggleBtn.addEventListener("click", () => {
     heatmapActive = !heatmapActive;
     heatmapToggleBtn.classList.toggle("active", heatmapActive);
     heatmapLegend.hidden = !heatmapActive;
+    heatmapRangeSelect.disabled = !heatmapActive;
 
     if (heatmapActive && !heatmapFetched) {
       fetch("/api/returns")
         .then(res => res.json())
         .then(data => {
-          heatmapReturns = data;
+          heatmapAllReturns = data.returns || {};
+          heatmapReturns = heatmapAllReturns[heatmapRange] || {};
           heatmapFetched = true;
+          heatmapLegendTitle.textContent = `${heatmapRange} Return`;
+          updateHeatmapScales(heatmapRange);
           renderPoints();
         })
         .catch(err => {
@@ -1055,9 +1184,16 @@ Promise.all([
           heatmapActive = false;
           heatmapToggleBtn.classList.remove("active");
           heatmapLegend.hidden = true;
+          heatmapRangeSelect.disabled = true;
         });
     } else {
       renderPoints();
+    }
+  });
+
+  heatmapRangeSelect.addEventListener("change", () => {
+    if (heatmapActive && heatmapFetched) {
+      applyHeatmapRange();
     }
   });
 

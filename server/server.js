@@ -233,8 +233,8 @@ app.get("/api/stock-basket", async (req, res) => {
     
     const times = Array.from(byTime.keys()).sort((a, b) => a - b);
     
-    // Require minimum contributors
-    const minContrib = Math.max(2, Math.ceil(series.length * 0.6));
+    // Require minimum contributors (allow single-company selections)
+    const minContrib = Math.max(1, Math.ceil(series.length * 0.6));
     
     // Build basket index (starting at 100)
     const quotes = [];
@@ -281,13 +281,13 @@ app.get("/api/stock-basket", async (req, res) => {
   }
 });
 
-// GET /api/returns — serve static 1Y return data for heat map
+// GET /api/returns — serve pre-computed returns for all time periods
 app.get("/api/returns", (req, res) => {
   try {
-    const filePath = path.join(__dirname, "returns_1y_cache.json");
+    const filePath = path.join(__dirname, "returns_cache.json");
     const raw = fs.readFileSync(filePath, "utf8");
     const data = JSON.parse(raw);
-    res.json(data.returns);
+    res.json(data);
   } catch (err) {
     console.error("Failed to serve /api/returns:", err);
     res.status(500).json({ error: "Failed to load returns data" });
