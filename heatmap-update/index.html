@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Company Headquarters Map</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://unpkg.com/topojson@3"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="dashboard">
+    <h2>Company Headquarters Map</h2>
+
+    <div id="topbar">
+      <div>
+        <label for="displayMode">Mode:</label>
+        <select id="displayMode">
+          <option value="cities">Cities</option>
+          <option value="companies">Companies</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="industryFilter">Industry:</label>
+        <select id="industryFilter">
+          <option value="All">All</option>
+        </select>
+      </div>
+
+      <button type="button" onclick="resetMapZoom()">Reset zoom</button>
+    </div>
+
+    <div id="content">
+      <div class="panel" id="map-panel">
+        <div class="panel-header">Map</div>
+        <div class="panel-body" style="padding:0;">
+          <svg id="map" width="960" height="600"></svg>
+        </div>
+      </div>
+
+      <div class="panel" id="interactions-panel">
+        <div class="panel-header">Interactions / Widgets</div>
+        <div class="panel-body">
+          <div id="widget-tabs" class="widget-tabs">
+            <button class="widget-tab active" data-tab="stock">Stock chart</button>
+            <button class="widget-tab" data-tab="heatmap">Returns heatmap</button>
+          </div>
+
+          <div id="tab-stock">
+            <div id="widget-area-1"></div>
+            <div id="stock-chart-container" style="margin-top:12px;">
+              <p class="chart-placeholder">Click a company on the map to view its stock performance</p>
+            </div>
+          </div>
+
+          <div id="tab-heatmap" style="display:none;">
+            <div class="heatmap-controls">
+              <label for="hmPeriod">Period:</label>
+              <select id="hmPeriod">
+                <option value="1W">1W</option>
+                <option value="1M" selected>1M</option>
+                <option value="3M">3M</option>
+                <option value="YTD">YTD</option>
+                <option value="1Y">1Y</option>
+              </select>
+            </div>
+            <div class="hm-legend">
+              <span class="hm-legend-label">-15%</span>
+              <div class="hm-legend-bar"></div>
+              <span class="hm-legend-label">+15%</span>
+            </div>
+            <div id="hm-grid" class="hm-grid"></div>
+            <div id="hm-detail" class="hm-detail">Click a sector to see individual stock returns.</div>
+            <ul id="hm-company-list" class="hm-company-list" style="display:none;"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="tooltip"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
