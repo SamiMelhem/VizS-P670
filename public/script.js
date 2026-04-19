@@ -258,8 +258,8 @@ function renderStockChart(ticker, companyName, data, containerId = "stock-chart-
   const activeRangeForAxis = data.range || selectedRange;
   let xTickFormat, xTickCount;
   if (activeRangeForAxis === "1D") {
-    xTickFormat = d3.timeFormat("%-I:%M %p");
-    xTickCount = 5;
+    xTickFormat = d3.timeFormat("%-I %p");
+    xTickCount = 4;
   } else if (activeRangeForAxis === "5Y") {
     xTickFormat = d3.timeFormat("%Y");
     xTickCount = 5;
@@ -375,13 +375,11 @@ function fetchStockData(ticker, companyName, circles, range) {
   if (range) selectedRange = range;
   const container = document.getElementById("stock-chart-container");
   if (isRangeSwitch) {
-    container.classList.add("chart-fetching");
+    // Just update the active button immediately, keep chart visible
     const btns = container.querySelectorAll(".range-btn");
     btns.forEach(b => {
       b.classList.toggle("active", b.textContent === selectedRange);
     });
-  } else {
-    container.innerHTML = '<p class="chart-loading">Loading stock data</p>';
   }
   if (circles) circles.classed("selected", d => d.Ticker === ticker);
   fetch(`/api/stock/${encodeURIComponent(ticker)}?range=${encodeURIComponent(selectedRange)}`)
@@ -390,11 +388,9 @@ function fetchStockData(ticker, companyName, circles, range) {
       return res.json();
     })
     .then(data => {
-      container.classList.remove("chart-fetching");
       renderStockChart(data.ticker, data.name || companyName, data);
     })
     .catch(() => {
-      container.classList.remove("chart-fetching");
       container.innerHTML = '<p class="chart-error">Failed to load stock data. Please try again.</p>';
     });
 }
@@ -428,8 +424,6 @@ function fetchBasketStockData(tickers, range) {
   selectedBasketTickersKey = cacheKey;
   
   if (!shouldRefetch) return;
-  
-  container.innerHTML = '<p class="chart-loading">Loading basket stock data</p>';
   
   const url = `/api/stock-basket?tickers=${encodeURIComponent(key)}&range=${encodeURIComponent(selectedBasketRange)}`;
   console.log("📡 Fetching basket from:", url);
@@ -543,10 +537,8 @@ function clearBrushSelection() {
 
 function companiesInSelection({ selection, mode, industry, projectedCompanies, clusters }) {
   if (!selection) return [];
-  const t = d3.zoomTransform(svg.node());
-  const [[sx0, sy0], [sx1, sy1]] = selection;
-  const [x0, y0] = t.invert([sx0, sy0]);
-  const [x1, y1] = t.invert([sx1, sy1]);
+  // Brush is inside viewport, so coords are already in data space
+  const [[x0, y0], [x1, y1]] = selection;
   const xmin = Math.min(x0, x1);
   const xmax = Math.max(x0, x1);
   const ymin = Math.min(y0, y1);
@@ -568,10 +560,8 @@ function applySelectionStyling(circles, selection) {
     circles.classed("brush-selected", false);
     return;
   }
-  const t = d3.zoomTransform(svg.node());
-  const [[sx0, sy0], [sx1, sy1]] = selection;
-  const [x0, y0] = t.invert([sx0, sy0]);
-  const [x1, y1] = t.invert([sx1, sy1]);
+  // Brush is inside viewport, so coords are already in data space
+  const [[x0, y0], [x1, y1]] = selection;
   const xmin = Math.min(x0, x1);
   const xmax = Math.max(x0, x1);
   const ymin = Math.min(y0, y1);
@@ -973,6 +963,9 @@ Promise.all([
   }
 
   // ----- BRUSH SETUP -----
+  // Place brush INSIDE viewport, between states and points, so points
+  // render on top and receive hover/click events while brush still
+  // captures drag selections in empty space.
   brushBehavior = d3.brush()
     .extent([[0, 0], [width, height]])
     .on("start", () => {
@@ -987,7 +980,9 @@ Promise.all([
       svg.call(zoom);
       svg.on("dblclick.zoom", null);
     });
-  brushG = svg.append("g").attr("class", "brush").call(brushBehavior);
+  brushG = viewport.insert("g", ".company-points")
+    .attr("class", "brush")
+    .call(brushBehavior);
 
   function updateAggregatesFromSelection() {
     const mode = modeSelect.property("value");

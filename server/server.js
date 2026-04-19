@@ -54,7 +54,7 @@ app.get("/api/marketcap/:ticker", async (req, res) => {
 });
 
 const RANGE_CONFIG = {
-  "1D": { days: 1,    interval: "5m"  },
+  "1D": { days: 5,    interval: "5m", lastDayOnly: true },
   "1W": { days: 7,    interval: "1d"  },
   "1M": { days: 30,   interval: "1d"  },
   "3M": { days: 90,   interval: "1d"  },
@@ -88,7 +88,7 @@ app.get("/api/stock/:ticker", async (req, res) => {
 
     const round2 = (v) => v != null ? Math.round(v * 100) / 100 : null;
 
-    const quotes = result.quotes
+    let quotes = result.quotes
       .filter((q) => q.close !== null)
       .map((q) => ({
         date: q.date,
@@ -98,6 +98,20 @@ app.get("/api/stock/:ticker", async (req, res) => {
         close: round2(q.close),
         volume: q.volume,
       }));
+
+    // For 1D: keep only the last trading day's regular market hours (9:30 AM ET+)
+    if (config.lastDayOnly && quotes.length) {
+      const lastDate = new Date(quotes[quotes.length - 1].date);
+      const lastDay = lastDate.toDateString();
+      quotes = quotes.filter(q => {
+        const d = new Date(q.date);
+        if (d.toDateString() !== lastDay) return false;
+        // Filter out pre-market: keep only 9:30 AM ET (14:30 UTC) onwards
+        const utcHour = d.getUTCHours();
+        const utcMin = d.getUTCMinutes();
+        return (utcHour > 14) || (utcHour === 14 && utcMin >= 30);
+      });
+    }
 
     res.json({
       ticker: result.meta.symbol,
@@ -180,12 +194,24 @@ app.get("/api/stock-basket", async (req, res) => {
       .filter(r => r?.meta?.symbol && Array.isArray(r?.quotes) && r.quotes.length)
       .map(r => {
         const symbol = r.meta.symbol.toUpperCase();
-        const quotes = r.quotes
+        let quotes = r.quotes
           .filter(q => q?.date && q.close != null)
           .map(q => ({ t: +new Date(q.date), close: Number(q.close) }))
           .filter(q => Number.isFinite(q.t) && Number.isFinite(q.close))
           .sort((a, b) => a.t - b.t);
         
+        // For 1D: keep only the last trading day's regular market hours
+        if (config.lastDayOnly && quotes.length) {
+          const lastDay = new Date(quotes[quotes.length - 1].t).toDateString();
+          quotes = quotes.filter(q => {
+            const d = new Date(q.t);
+            if (d.toDateString() !== lastDay) return false;
+            const utcHour = d.getUTCHours();
+            const utcMin = d.getUTCMinutes();
+            return (utcHour > 14) || (utcHour === 14 && utcMin >= 30);
+          });
+        }
+
         const baseline = quotes.length ? quotes[0].close : null;
         
         if (!baseline || !Number.isFinite(baseline) || baseline <= 0) {

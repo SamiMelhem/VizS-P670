@@ -8,8 +8,7 @@
     "Date added": "3/4/1957",
     "Founded": "1902",
     "lat": 44.9497487,
-    "lon": -93.0931028,
-    "marketCap": 81401487360
+    "lon": -93.0931028
   },
   {
     "Ticker": "AOS",
@@ -20,8 +19,7 @@
     "Date added": "7/26/2017",
     "Founded": "1916",
     "lat": 43.0386475,
-    "lon": -87.9090751,
-    "marketCap": 8963952640
+    "lon": -87.9090751
   },
   {
     "Ticker": "ABT",
@@ -32,8 +30,7 @@
     "Date added": "3/4/1957",
     "Founded": "1888",
     "lat": 42.327724,
-    "lon": -87.8394189,
-    "marketCap": 168225079296
+    "lon": -87.8394189
   },
   {
     "Ticker": "ABBV",
@@ -44,8 +41,7 @@
     "Date added": "12/31/2012",
     "Founded": "2013 (1888)",
     "lat": 42.327724,
-    "lon": -87.8394189,
-    "marketCap": 368574726144
+    "lon": -87.8394189
   },
   {
     "Ticker": "ACN",
@@ -56,8 +52,18 @@
     "Date added": "7/6/2011",
     "Founded": "1989",
     "lat": 53.3493795,
-    "lon": -6.2605593,
-    "marketCap": 121640747008
+    "lon": -6.2605593
+  },
+  {
+    "Ticker": "ATVI",
+    "Name": "Activision Blizzard",
+    "Industry": "Communication Services",
+    "Sub-Industry": "Interactive Home Entertainment",
+    "Headquarters Location": "Santa Monica, California",
+    "Date added": "8/31/2015",
+    "Founded": "2008",
+    "lat": 34.0194704,
+    "lon": -118.491227
   },
   {
     "Ticker": "ADM",
@@ -68,8 +74,7 @@
     "Date added": "3/4/1957",
     "Founded": "1902",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 32306247680
+    "lon": -87.6244212
   },
   {
     "Ticker": "ADBE",
@@ -80,8 +85,7 @@
     "Date added": "5/5/1997",
     "Founded": "1982",
     "lat": 37.3361663,
-    "lon": -121.890591,
-    "marketCap": 99646849024
+    "lon": -121.890591
   },
   {
     "Ticker": "ADP",
@@ -92,8 +96,7 @@
     "Date added": "3/31/1981",
     "Founded": "1949",
     "lat": 40.8206555,
-    "lon": -74.2937595,
-    "marketCap": 81079836672
+    "lon": -74.2937595
   },
   {
     "Ticker": "AAP",
@@ -104,8 +107,7 @@
     "Date added": "7/9/2015",
     "Founded": "1932",
     "lat": 35.7803977,
-    "lon": -78.6390989,
-    "marketCap": 3468326144
+    "lon": -78.6390989
   },
   {
     "Ticker": "AES",
@@ -116,8 +118,7 @@
     "Date added": "10/2/1998",
     "Founded": "1981",
     "lat": 38.8769326,
-    "lon": -77.0893094,
-    "marketCap": 10318146560
+    "lon": -77.0893094
   },
   {
     "Ticker": "AFL",
@@ -128,8 +129,7 @@
     "Date added": "5/28/1999",
     "Founded": "1955",
     "lat": 32.4610708,
-    "lon": -84.9880449,
-    "marketCap": 60021522432
+    "lon": -84.9880449
   },
   {
     "Ticker": "A",
@@ -140,8 +140,7 @@
     "Date added": "6/5/2000",
     "Founded": "1999",
     "lat": 37.3541132,
-    "lon": -121.955174,
-    "marketCap": null
+    "lon": -121.955174
   },
   {
     "Ticker": "APD",
@@ -152,8 +151,7 @@
     "Date added": "4/30/1985",
     "Founded": "1940",
     "lat": 40.6022552,
-    "lon": -75.4716115,
-    "marketCap": 64973246464
+    "lon": -75.4716115
   },
   {
     "Ticker": "AKAM",
@@ -164,8 +162,7 @@
     "Date added": "7/12/2007",
     "Founded": "1998",
     "lat": 42.3656347,
-    "lon": -71.1040018,
-    "marketCap": 14117217280
+    "lon": -71.1040018
   },
   {
     "Ticker": "ALK",
@@ -176,8 +173,7 @@
     "Date added": "5/13/2016",
     "Founded": "1985",
     "lat": 47.4449086,
-    "lon": -122.283084,
-    "marketCap": 5204721664
+    "lon": -122.283084
   },
   {
     "Ticker": "ALB",
@@ -188,8 +184,7 @@
     "Date added": "7/1/2016",
     "Founded": "1994",
     "lat": 35.2272086,
-    "lon": -80.8430827,
-    "marketCap": 23312132096
+    "lon": -80.8430827
   },
   {
     "Ticker": "ARE",
@@ -200,8 +195,7 @@
     "Date added": "3/20/2017",
     "Founded": "1994",
     "lat": 34.1476507,
-    "lon": -118.144155,
-    "marketCap": 8427597312
+    "lon": -118.144155
   },
   {
     "Ticker": "ALGN",
@@ -212,8 +206,7 @@
     "Date added": "6/19/2017",
     "Founded": "1997",
     "lat": 33.4255117,
-    "lon": -111.940016,
-    "marketCap": 13612295168
+    "lon": -111.940016
   },
   {
     "Ticker": "ALLE",
@@ -224,8 +217,7 @@
     "Date added": "12/2/2013",
     "Founded": "1908",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 12432517120
+    "lon": -74.0060152
   },
   {
     "Ticker": "LNT",
@@ -236,8 +228,7 @@
     "Date added": "7/1/2016",
     "Founded": "1917",
     "lat": 43.07469,
-    "lon": -89.3841663,
-    "marketCap": 18810275840
+    "lon": -89.3841663
   },
   {
     "Ticker": "ALL",
@@ -248,8 +239,7 @@
     "Date added": "7/13/1995",
     "Founded": "1931",
     "lat": 42.1091053,
-    "lon": -87.8293188,
-    "marketCap": 56101269504
+    "lon": -87.8293188
   },
   {
     "Ticker": "GOOGL",
@@ -260,8 +250,7 @@
     "Date added": "4/3/2014",
     "Founded": "1998",
     "lat": 37.3893889,
-    "lon": -122.0832101,
-    "marketCap": 4133303091200
+    "lon": -122.0832101
   },
   {
     "Ticker": "GOOG",
@@ -272,8 +261,7 @@
     "Date added": "4/3/2006",
     "Founded": "1998",
     "lat": 37.3893889,
-    "lon": -122.0832101,
-    "marketCap": 4105721872384
+    "lon": -122.0832101
   },
   {
     "Ticker": "MO",
@@ -284,8 +272,7 @@
     "Date added": "3/4/1957",
     "Founded": "1985",
     "lat": 37.5385087,
-    "lon": -77.43428,
-    "marketCap": 107285700608
+    "lon": -77.43428
   },
   {
     "Ticker": "AMZN",
@@ -296,8 +283,7 @@
     "Date added": "11/18/2005",
     "Founded": "1994",
     "lat": 47.6038321,
-    "lon": -122.330062,
-    "marketCap": 2694585253888
+    "lon": -122.330062
   },
   {
     "Ticker": "AMCR",
@@ -308,8 +294,7 @@
     "Date added": "6/7/2019",
     "Founded": "2019 (1860)",
     "lat": 51.460685,
-    "lon": -2.4771054,
-    "marketCap": 19378196480
+    "lon": -2.4771054
   },
   {
     "Ticker": "AMD",
@@ -320,8 +305,7 @@
     "Date added": "3/20/2017",
     "Founded": "1969",
     "lat": 37.3541132,
-    "lon": -121.955174,
-    "marketCap": 453890113536
+    "lon": -121.955174
   },
   {
     "Ticker": "AEE",
@@ -332,8 +316,7 @@
     "Date added": "9/19/1991",
     "Founded": "1902",
     "lat": 38.6254063,
-    "lon": -90.190009,
-    "marketCap": 31181584384
+    "lon": -90.190009
   },
   {
     "Ticker": "AAL",
@@ -344,8 +327,7 @@
     "Date added": "3/23/2015",
     "Founded": "1934",
     "lat": 32.753177,
-    "lon": -97.3327459,
-    "marketCap": 8438692352
+    "lon": -97.3327459
   },
   {
     "Ticker": "AEP",
@@ -356,8 +338,7 @@
     "Date added": "3/4/1957",
     "Founded": "1906",
     "lat": 39.9622601,
-    "lon": -83.0007065,
-    "marketCap": 72652693504
+    "lon": -83.0007065
   },
   {
     "Ticker": "AXP",
@@ -368,8 +349,7 @@
     "Date added": "6/30/1976",
     "Founded": "1850",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 227743006720
+    "lon": -74.0060152
   },
   {
     "Ticker": "AIG",
@@ -380,8 +360,7 @@
     "Date added": "3/31/1980",
     "Founded": "1919",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 42216513536
+    "lon": -74.0060152
   },
   {
     "Ticker": "AMT",
@@ -392,8 +371,7 @@
     "Date added": "11/19/2007",
     "Founded": "1995",
     "lat": 42.3588336,
-    "lon": -71.0578303,
-    "marketCap": 85047246848
+    "lon": -71.0578303
   },
   {
     "Ticker": "AWK",
@@ -404,8 +382,7 @@
     "Date added": "3/4/2016",
     "Founded": "1886",
     "lat": 39.9448402,
-    "lon": -75.1198911,
-    "marketCap": 25700814848
+    "lon": -75.1198911
   },
   {
     "Ticker": "AMP",
@@ -416,8 +393,18 @@
     "Date added": "10/3/2005",
     "Founded": "1894",
     "lat": 44.9772995,
-    "lon": -93.2654692,
-    "marketCap": 42383585280
+    "lon": -93.2654692
+  },
+  {
+    "Ticker": "ABC",
+    "Name": "AmerisourceBergen",
+    "Industry": "Health Care",
+    "Sub-Industry": "Health Care Distributors",
+    "Headquarters Location": "Conshohocken, Pennsylvania",
+    "Date added": "8/30/2001",
+    "Founded": "1985",
+    "lat": 40.0792766,
+    "lon": -75.3015714
   },
   {
     "Ticker": "AME",
@@ -428,8 +415,7 @@
     "Date added": "9/23/2013",
     "Founded": "1930",
     "lat": 40.0448306,
-    "lon": -75.4388053,
-    "marketCap": 54118993920
+    "lon": -75.4388053
   },
   {
     "Ticker": "AMGN",
@@ -440,8 +426,7 @@
     "Date added": "1/2/1992",
     "Founded": "1980",
     "lat": 34.1705609,
-    "lon": -118.8375937,
-    "marketCap": 191530729472
+    "lon": -118.8375937
   },
   {
     "Ticker": "APH",
@@ -452,8 +437,7 @@
     "Date added": "9/30/2008",
     "Founded": "1932",
     "lat": 41.4564233,
-    "lon": -72.8239356,
-    "marketCap": 185717784576
+    "lon": -72.8239356
   },
   {
     "Ticker": "ADI",
@@ -464,8 +448,18 @@
     "Date added": "10/12/1999",
     "Founded": "1965",
     "lat": 42.5464828,
-    "lon": -71.1736669,
-    "marketCap": 181343436800
+    "lon": -71.1736669
+  },
+  {
+    "Ticker": "ANSS",
+    "Name": "Ansys",
+    "Industry": "Information Technology",
+    "Sub-Industry": "Application Software",
+    "Headquarters Location": "Canonsburg, Pennsylvania",
+    "Date added": "6/19/2017",
+    "Founded": "1969",
+    "lat": 40.2588431,
+    "lon": -80.186732
   },
   {
     "Ticker": "AON",
@@ -476,8 +470,7 @@
     "Date added": "4/23/1996",
     "Founded": "1982 (1919)",
     "lat": 51.5074456,
-    "lon": -0.1277653,
-    "marketCap": 71315521536
+    "lon": -0.1277653
   },
   {
     "Ticker": "APA",
@@ -488,8 +481,7 @@
     "Date added": "7/28/1997",
     "Founded": "1954",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 12630531072
+    "lon": -95.3676974
   },
   {
     "Ticker": "AAPL",
@@ -500,8 +492,7 @@
     "Date added": "11/30/1982",
     "Founded": "1977",
     "lat": 37.3228934,
-    "lon": -122.0322895,
-    "marketCap": 3971820552192
+    "lon": -122.0322895
   },
   {
     "Ticker": "AMAT",
@@ -512,8 +503,7 @@
     "Date added": "3/16/1995",
     "Founded": "1967",
     "lat": 37.3541132,
-    "lon": -121.955174,
-    "marketCap": 315015495680
+    "lon": -121.955174
   },
   {
     "Ticker": "APTV",
@@ -524,8 +514,7 @@
     "Date added": "12/24/2012",
     "Founded": "1994",
     "lat": 53.3493795,
-    "lon": -6.2605593,
-    "marketCap": 14973329408
+    "lon": -6.2605593
   },
   {
     "Ticker": "ACGL",
@@ -536,8 +525,7 @@
     "Date added": "11/1/2022",
     "Founded": "1995",
     "lat": 32.2942679,
-    "lon": -64.7853167,
-    "marketCap": 34768662528
+    "lon": -64.7853167
   },
   {
     "Ticker": "ANET",
@@ -548,8 +536,7 @@
     "Date added": "8/28/2018",
     "Founded": "2004",
     "lat": 37.3541132,
-    "lon": -121.955174,
-    "marketCap": 206793392128
+    "lon": -121.955174
   },
   {
     "Ticker": "AJG",
@@ -560,8 +547,7 @@
     "Date added": "5/31/2016",
     "Founded": "1927",
     "lat": 42.0841936,
-    "lon": -88.0131275,
-    "marketCap": 56975929344
+    "lon": -88.0131275
   },
   {
     "Ticker": "AIZ",
@@ -572,8 +558,7 @@
     "Date added": "4/10/2007",
     "Founded": "1892",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 11339486208
+    "lon": -74.0060152
   },
   {
     "Ticker": "T",
@@ -584,8 +569,7 @@
     "Date added": "11/30/1983",
     "Founded": "1983 (1885)",
     "lat": 32.7762719,
-    "lon": -96.7968559,
-    "marketCap": 185585303552
+    "lon": -96.7968559
   },
   {
     "Ticker": "ATO",
@@ -596,8 +580,7 @@
     "Date added": "2/15/2019",
     "Founded": "1906",
     "lat": 32.7762719,
-    "lon": -96.7968559,
-    "marketCap": 30860980224
+    "lon": -96.7968559
   },
   {
     "Ticker": "ADSK",
@@ -608,8 +591,7 @@
     "Date added": "12/1/1989",
     "Founded": "1982",
     "lat": 37.7879363,
-    "lon": -122.4075201,
-    "marketCap": 51308240896
+    "lon": -122.4075201
   },
   {
     "Ticker": "AZO",
@@ -620,8 +602,7 @@
     "Date added": "1/2/1997",
     "Founded": "1979",
     "lat": 35.1460249,
-    "lon": -90.0517638,
-    "marketCap": 59186552832
+    "lon": -90.0517638
   },
   {
     "Ticker": "AVB",
@@ -632,8 +613,7 @@
     "Date added": "1/10/2007",
     "Founded": "1978",
     "lat": 38.8769326,
-    "lon": -77.0893094,
-    "marketCap": 24359114752
+    "lon": -77.0893094
   },
   {
     "Ticker": "AVY",
@@ -644,8 +624,7 @@
     "Date added": "12/31/1987",
     "Founded": "1990",
     "lat": 34.1469416,
-    "lon": -118.2478471,
-    "marketCap": 13266649088
+    "lon": -118.2478471
   },
   {
     "Ticker": "BKR",
@@ -656,8 +635,7 @@
     "Date added": "7/7/2017",
     "Founded": "2017",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 59287252992
+    "lon": -95.3676974
   },
   {
     "Ticker": "BALL",
@@ -668,8 +646,7 @@
     "Date added": "10/31/1984",
     "Founded": "1880",
     "lat": 39.9403995,
-    "lon": -105.05208,
-    "marketCap": 17161549824
+    "lon": -105.05208
   },
   {
     "Ticker": "BAC",
@@ -680,8 +657,7 @@
     "Date added": "6/30/1976",
     "Founded": "1998 (1923 / 1874)",
     "lat": 35.2272086,
-    "lon": -80.8430827,
-    "marketCap": 385225162752
+    "lon": -80.8430827
   },
   {
     "Ticker": "BBWI",
@@ -692,8 +668,7 @@
     "Date added": "9/30/1983",
     "Founded": "1963",
     "lat": 39.9622601,
-    "lon": -83.0007065,
-    "marketCap": 3973646336
+    "lon": -83.0007065
   },
   {
     "Ticker": "BAX",
@@ -704,8 +679,7 @@
     "Date added": "9/30/1972",
     "Founded": "1931",
     "lat": 42.1711365,
-    "lon": -87.8445119,
-    "marketCap": 9659083776
+    "lon": -87.8445119
   },
   {
     "Ticker": "BDX",
@@ -716,8 +690,7 @@
     "Date added": "9/30/1972",
     "Founded": "1897",
     "lat": 41.0167639,
-    "lon": -74.2057012,
-    "marketCap": 57438265344
+    "lon": -74.2057012
   },
   {
     "Ticker": "WRB",
@@ -728,8 +701,7 @@
     "Date added": "12/5/2019",
     "Founded": "1967",
     "lat": 41.0264862,
-    "lon": -73.6284598,
-    "marketCap": 25396815872
+    "lon": -73.6284598
   },
   {
     "Ticker": "BRK.B",
@@ -740,8 +712,7 @@
     "Date added": "2/16/2010",
     "Founded": "1839",
     "lat": 41.2587459,
-    "lon": -95.9383758,
-    "marketCap": 1023607767040
+    "lon": -95.9383758
   },
   {
     "Ticker": "BBY",
@@ -752,8 +723,7 @@
     "Date added": "6/29/1999",
     "Founded": "1966",
     "lat": 44.8766431,
-    "lon": -93.2877877,
-    "marketCap": 13772742656
+    "lon": -93.2877877
   },
   {
     "Ticker": "BIO",
@@ -764,8 +734,7 @@
     "Date added": "6/22/2020",
     "Founded": "1952",
     "lat": 38.0171441,
-    "lon": -122.2885808,
-    "marketCap": 8074253824
+    "lon": -122.2885808
   },
   {
     "Ticker": "TECH",
@@ -776,8 +745,7 @@
     "Date added": "8/30/2021",
     "Founded": "1976",
     "lat": 44.9772995,
-    "lon": -93.2654692,
-    "marketCap": 9266728960
+    "lon": -93.2654692
   },
   {
     "Ticker": "BIIB",
@@ -788,8 +756,7 @@
     "Date added": "11/13/2003",
     "Founded": "1978",
     "lat": 42.3656347,
-    "lon": -71.1040018,
-    "marketCap": 26027626496
+    "lon": -71.1040018
   },
   {
     "Ticker": "BLK",
@@ -800,8 +767,7 @@
     "Date added": "4/4/2011",
     "Founded": "1988",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 163651469312
+    "lon": -74.0060152
   },
   {
     "Ticker": "BK",
@@ -812,8 +778,7 @@
     "Date added": "3/31/1995",
     "Founded": "1784",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 92979470336
+    "lon": -74.0060152
   },
   {
     "Ticker": "BA",
@@ -824,8 +789,7 @@
     "Date added": "3/4/1957",
     "Founded": "1916",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 175541878784
+    "lon": -87.6244212
   },
   {
     "Ticker": "BKNG",
@@ -836,8 +800,7 @@
     "Date added": "11/6/2009",
     "Founded": "1996",
     "lat": 41.1175966,
-    "lon": -73.4078968,
-    "marketCap": 152039981056
+    "lon": -73.4078968
   },
   {
     "Ticker": "BWA",
@@ -848,8 +811,7 @@
     "Date added": "12/19/2011",
     "Founded": "1880",
     "lat": 42.6875323,
-    "lon": -83.2341028,
-    "marketCap": 11524334592
+    "lon": -83.2341028
   },
   {
     "Ticker": "BXP",
@@ -860,8 +822,7 @@
     "Date added": "4/3/2006",
     "Founded": "1970",
     "lat": 42.3588336,
-    "lon": -71.0578303,
-    "marketCap": 10278157312
+    "lon": -71.0578303
   },
   {
     "Ticker": "BSX",
@@ -872,8 +833,7 @@
     "Date added": "2/24/1995",
     "Founded": "1979",
     "lat": 42.3468589,
-    "lon": -71.5525188,
-    "marketCap": 95457034240
+    "lon": -71.5525188
   },
   {
     "Ticker": "BMY",
@@ -884,8 +844,7 @@
     "Date added": "3/4/1957",
     "Founded": "1989 (1887)",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 122851213312
+    "lon": -74.0060152
   },
   {
     "Ticker": "AVGO",
@@ -896,8 +855,7 @@
     "Date added": "5/8/2014",
     "Founded": "1961",
     "lat": 37.3361663,
-    "lon": -121.890591,
-    "marketCap": 1927517437952
+    "lon": -121.890591
   },
   {
     "Ticker": "BR",
@@ -908,8 +866,7 @@
     "Date added": "6/18/2018",
     "Founded": "1962",
     "lat": 40.7706572,
-    "lon": -73.7176312,
-    "marketCap": 19020699648
+    "lon": -73.7176312
   },
   {
     "Ticker": "BRO",
@@ -920,8 +877,7 @@
     "Date added": "9/20/2021",
     "Founded": "1939",
     "lat": 29.2108147,
-    "lon": -81.0228331,
-    "marketCap": 23053244416
+    "lon": -81.0228331
   },
   {
     "Ticker": "BF.B",
@@ -932,8 +888,7 @@
     "Date added": "10/31/1982",
     "Founded": "1870",
     "lat": 38.2542376,
-    "lon": -85.759407,
-    "marketCap": 13371209728
+    "lon": -85.759407
   },
   {
     "Ticker": "BG",
@@ -944,8 +899,7 @@
     "Date added": "3/15/2023",
     "Founded": "1818",
     "lat": 38.6581764,
-    "lon": -90.5680617,
-    "marketCap": 23113830400
+    "lon": -90.5680617
   },
   {
     "Ticker": "CHRW",
@@ -956,8 +910,7 @@
     "Date added": "3/2/2007",
     "Founded": "1905",
     "lat": 44.8546856,
-    "lon": -93.470786,
-    "marketCap": 21617461248
+    "lon": -93.470786
   },
   {
     "Ticker": "CDNS",
@@ -968,8 +921,7 @@
     "Date added": "9/18/2017",
     "Founded": "1988",
     "lat": 37.3361663,
-    "lon": -121.890591,
-    "marketCap": 85872910336
+    "lon": -121.890591
   },
   {
     "Ticker": "CZR",
@@ -980,8 +932,7 @@
     "Date added": "3/22/2021",
     "Founded": "1973",
     "lat": 39.5261788,
-    "lon": -119.812658,
-    "marketCap": 5555817984
+    "lon": -119.812658
   },
   {
     "Ticker": "CPT",
@@ -992,8 +943,7 @@
     "Date added": "4/4/2022",
     "Founded": "1981",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 10828721152
+    "lon": -95.3676974
   },
   {
     "Ticker": "CPB",
@@ -1004,8 +954,7 @@
     "Date added": "3/4/1957",
     "Founded": "1869",
     "lat": 39.9448402,
-    "lon": -75.1198911,
-    "marketCap": 6258095104
+    "lon": -75.1198911
   },
   {
     "Ticker": "COF",
@@ -1016,8 +965,7 @@
     "Date added": "7/1/1998",
     "Founded": "1994",
     "lat": 38.9191272,
-    "lon": -77.2229636,
-    "marketCap": 128410214400
+    "lon": -77.2229636
   },
   {
     "Ticker": "CAH",
@@ -1028,8 +976,7 @@
     "Date added": "5/27/1997",
     "Founded": "1971",
     "lat": 40.0996009,
-    "lon": -83.1135563,
-    "marketCap": 50355273728
+    "lon": -83.1135563
   },
   {
     "Ticker": "KMX",
@@ -1040,8 +987,7 @@
     "Date added": "6/28/2010",
     "Founded": "1993",
     "lat": 37.5385087,
-    "lon": -77.43428,
-    "marketCap": 5797630976
+    "lon": -77.43428
   },
   {
     "Ticker": "CCL",
@@ -1052,8 +998,7 @@
     "Date added": "12/22/1998",
     "Founded": "1972",
     "lat": 25.7741566,
-    "lon": -80.1935973,
-    "marketCap": 40473776128
+    "lon": -80.1935973
   },
   {
     "Ticker": "CARR",
@@ -1064,8 +1009,18 @@
     "Date added": "4/3/2020",
     "Founded": "2020 (1915)",
     "lat": 26.8233946,
-    "lon": -80.1386547,
-    "marketCap": 51253948416
+    "lon": -80.1386547
+  },
+  {
+    "Ticker": "CTLT",
+    "Name": "Catalent",
+    "Industry": "Health Care",
+    "Sub-Industry": "Pharmaceuticals",
+    "Headquarters Location": "Somerset, New Jersey",
+    "Date added": "9/21/2020",
+    "Founded": "2007",
+    "lat": 40.5675084,
+    "lon": -74.6189556
   },
   {
     "Ticker": "CAT",
@@ -1076,8 +1031,7 @@
     "Date added": "3/4/1957",
     "Founded": "1925",
     "lat": 32.8295183,
-    "lon": -96.9442177,
-    "marketCap": 371880001536
+    "lon": -96.9442177
   },
   {
     "Ticker": "CBOE",
@@ -1088,8 +1042,7 @@
     "Date added": "3/1/2017",
     "Founded": "1973",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 31416397824
+    "lon": -87.6244212
   },
   {
     "Ticker": "CBRE",
@@ -1100,8 +1053,7 @@
     "Date added": "11/10/2006",
     "Founded": "1906",
     "lat": 32.7762719,
-    "lon": -96.7968559,
-    "marketCap": 44719472640
+    "lon": -96.7968559
   },
   {
     "Ticker": "CDW",
@@ -1112,8 +1064,7 @@
     "Date added": "9/23/2019",
     "Founded": "1984",
     "lat": 42.1900249,
-    "lon": -87.9084039,
-    "marketCap": 17279981568
+    "lon": -87.9084039
   },
   {
     "Ticker": "CE",
@@ -1124,8 +1075,7 @@
     "Date added": "12/24/2018",
     "Founded": "1918",
     "lat": 32.8295183,
-    "lon": -96.9442177,
-    "marketCap": 6942568448
+    "lon": -96.9442177
   },
   {
     "Ticker": "CNC",
@@ -1136,8 +1086,7 @@
     "Date added": "3/30/2016",
     "Founded": "1984",
     "lat": 38.6254063,
-    "lon": -90.190009,
-    "marketCap": 18770954240
+    "lon": -90.190009
   },
   {
     "Ticker": "CNP",
@@ -1148,8 +1097,18 @@
     "Date added": "7/31/1985",
     "Founded": "1882",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 28129019904
+    "lon": -95.3676974
+  },
+  {
+    "Ticker": "CDAY",
+    "Name": "Ceridian",
+    "Industry": "Information Technology",
+    "Sub-Industry": "Application Software",
+    "Headquarters Location": "Minneapolis, Minnesota",
+    "Date added": "9/20/2021",
+    "Founded": "1992",
+    "lat": 44.9772995,
+    "lon": -93.2654692
   },
   {
     "Ticker": "CF",
@@ -1160,8 +1119,7 @@
     "Date added": "8/27/2008",
     "Founded": "1946",
     "lat": 42.1711365,
-    "lon": -87.8445119,
-    "marketCap": 17315401728
+    "lon": -87.8445119
   },
   {
     "Ticker": "CRL",
@@ -1172,8 +1130,7 @@
     "Date added": "5/14/2021",
     "Founded": "1947",
     "lat": 42.5464828,
-    "lon": -71.1736669,
-    "marketCap": 9072999424
+    "lon": -71.1736669
   },
   {
     "Ticker": "SCHW",
@@ -1184,8 +1141,7 @@
     "Date added": "6/2/1997",
     "Founded": "1971",
     "lat": 32.991226,
-    "lon": -97.1943701,
-    "marketCap": 161693974528
+    "lon": -97.1943701
   },
   {
     "Ticker": "CHTR",
@@ -1196,8 +1152,7 @@
     "Date added": "9/8/2016",
     "Founded": "1993",
     "lat": 41.0534302,
-    "lon": -73.5387341,
-    "marketCap": 29963556864
+    "lon": -73.5387341
   },
   {
     "Ticker": "CVX",
@@ -1208,8 +1163,7 @@
     "Date added": "3/4/1957",
     "Founded": "1879",
     "lat": 37.7648021,
-    "lon": -121.9544387,
-    "marketCap": 366489468928
+    "lon": -121.9544387
   },
   {
     "Ticker": "CMG",
@@ -1220,8 +1174,7 @@
     "Date added": "4/28/2011",
     "Founded": "1993",
     "lat": 33.6170092,
-    "lon": -117.9294401,
-    "marketCap": 47377223680
+    "lon": -117.9294401
   },
   {
     "Ticker": "CB",
@@ -1232,8 +1185,7 @@
     "Date added": "7/15/2010",
     "Founded": "1985",
     "lat": 47.3744489,
-    "lon": 8.5410422,
-    "marketCap": 129388011520
+    "lon": 8.5410422
   },
   {
     "Ticker": "CHD",
@@ -1244,8 +1196,7 @@
     "Date added": "12/29/2015",
     "Founded": "1847",
     "lat": 40.2688105,
-    "lon": -74.8006895,
-    "marketCap": 22948458496
+    "lon": -74.8006895
   },
   {
     "Ticker": "CI",
@@ -1256,8 +1207,7 @@
     "Date added": "6/30/1976",
     "Founded": "1982",
     "lat": 41.8313002,
-    "lon": -72.7370265,
-    "marketCap": 74431946752
+    "lon": -72.7370265
   },
   {
     "Ticker": "CINF",
@@ -1268,8 +1218,7 @@
     "Date added": "12/18/1997",
     "Founded": "1950",
     "lat": 39.7886111,
-    "lon": -82.6418883,
-    "marketCap": 25971574784
+    "lon": -82.6418883
   },
   {
     "Ticker": "CTAS",
@@ -1280,8 +1229,7 @@
     "Date added": "3/1/2001",
     "Founded": "1929",
     "lat": 39.3600586,
-    "lon": -84.309939,
-    "marketCap": 71683604480
+    "lon": -84.309939
   },
   {
     "Ticker": "CSCO",
@@ -1292,8 +1240,7 @@
     "Date added": "12/1/1993",
     "Founded": "1984",
     "lat": 37.3361663,
-    "lon": -121.890591,
-    "marketCap": 340781891584
+    "lon": -121.890591
   },
   {
     "Ticker": "C",
@@ -1304,8 +1251,7 @@
     "Date added": "5/31/1988",
     "Founded": "1998",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 231224983552
+    "lon": -74.0060152
   },
   {
     "Ticker": "CFG",
@@ -1316,8 +1262,7 @@
     "Date added": "1/29/2016",
     "Founded": "1828",
     "lat": 41.8239891,
-    "lon": -71.4128343,
-    "marketCap": 27457218560
+    "lon": -71.4128343
   },
   {
     "Ticker": "CLX",
@@ -1328,8 +1273,7 @@
     "Date added": "3/31/1969",
     "Founded": "1913",
     "lat": 37.8044557,
-    "lon": -122.271356,
-    "marketCap": 12756708352
+    "lon": -122.271356
   },
   {
     "Ticker": "CME",
@@ -1340,8 +1284,7 @@
     "Date added": "8/11/2006",
     "Founded": "1848",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 104361746432
+    "lon": -87.6244212
   },
   {
     "Ticker": "CMS",
@@ -1352,8 +1295,7 @@
     "Date added": "3/4/1957",
     "Founded": "1886",
     "lat": 42.2416466,
-    "lon": -84.425589,
-    "marketCap": 23946739712
+    "lon": -84.425589
   },
   {
     "Ticker": "KO",
@@ -1364,8 +1306,7 @@
     "Date added": "3/4/1957",
     "Founded": "1886",
     "lat": 33.7544657,
-    "lon": -84.3898151,
-    "marketCap": 325996544000
+    "lon": -84.3898151
   },
   {
     "Ticker": "CTSH",
@@ -1376,8 +1317,7 @@
     "Date added": "11/17/2006",
     "Founded": "1994",
     "lat": 40.8860164,
-    "lon": -74.0072568,
-    "marketCap": 29586227200
+    "lon": -74.0072568
   },
   {
     "Ticker": "CL",
@@ -1388,8 +1328,7 @@
     "Date added": "3/4/1957",
     "Founded": "1806",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 68845527040
+    "lon": -74.0060152
   },
   {
     "Ticker": "CMCSA",
@@ -1400,8 +1339,18 @@
     "Date added": "11/19/2002",
     "Founded": "1963",
     "lat": 39.9527237,
-    "lon": -75.1635262,
-    "marketCap": 107968593920
+    "lon": -75.1635262
+  },
+  {
+    "Ticker": "CMA",
+    "Name": "Comerica",
+    "Industry": "Financials",
+    "Sub-Industry": "Diversified Banks",
+    "Headquarters Location": "Dallas, Texas",
+    "Date added": "12/1/1995",
+    "Founded": "1849",
+    "lat": 32.7762719,
+    "lon": -96.7968559
   },
   {
     "Ticker": "CAG",
@@ -1412,8 +1361,7 @@
     "Date added": "8/31/1983",
     "Founded": "1919",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 7109575680
+    "lon": -87.6244212
   },
   {
     "Ticker": "COP",
@@ -1424,8 +1372,7 @@
     "Date added": "3/4/1957",
     "Founded": "2002",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 141840236544
+    "lon": -95.3676974
   },
   {
     "Ticker": "ED",
@@ -1436,8 +1383,7 @@
     "Date added": "3/4/1957",
     "Founded": "1823",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 40581599232
+    "lon": -74.0060152
   },
   {
     "Ticker": "STZ",
@@ -1448,8 +1394,7 @@
     "Date added": "7/1/2005",
     "Founded": "1945",
     "lat": 42.9825634,
-    "lon": -77.4088794,
-    "marketCap": 28251953152
+    "lon": -77.4088794
   },
   {
     "Ticker": "CEG",
@@ -1460,8 +1405,7 @@
     "Date added": "2/2/2022",
     "Founded": "1999",
     "lat": 39.2908816,
-    "lon": -76.610759,
-    "marketCap": 107315298304
+    "lon": -76.610759
   },
   {
     "Ticker": "COO",
@@ -1472,8 +1416,7 @@
     "Date added": "9/23/2016",
     "Founded": "1958",
     "lat": 37.7648021,
-    "lon": -121.9544387,
-    "marketCap": 13669713920
+    "lon": -121.9544387
   },
   {
     "Ticker": "CPRT",
@@ -1484,8 +1427,7 @@
     "Date added": "7/2/2018",
     "Founded": "1982",
     "lat": 32.7762719,
-    "lon": -96.7968559,
-    "marketCap": 32380190720
+    "lon": -96.7968559
   },
   {
     "Ticker": "GLW",
@@ -1496,8 +1438,7 @@
     "Date added": "2/27/1995",
     "Founded": "1851",
     "lat": 42.1435257,
-    "lon": -77.0543408,
-    "marketCap": 141204865024
+    "lon": -77.0543408
   },
   {
     "Ticker": "CTVA",
@@ -1508,8 +1449,7 @@
     "Date added": "6/3/2019",
     "Founded": "2019",
     "lat": 39.7683331,
-    "lon": -86.1583502,
-    "marketCap": 54030577664
+    "lon": -86.1583502
   },
   {
     "Ticker": "CSGP",
@@ -1520,8 +1460,7 @@
     "Date added": "9/19/2022",
     "Founded": "1987",
     "lat": 38.8950368,
-    "lon": -77.0365427,
-    "marketCap": 16834241536
+    "lon": -77.0365427
   },
   {
     "Ticker": "COST",
@@ -1532,8 +1471,7 @@
     "Date added": "10/1/1993",
     "Founded": "1976",
     "lat": 47.5348778,
-    "lon": -122.043297,
-    "marketCap": 443820572672
+    "lon": -122.043297
   },
   {
     "Ticker": "CTRA",
@@ -1544,8 +1482,7 @@
     "Date added": "6/23/2008",
     "Founded": "2021 (1989)",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 23456403456
+    "lon": -95.3676974
   },
   {
     "Ticker": "CCI",
@@ -1556,8 +1493,7 @@
     "Date added": "3/14/2012",
     "Founded": "1994",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 38710149120
+    "lon": -95.3676974
   },
   {
     "Ticker": "CSX",
@@ -1568,8 +1504,7 @@
     "Date added": "3/4/1957",
     "Founded": "1980",
     "lat": 30.3262247,
-    "lon": -81.6579179,
-    "marketCap": 80574898176
+    "lon": -81.6579179
   },
   {
     "Ticker": "CMI",
@@ -1580,8 +1515,7 @@
     "Date added": "3/31/1965",
     "Founded": "1919",
     "lat": 39.2014405,
-    "lon": -85.9213796,
-    "marketCap": 86712287232
+    "lon": -85.9213796
   },
   {
     "Ticker": "CVS",
@@ -1592,8 +1526,7 @@
     "Date added": "3/4/1957",
     "Founded": "1996",
     "lat": 42.0028761,
-    "lon": -71.5147839,
-    "marketCap": 99068018688
+    "lon": -71.5147839
   },
   {
     "Ticker": "DHI",
@@ -1604,8 +1537,7 @@
     "Date added": "6/22/2005",
     "Founded": "1978",
     "lat": 32.7355816,
-    "lon": -97.1071186,
-    "marketCap": 43609624576
+    "lon": -97.1071186
   },
   {
     "Ticker": "DHR",
@@ -1616,8 +1548,7 @@
     "Date added": "11/18/1998",
     "Founded": "1969",
     "lat": 38.8950368,
-    "lon": -77.0365427,
-    "marketCap": 137824452608
+    "lon": -77.0365427
   },
   {
     "Ticker": "DRI",
@@ -1628,8 +1559,7 @@
     "Date added": "5/31/1995",
     "Founded": "1938",
     "lat": 28.5421218,
-    "lon": -81.379045,
-    "marketCap": 23151048704
+    "lon": -81.379045
   },
   {
     "Ticker": "DVA",
@@ -1640,8 +1570,7 @@
     "Date added": "7/31/2008",
     "Founded": "1979",
     "lat": 39.7392364,
-    "lon": -104.984862,
-    "marketCap": 9887635456
+    "lon": -104.984862
   },
   {
     "Ticker": "DE",
@@ -1652,8 +1581,7 @@
     "Date added": "3/4/1957",
     "Founded": "1837",
     "lat": 41.5058344,
-    "lon": -90.5136642,
-    "marketCap": 159487557632
+    "lon": -90.5136642
   },
   {
     "Ticker": "DAL",
@@ -1664,8 +1592,7 @@
     "Date added": "9/11/2013",
     "Founded": "1929",
     "lat": 33.7544657,
-    "lon": -84.3898151,
-    "marketCap": 47119618048
+    "lon": -84.3898151
   },
   {
     "Ticker": "XRAY",
@@ -1676,8 +1603,7 @@
     "Date added": "11/14/2008",
     "Founded": "2016 (1969)",
     "lat": 35.2272086,
-    "lon": -80.8430827,
-    "marketCap": 2498864128
+    "lon": -80.8430827
   },
   {
     "Ticker": "DVN",
@@ -1688,8 +1614,7 @@
     "Date added": "8/30/2000",
     "Founded": "1971",
     "lat": 35.4729886,
-    "lon": -97.5170536,
-    "marketCap": 27486961664
+    "lon": -97.5170536
   },
   {
     "Ticker": "DXCM",
@@ -1700,8 +1625,7 @@
     "Date added": "5/12/2020",
     "Founded": "1999",
     "lat": 32.7174202,
-    "lon": -117.162772,
-    "marketCap": 24688154624
+    "lon": -117.162772
   },
   {
     "Ticker": "FANG",
@@ -1712,8 +1636,7 @@
     "Date added": "12/3/2018",
     "Founded": "2007",
     "lat": 31.83688,
-    "lon": -102.0103767,
-    "marketCap": 50712068096
+    "lon": -102.0103767
   },
   {
     "Ticker": "DLR",
@@ -1724,8 +1647,29 @@
     "Date added": "5/18/2016",
     "Founded": "2004",
     "lat": 30.2711286,
-    "lon": -97.7436995,
-    "marketCap": 71227179008
+    "lon": -97.7436995
+  },
+  {
+    "Ticker": "DFS",
+    "Name": "Discover Financial",
+    "Industry": "Financials",
+    "Sub-Industry": "Consumer Finance",
+    "Headquarters Location": "Riverwoods, Illinois",
+    "Date added": "7/2/2007",
+    "Founded": "1985",
+    "lat": 42.1676068,
+    "lon": -87.8970986
+  },
+  {
+    "Ticker": "DISH",
+    "Name": "Dish Network",
+    "Industry": "Communication Services",
+    "Sub-Industry": "Cable & Satellite",
+    "Headquarters Location": "Meridian, Colorado",
+    "Date added": "3/13/2017",
+    "Founded": "1980",
+    "lat": 39.5511538,
+    "lon": -104.849097
   },
   {
     "Ticker": "DIS",
@@ -1736,8 +1680,7 @@
     "Date added": "6/30/1976",
     "Founded": "1923",
     "lat": 34.1812089,
-    "lon": -118.307201,
-    "marketCap": 188493299712
+    "lon": -118.307201
   },
   {
     "Ticker": "DG",
@@ -1748,8 +1691,7 @@
     "Date added": "12/3/2012",
     "Founded": "1939",
     "lat": 36.3231067,
-    "lon": -86.7133302,
-    "marketCap": 27898269696
+    "lon": -86.7133302
   },
   {
     "Ticker": "DLTR",
@@ -1760,8 +1702,7 @@
     "Date added": "12/19/2011",
     "Founded": "1986",
     "lat": 36.7168315,
-    "lon": -76.2494453,
-    "marketCap": 21064517632
+    "lon": -76.2494453
   },
   {
     "Ticker": "D",
@@ -1772,8 +1713,7 @@
     "Date added": "",
     "Founded": "1983",
     "lat": 37.5385087,
-    "lon": -77.43428,
-    "marketCap": 54864977920
+    "lon": -77.43428
   },
   {
     "Ticker": "DPZ",
@@ -1784,8 +1724,7 @@
     "Date added": "5/12/2020",
     "Founded": "1960",
     "lat": 42.2813722,
-    "lon": -83.7484616,
-    "marketCap": 12511967232
+    "lon": -83.7484616
   },
   {
     "Ticker": "DOV",
@@ -1796,8 +1735,7 @@
     "Date added": "10/31/1985",
     "Founded": "1955",
     "lat": 41.7936822,
-    "lon": -88.0102281,
-    "marketCap": 29545232384
+    "lon": -88.0102281
   },
   {
     "Ticker": "DOW",
@@ -1808,8 +1746,7 @@
     "Date added": "4/1/2019",
     "Founded": "2019",
     "lat": 43.6155825,
-    "lon": -84.2472117,
-    "marketCap": 25618448384
+    "lon": -84.2472117
   },
   {
     "Ticker": "DTE",
@@ -1820,8 +1757,7 @@
     "Date added": "3/4/1957",
     "Founded": "1995",
     "lat": 42.3315509,
-    "lon": -83.0466403,
-    "marketCap": 30575970304
+    "lon": -83.0466403
   },
   {
     "Ticker": "DUK",
@@ -1832,8 +1768,7 @@
     "Date added": "6/30/1976",
     "Founded": "1904",
     "lat": 35.2272086,
-    "lon": -80.8430827,
-    "marketCap": 99635085312
+    "lon": -80.8430827
   },
   {
     "Ticker": "DD",
@@ -1844,8 +1779,7 @@
     "Date added": "4/2/2019",
     "Founded": "2017",
     "lat": 39.7459468,
-    "lon": -75.546589,
-    "marketCap": 19407683584
+    "lon": -75.546589
   },
   {
     "Ticker": "DXC",
@@ -1856,8 +1790,7 @@
     "Date added": "4/4/2017",
     "Founded": "2017",
     "lat": 38.9191272,
-    "lon": -77.2229636,
-    "marketCap": 2258517504
+    "lon": -77.2229636
   },
   {
     "Ticker": "EMN",
@@ -1868,8 +1801,7 @@
     "Date added": "1/1/1994",
     "Founded": "1920",
     "lat": 36.550238,
-    "lon": -82.5594293,
-    "marketCap": 8436736512
+    "lon": -82.5594293
   },
   {
     "Ticker": "ETN",
@@ -1880,8 +1812,7 @@
     "Date added": "3/4/1957",
     "Founded": "1911",
     "lat": 53.3493795,
-    "lon": -6.2605593,
-    "marketCap": 157771956224
+    "lon": -6.2605593
   },
   {
     "Ticker": "EBAY",
@@ -1892,8 +1823,7 @@
     "Date added": "7/22/2002",
     "Founded": "1995",
     "lat": 37.3361663,
-    "lon": -121.890591,
-    "marketCap": 47301799936
+    "lon": -121.890591
   },
   {
     "Ticker": "ECL",
@@ -1904,8 +1834,7 @@
     "Date added": "1/31/1989",
     "Founded": "1923",
     "lat": 44.9497487,
-    "lon": -93.0931028,
-    "marketCap": 77610049536
+    "lon": -93.0931028
   },
   {
     "Ticker": "EIX",
@@ -1916,8 +1845,7 @@
     "Date added": "3/4/1957",
     "Founded": "1886",
     "lat": 34.0808629,
-    "lon": -118.073219,
-    "marketCap": 27232096256
+    "lon": -118.073219
   },
   {
     "Ticker": "EW",
@@ -1928,8 +1856,7 @@
     "Date added": "4/1/2011",
     "Founded": "1958",
     "lat": 33.6856969,
-    "lon": -117.825981,
-    "marketCap": 47038992384
+    "lon": -117.825981
   },
   {
     "Ticker": "EA",
@@ -1940,8 +1867,7 @@
     "Date added": "7/22/2002",
     "Founded": "1982",
     "lat": 37.4863239,
-    "lon": -122.232523,
-    "marketCap": 51009216512
+    "lon": -122.232523
   },
   {
     "Ticker": "ELV",
@@ -1952,8 +1878,7 @@
     "Date added": "7/25/2002",
     "Founded": "2014 (1946)",
     "lat": 39.7683331,
-    "lon": -86.1583502,
-    "marketCap": 71298637824
+    "lon": -86.1583502
   },
   {
     "Ticker": "LLY",
@@ -1964,8 +1889,7 @@
     "Date added": "12/31/1970",
     "Founded": "1876",
     "lat": 39.7683331,
-    "lon": -86.1583502,
-    "marketCap": 829709287424
+    "lon": -86.1583502
   },
   {
     "Ticker": "EMR",
@@ -1976,8 +1900,7 @@
     "Date added": "3/31/1965",
     "Founded": "1890",
     "lat": 38.744707,
-    "lon": -90.3038975,
-    "marketCap": 82292916224
+    "lon": -90.3038975
   },
   {
     "Ticker": "ENPH",
@@ -1988,8 +1911,7 @@
     "Date added": "1/7/2021",
     "Founded": "2006",
     "lat": 37.5482697,
-    "lon": -121.988571,
-    "marketCap": 4280342528
+    "lon": -121.988571
   },
   {
     "Ticker": "ETR",
@@ -2000,8 +1922,7 @@
     "Date added": "3/4/1957",
     "Founded": "1913",
     "lat": 29.9561422,
-    "lon": -90.0733934,
-    "marketCap": 52884893696
+    "lon": -90.0733934
   },
   {
     "Ticker": "EOG",
@@ -2012,8 +1933,7 @@
     "Date added": "11/2/2000",
     "Founded": "1999",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 68901601280
+    "lon": -95.3676974
   },
   {
     "Ticker": "EPAM",
@@ -2024,8 +1944,7 @@
     "Date added": "12/14/2021",
     "Founded": "1993",
     "lat": 40.2294046,
-    "lon": -74.9365329,
-    "marketCap": 7110743040
+    "lon": -74.9365329
   },
   {
     "Ticker": "EQT",
@@ -2036,8 +1955,7 @@
     "Date added": "10/3/2022",
     "Founded": "1888",
     "lat": 40.4406968,
-    "lon": -80.0025666,
-    "marketCap": 36507541504
+    "lon": -80.0025666
   },
   {
     "Ticker": "EFX",
@@ -2048,8 +1966,7 @@
     "Date added": "6/19/1997",
     "Founded": "1899",
     "lat": 33.7544657,
-    "lon": -84.3898151,
-    "marketCap": 23670921216
+    "lon": -84.3898151
   },
   {
     "Ticker": "EQIX",
@@ -2060,8 +1977,7 @@
     "Date added": "3/20/2015",
     "Founded": "1998",
     "lat": 37.4863239,
-    "lon": -122.232523,
-    "marketCap": 107363500032
+    "lon": -122.232523
   },
   {
     "Ticker": "EQR",
@@ -2072,8 +1988,7 @@
     "Date added": "12/3/2001",
     "Founded": "1969",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 24395741184
+    "lon": -87.6244212
   },
   {
     "Ticker": "ESS",
@@ -2084,8 +1999,7 @@
     "Date added": "4/2/2014",
     "Founded": "1971",
     "lat": 37.496904,
-    "lon": -122.3330573,
-    "marketCap": 17629028352
+    "lon": -122.3330573
   },
   {
     "Ticker": "EL",
@@ -2096,8 +2010,7 @@
     "Date added": "1/5/2006",
     "Founded": "1946",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 27563599872
+    "lon": -74.0060152
   },
   {
     "Ticker": "ETSY",
@@ -2108,8 +2021,18 @@
     "Date added": "9/21/2020",
     "Founded": "2005",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 6109901824
+    "lon": -74.0060152
+  },
+  {
+    "Ticker": "RE",
+    "Name": "Everest Re",
+    "Industry": "Financials",
+    "Sub-Industry": "Reinsurance",
+    "Headquarters Location": "Hamilton, Bermuda",
+    "Date added": "6/19/2017",
+    "Founded": "1973",
+    "lat": 32.2942679,
+    "lon": -64.7853167
   },
   {
     "Ticker": "EVRG",
@@ -2120,8 +2043,7 @@
     "Date added": "6/5/2018",
     "Founded": "1909",
     "lat": 39.100105,
-    "lon": -94.5781416,
-    "marketCap": 18968506368
+    "lon": -94.5781416
   },
   {
     "Ticker": "ES",
@@ -2132,8 +2054,7 @@
     "Date added": "2009",
     "Founded": "1966",
     "lat": 41.764582,
-    "lon": -72.6908547,
-    "marketCap": 26027290624
+    "lon": -72.6908547
   },
   {
     "Ticker": "EXC",
@@ -2144,8 +2065,7 @@
     "Date added": "3/4/1957",
     "Founded": "2000",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 48109694976
+    "lon": -87.6244212
   },
   {
     "Ticker": "EXPE",
@@ -2156,8 +2076,7 @@
     "Date added": "10/2/2007",
     "Founded": "1996",
     "lat": 47.6038321,
-    "lon": -122.330062,
-    "marketCap": 32574670848
+    "lon": -122.330062
   },
   {
     "Ticker": "EXPD",
@@ -2168,8 +2087,7 @@
     "Date added": "10/10/2007",
     "Founded": "1979",
     "lat": 47.6038321,
-    "lon": -122.330062,
-    "marketCap": 19665092608
+    "lon": -122.330062
   },
   {
     "Ticker": "EXR",
@@ -2180,8 +2098,7 @@
     "Date added": "1/19/2016",
     "Founded": "1977",
     "lat": 40.7596198,
-    "lon": -111.886797,
-    "marketCap": 32070821888
+    "lon": -111.886797
   },
   {
     "Ticker": "XOM",
@@ -2192,8 +2109,7 @@
     "Date added": "3/4/1957",
     "Founded": "1999",
     "lat": 32.8295183,
-    "lon": -96.9442177,
-    "marketCap": 608686571520
+    "lon": -96.9442177
   },
   {
     "Ticker": "FFIV",
@@ -2204,8 +2120,7 @@
     "Date added": "12/20/2010",
     "Founded": "1996",
     "lat": 47.6038321,
-    "lon": -122.330062,
-    "marketCap": 17660864512
+    "lon": -122.330062
   },
   {
     "Ticker": "FDS",
@@ -2216,8 +2131,7 @@
     "Date added": "12/20/2021",
     "Founded": "1978",
     "lat": 41.1175966,
-    "lon": -73.4078968,
-    "marketCap": 8634110976
+    "lon": -73.4078968
   },
   {
     "Ticker": "FAST",
@@ -2228,8 +2142,7 @@
     "Date added": "9/15/2008",
     "Founded": "1967",
     "lat": 43.9582272,
-    "lon": -91.7807784,
-    "marketCap": 52570480640
+    "lon": -91.7807784
   },
   {
     "Ticker": "FRT",
@@ -2240,8 +2153,7 @@
     "Date added": "2/1/2016",
     "Founded": "1962",
     "lat": 39.0817985,
-    "lon": -77.1516844,
-    "marketCap": 9780817920
+    "lon": -77.1516844
   },
   {
     "Ticker": "FDX",
@@ -2252,8 +2164,7 @@
     "Date added": "12/31/1980",
     "Founded": "1971",
     "lat": 35.1460249,
-    "lon": -90.0517638,
-    "marketCap": 93624516608
+    "lon": -90.0517638
   },
   {
     "Ticker": "FITB",
@@ -2264,8 +2175,18 @@
     "Date added": "3/29/1996",
     "Founded": "1858",
     "lat": 39.1014537,
-    "lon": -84.5124602,
-    "marketCap": 45599129600
+    "lon": -84.5124602
+  },
+  {
+    "Ticker": "FRC",
+    "Name": "First Republic Bank",
+    "Industry": "Financials",
+    "Sub-Industry": "Regional Banks",
+    "Headquarters Location": "San Francisco, California",
+    "Date added": "1/2/2019",
+    "Founded": "1985",
+    "lat": 37.7879363,
+    "lon": -122.4075201
   },
   {
     "Ticker": "FSLR",
@@ -2276,8 +2197,7 @@
     "Date added": "12/19/2022",
     "Founded": "1999",
     "lat": 33.4255117,
-    "lon": -111.940016,
-    "marketCap": 20462923776
+    "lon": -111.940016
   },
   {
     "Ticker": "FE",
@@ -2288,8 +2208,7 @@
     "Date added": "11/28/1997",
     "Founded": "1997",
     "lat": 41.083064,
-    "lon": -81.518485,
-    "marketCap": 28977772544
+    "lon": -81.518485
   },
   {
     "Ticker": "FIS",
@@ -2300,8 +2219,7 @@
     "Date added": "11/10/2006",
     "Founded": "1968",
     "lat": 30.3262247,
-    "lon": -81.6579179,
-    "marketCap": 25115760640
+    "lon": -81.6579179
   },
   {
     "Ticker": "FISV",
@@ -2312,8 +2230,18 @@
     "Date added": "4/2/2001",
     "Founded": "1984",
     "lat": 43.0615578,
-    "lon": -88.1260678,
-    "marketCap": 34209718272
+    "lon": -88.1260678
+  },
+  {
+    "Ticker": "FLT",
+    "Name": "Fleetcor",
+    "Industry": "Information Technology",
+    "Sub-Industry": "Data Processing & Outsourced Services",
+    "Headquarters Location": "Atlanta, Georgia",
+    "Date added": "6/20/2018",
+    "Founded": "2000",
+    "lat": 33.7544657,
+    "lon": -84.3898151
   },
   {
     "Ticker": "FMC",
@@ -2324,8 +2252,7 @@
     "Date added": "8/19/2009",
     "Founded": "1883",
     "lat": 39.9527237,
-    "lon": -75.1635262,
-    "marketCap": 2147023232
+    "lon": -75.1635262
   },
   {
     "Ticker": "F",
@@ -2336,8 +2263,7 @@
     "Date added": "3/4/1957",
     "Founded": "1903",
     "lat": 42.3222599,
-    "lon": -83.1763145,
-    "marketCap": 51622629376
+    "lon": -83.1763145
   },
   {
     "Ticker": "FTNT",
@@ -2348,8 +2274,7 @@
     "Date added": "10/11/2018",
     "Founded": "2000",
     "lat": 37.3688301,
-    "lon": -122.036349,
-    "marketCap": 60860162048
+    "lon": -122.036349
   },
   {
     "Ticker": "FTV",
@@ -2360,8 +2285,7 @@
     "Date added": "7/1/2016",
     "Founded": "2016",
     "lat": 47.9793437,
-    "lon": -122.2127011,
-    "marketCap": 19221856256
+    "lon": -122.2127011
   },
   {
     "Ticker": "FOXA",
@@ -2372,8 +2296,7 @@
     "Date added": "7/1/2013",
     "Founded": "2019",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 27680522240
+    "lon": -74.0060152
   },
   {
     "Ticker": "FOX",
@@ -2384,8 +2307,7 @@
     "Date added": "9/18/2015",
     "Founded": "2019",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 27324958720
+    "lon": -74.0060152
   },
   {
     "Ticker": "BEN",
@@ -2396,8 +2318,7 @@
     "Date added": "4/30/1998",
     "Founded": "1947",
     "lat": 37.496904,
-    "lon": -122.3330573,
-    "marketCap": 14218323968
+    "lon": -122.3330573
   },
   {
     "Ticker": "FCX",
@@ -2408,8 +2329,7 @@
     "Date added": "",
     "Founded": "1912",
     "lat": 33.4484367,
-    "lon": -112.074141,
-    "marketCap": 100905926656
+    "lon": -112.074141
   },
   {
     "Ticker": "GRMN",
@@ -2420,8 +2340,7 @@
     "Date added": "12/12/2012",
     "Founded": "1989",
     "lat": 47.6960491,
-    "lon": 8.634513,
-    "marketCap": 51473227776
+    "lon": 8.634513
   },
   {
     "Ticker": "IT",
@@ -2432,8 +2351,7 @@
     "Date added": "4/5/2017",
     "Founded": "1979",
     "lat": 41.0534302,
-    "lon": -73.5387341,
-    "marketCap": 10893024256
+    "lon": -73.5387341
   },
   {
     "Ticker": "GEHC",
@@ -2444,8 +2362,7 @@
     "Date added": "1/4/2023",
     "Founded": "1994",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 34066624512
+    "lon": -87.6244212
   },
   {
     "Ticker": "GEN",
@@ -2456,8 +2373,7 @@
     "Date added": "3/25/2003",
     "Founded": "1982",
     "lat": 33.4255117,
-    "lon": -111.940016,
-    "marketCap": 12408328192
+    "lon": -111.940016
   },
   {
     "Ticker": "GNRC",
@@ -2468,8 +2384,7 @@
     "Date added": "3/22/2021",
     "Founded": "1959",
     "lat": 43.0622536,
-    "lon": -88.3123889,
-    "marketCap": 12446891008
+    "lon": -88.3123889
   },
   {
     "Ticker": "GD",
@@ -2480,8 +2395,7 @@
     "Date added": "3/4/1957",
     "Founded": "1899",
     "lat": 38.882334,
-    "lon": -77.1710914,
-    "marketCap": 91082752000
+    "lon": -77.1710914
   },
   {
     "Ticker": "GE",
@@ -2492,8 +2406,7 @@
     "Date added": "3/4/1957",
     "Founded": "1892",
     "lat": 42.3588336,
-    "lon": -71.0578303,
-    "marketCap": 320800555008
+    "lon": -71.0578303
   },
   {
     "Ticker": "GIS",
@@ -2504,8 +2417,7 @@
     "Date added": "3/4/1957",
     "Founded": "1856",
     "lat": 44.9861176,
-    "lon": -93.3784618,
-    "marketCap": 18945683456
+    "lon": -93.3784618
   },
   {
     "Ticker": "GM",
@@ -2516,8 +2428,7 @@
     "Date added": "6/6/2013",
     "Founded": "1908",
     "lat": 42.3315509,
-    "lon": -83.0466403,
-    "marketCap": 75860279296
+    "lon": -83.0466403
   },
   {
     "Ticker": "GPC",
@@ -2528,8 +2439,7 @@
     "Date added": "12/31/1973",
     "Founded": "1925",
     "lat": 33.7544657,
-    "lon": -84.3898151,
-    "marketCap": 15830705152
+    "lon": -84.3898151
   },
   {
     "Ticker": "GILD",
@@ -2540,8 +2450,7 @@
     "Date added": "7/1/2004",
     "Founded": "1987",
     "lat": 37.5600336,
-    "lon": -122.2688522,
-    "marketCap": 170839277568
+    "lon": -122.2688522
   },
   {
     "Ticker": "GL",
@@ -2552,8 +2461,7 @@
     "Date added": "4/30/1989",
     "Founded": "1900",
     "lat": 33.1976496,
-    "lon": -96.6154471,
-    "marketCap": 11941834752
+    "lon": -96.6154471
   },
   {
     "Ticker": "GPN",
@@ -2564,8 +2472,7 @@
     "Date added": "4/25/2016",
     "Founded": "2000",
     "lat": 33.7544657,
-    "lon": -84.3898151,
-    "marketCap": 20256458752
+    "lon": -84.3898151
   },
   {
     "Ticker": "GS",
@@ -2576,8 +2483,7 @@
     "Date added": "7/22/2002",
     "Founded": "1869",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 274778374144
+    "lon": -74.0060152
   },
   {
     "Ticker": "HAL",
@@ -2588,8 +2494,7 @@
     "Date added": "3/4/1957",
     "Founded": "1919",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 31114921984
+    "lon": -95.3676974
   },
   {
     "Ticker": "HIG",
@@ -2600,8 +2505,7 @@
     "Date added": "3/4/1957",
     "Founded": "1810",
     "lat": 41.764582,
-    "lon": -72.6908547,
-    "marketCap": 38576713728
+    "lon": -72.6908547
   },
   {
     "Ticker": "HAS",
@@ -2612,8 +2516,7 @@
     "Date added": "9/30/1984",
     "Founded": "1923",
     "lat": 41.8789531,
-    "lon": -71.3821203,
-    "marketCap": 13667621888
+    "lon": -71.3821203
   },
   {
     "Ticker": "HCA",
@@ -2624,8 +2527,18 @@
     "Date added": "1/27/2015",
     "Founded": "1968",
     "lat": 36.1622767,
-    "lon": -86.7742984,
-    "marketCap": 109127639040
+    "lon": -86.7742984
+  },
+  {
+    "Ticker": "PEAK",
+    "Name": "Healthpeak",
+    "Industry": "Real Estate",
+    "Sub-Industry": "Health Care REITs",
+    "Headquarters Location": "Long Beach, California",
+    "Date added": "3/31/2008",
+    "Founded": "1985",
+    "lat": 33.7690164,
+    "lon": -118.191604
   },
   {
     "Ticker": "HSIC",
@@ -2636,8 +2549,7 @@
     "Date added": "3/17/2015",
     "Founded": "1932",
     "lat": 40.7835914,
-    "lon": -73.4075575,
-    "marketCap": 9045588992
+    "lon": -73.4075575
   },
   {
     "Ticker": "HSY",
@@ -2648,8 +2560,18 @@
     "Date added": "3/4/1957",
     "Founded": "1894",
     "lat": 40.2850285,
-    "lon": -76.6534662,
-    "marketCap": 39044362240
+    "lon": -76.6534662
+  },
+  {
+    "Ticker": "HES",
+    "Name": "Hess Corporation",
+    "Industry": "Energy",
+    "Sub-Industry": "Integrated Oil & Gas",
+    "Headquarters Location": "New York City, New York",
+    "Date added": "5/31/1984",
+    "Founded": "1919",
+    "lat": 40.7127281,
+    "lon": -74.0060152
   },
   {
     "Ticker": "HPE",
@@ -2660,8 +2582,7 @@
     "Date added": "11/2/2015",
     "Founded": "2015",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 35133698048
+    "lon": -95.3676974
   },
   {
     "Ticker": "HLT",
@@ -2672,8 +2593,7 @@
     "Date added": "6/19/2017",
     "Founded": "1919",
     "lat": 38.9191272,
-    "lon": -77.2229636,
-    "marketCap": 78195318784
+    "lon": -77.2229636
   },
   {
     "Ticker": "HOLX",
@@ -2684,8 +2604,7 @@
     "Date added": "3/30/2016",
     "Founded": "1985",
     "lat": 42.3468589,
-    "lon": -71.5525188,
-    "marketCap": null
+    "lon": -71.5525188
   },
   {
     "Ticker": "HD",
@@ -2696,8 +2615,7 @@
     "Date added": "3/31/1988",
     "Founded": "1978",
     "lat": 33.7544657,
-    "lon": -84.3898151,
-    "marketCap": 348012052480
+    "lon": -84.3898151
   },
   {
     "Ticker": "HON",
@@ -2708,8 +2626,7 @@
     "Date added": "3/4/1957",
     "Founded": "1906",
     "lat": 35.2272086,
-    "lon": -80.8430827,
-    "marketCap": 147989692416
+    "lon": -80.8430827
   },
   {
     "Ticker": "HRL",
@@ -2720,8 +2637,7 @@
     "Date added": "3/4/2009",
     "Founded": "1891",
     "lat": 43.6679992,
-    "lon": -92.9746498,
-    "marketCap": 11660522496
+    "lon": -92.9746498
   },
   {
     "Ticker": "HST",
@@ -2732,8 +2648,7 @@
     "Date added": "3/20/2007",
     "Founded": "1993",
     "lat": 38.9812726,
-    "lon": -77.1233587,
-    "marketCap": 14711695360
+    "lon": -77.1233587
   },
   {
     "Ticker": "HWM",
@@ -2744,8 +2659,7 @@
     "Date added": "3/4/1957",
     "Founded": "2016",
     "lat": 40.4406968,
-    "lon": -80.0025666,
-    "marketCap": 102516367360
+    "lon": -80.0025666
   },
   {
     "Ticker": "HPQ",
@@ -2756,8 +2670,7 @@
     "Date added": "12/31/1974",
     "Founded": "1939 (2015)",
     "lat": 37.4443293,
-    "lon": -122.1598465,
-    "marketCap": 18249531392
+    "lon": -122.1598465
   },
   {
     "Ticker": "HUM",
@@ -2768,8 +2681,7 @@
     "Date added": "",
     "Founded": "1961",
     "lat": 38.2542376,
-    "lon": -85.759407,
-    "marketCap": 24739057664
+    "lon": -85.759407
   },
   {
     "Ticker": "HBAN",
@@ -2778,8 +2690,7 @@
     "Sub-Industry": "Regional Banks",
     "Headquarters Location": "Columbus, Ohio;�Detroit, Michigan",
     "Date added": "8/28/1997",
-    "Founded": "1866",
-    "marketCap": 34325467136
+    "Founded": "1866"
   },
   {
     "Ticker": "HII",
@@ -2790,8 +2701,7 @@
     "Date added": "1/3/2018",
     "Founded": "2011",
     "lat": 36.9775016,
-    "lon": -76.42977,
-    "marketCap": 15546501120
+    "lon": -76.42977
   },
   {
     "Ticker": "IBM",
@@ -2802,8 +2712,7 @@
     "Date added": "3/4/1957",
     "Founded": "1911",
     "lat": 41.132973,
-    "lon": -73.7126064,
-    "marketCap": 237858553856
+    "lon": -73.7126064
   },
   {
     "Ticker": "IEX",
@@ -2814,8 +2723,7 @@
     "Date added": "8/9/2019",
     "Founded": "1988",
     "lat": 42.2586461,
-    "lon": -87.8407055,
-    "marketCap": 15309704192
+    "lon": -87.8407055
   },
   {
     "Ticker": "IDXX",
@@ -2826,8 +2734,7 @@
     "Date added": "1/5/2017",
     "Founded": "1983",
     "lat": 43.6763036,
-    "lon": -70.3663874,
-    "marketCap": 46918459392
+    "lon": -70.3663874
   },
   {
     "Ticker": "ITW",
@@ -2838,8 +2745,7 @@
     "Date added": "2/28/1986",
     "Founded": "1912",
     "lat": 42.0700662,
-    "lon": -87.8114044,
-    "marketCap": 78465335296
+    "lon": -87.8114044
   },
   {
     "Ticker": "ILMN",
@@ -2850,8 +2756,7 @@
     "Date added": "11/19/2015",
     "Founded": "1998",
     "lat": 32.7174202,
-    "lon": -117.162772,
-    "marketCap": 20565049344
+    "lon": -117.162772
   },
   {
     "Ticker": "INCY",
@@ -2862,8 +2767,7 @@
     "Date added": "2/28/2017",
     "Founded": "1991",
     "lat": 39.7459468,
-    "lon": -75.546589,
-    "marketCap": 19467595776
+    "lon": -75.546589
   },
   {
     "Ticker": "IR",
@@ -2874,8 +2778,7 @@
     "Date added": "3/3/2020",
     "Founded": "1859",
     "lat": 35.7902384,
-    "lon": -80.2115053,
-    "marketCap": 33900474368
+    "lon": -80.2115053
   },
   {
     "Ticker": "PODD",
@@ -2886,8 +2789,7 @@
     "Date added": "3/15/2023",
     "Founded": "2000",
     "lat": 42.4850931,
-    "lon": -71.43284,
-    "marketCap": 14341745664
+    "lon": -71.43284
   },
   {
     "Ticker": "INTC",
@@ -2898,8 +2800,7 @@
     "Date added": "12/31/1976",
     "Founded": "1968",
     "lat": 37.3541132,
-    "lon": -121.955174,
-    "marketCap": 343939219456
+    "lon": -121.955174
   },
   {
     "Ticker": "ICE",
@@ -2910,8 +2811,7 @@
     "Date added": "9/26/2007",
     "Founded": "2000",
     "lat": 33.7544657,
-    "lon": -84.3898151,
-    "marketCap": 91567636480
+    "lon": -84.3898151
   },
   {
     "Ticker": "IFF",
@@ -2922,8 +2822,7 @@
     "Date added": "3/31/1976",
     "Founded": "1958 (1889)",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 19385630720
+    "lon": -74.0060152
   },
   {
     "Ticker": "IP",
@@ -2934,8 +2833,18 @@
     "Date added": "3/4/1957",
     "Founded": "1898",
     "lat": 35.1460249,
-    "lon": -90.0517638,
-    "marketCap": 19659823104
+    "lon": -90.0517638
+  },
+  {
+    "Ticker": "IPG",
+    "Name": "Interpublic Group of Companies (The)",
+    "Industry": "Communication Services",
+    "Sub-Industry": "Advertising",
+    "Headquarters Location": "New York City, New York",
+    "Date added": "10/1/1992",
+    "Founded": "1961 (1930)",
+    "lat": 40.7127281,
+    "lon": -74.0060152
   },
   {
     "Ticker": "INTU",
@@ -2946,8 +2855,7 @@
     "Date added": "12/5/2000",
     "Founded": "1983",
     "lat": 37.3893889,
-    "lon": -122.0832101,
-    "marketCap": 109431283712
+    "lon": -122.0832101
   },
   {
     "Ticker": "ISRG",
@@ -2958,8 +2866,7 @@
     "Date added": "6/2/2008",
     "Founded": "1995",
     "lat": 37.3688301,
-    "lon": -122.036349,
-    "marketCap": 166649167872
+    "lon": -122.036349
   },
   {
     "Ticker": "IVZ",
@@ -2970,8 +2877,7 @@
     "Date added": "8/21/2008",
     "Founded": "1935",
     "lat": 33.7544657,
-    "lon": -84.3898151,
-    "marketCap": 11023418368
+    "lon": -84.3898151
   },
   {
     "Ticker": "INVH",
@@ -2982,8 +2888,7 @@
     "Date added": "9/19/2022",
     "Founded": "2012",
     "lat": 32.7762719,
-    "lon": -96.7968559,
-    "marketCap": 16471706624
+    "lon": -96.7968559
   },
   {
     "Ticker": "IQV",
@@ -2994,8 +2899,7 @@
     "Date added": "8/29/2017",
     "Founded": "1982",
     "lat": 35.996653,
-    "lon": -78.9018053,
-    "marketCap": 29945264128
+    "lon": -78.9018053
   },
   {
     "Ticker": "IRM",
@@ -3006,8 +2910,7 @@
     "Date added": "1/6/2009",
     "Founded": "1951",
     "lat": 42.3588336,
-    "lon": -71.0578303,
-    "marketCap": 35123322880
+    "lon": -71.0578303
   },
   {
     "Ticker": "JBHT",
@@ -3018,8 +2921,7 @@
     "Date added": "7/1/2015",
     "Founded": "1961",
     "lat": 36.2553543,
-    "lon": -94.1307587,
-    "marketCap": 23185567744
+    "lon": -94.1307587
   },
   {
     "Ticker": "JKHY",
@@ -3030,8 +2932,7 @@
     "Date added": "11/13/2018",
     "Founded": "1976",
     "lat": 36.9215543,
-    "lon": -93.9231864,
-    "marketCap": 11150420992
+    "lon": -93.9231864
   },
   {
     "Ticker": "J",
@@ -3042,8 +2943,7 @@
     "Date added": "10/26/2007",
     "Founded": "1947",
     "lat": 32.7762719,
-    "lon": -96.7968559,
-    "marketCap": 15225124864
+    "lon": -96.7968559
   },
   {
     "Ticker": "JNJ",
@@ -3054,8 +2954,7 @@
     "Date added": "6/30/1973",
     "Founded": "1886",
     "lat": 40.4951365,
-    "lon": -74.4439254,
-    "marketCap": 564350156800
+    "lon": -74.4439254
   },
   {
     "Ticker": "JCI",
@@ -3066,8 +2965,7 @@
     "Date added": "8/27/2010",
     "Founded": "1885",
     "lat": 51.8985136,
-    "lon": -8.4726423,
-    "marketCap": 86221758464
+    "lon": -8.4726423
   },
   {
     "Ticker": "JPM",
@@ -3078,8 +2976,29 @@
     "Date added": "6/30/1975",
     "Founded": "2000 (1799 / 1871)",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 836862214144
+    "lon": -74.0060152
+  },
+  {
+    "Ticker": "JNPR",
+    "Name": "Juniper Networks",
+    "Industry": "Information Technology",
+    "Sub-Industry": "Communications Equipment",
+    "Headquarters Location": "Sunnyvale, California",
+    "Date added": "6/2/2006",
+    "Founded": "1996",
+    "lat": 37.3688301,
+    "lon": -122.036349
+  },
+  {
+    "Ticker": "K",
+    "Name": "Kellogg's",
+    "Industry": "Consumer Staples",
+    "Sub-Industry": "Packaged Foods & Meats",
+    "Headquarters Location": "Battle Creek, Michigan",
+    "Date added": "9/11/1989",
+    "Founded": "1906",
+    "lat": 42.3192548,
+    "lon": -85.1824269
   },
   {
     "Ticker": "KDP",
@@ -3090,8 +3009,7 @@
     "Date added": "6/21/2022",
     "Founded": "1981",
     "lat": 42.5048167,
-    "lon": -71.1956111,
-    "marketCap": 36045414400
+    "lon": -71.1956111
   },
   {
     "Ticker": "KEY",
@@ -3102,8 +3020,7 @@
     "Date added": "3/1/1994",
     "Founded": "1825",
     "lat": 41.4996574,
-    "lon": -81.6936772,
-    "marketCap": 23702988800
+    "lon": -81.6936772
   },
   {
     "Ticker": "KEYS",
@@ -3114,8 +3031,7 @@
     "Date added": "11/6/2018",
     "Founded": "2014 (1939)",
     "lat": 38.4404925,
-    "lon": -122.7141049,
-    "marketCap": 57345249280
+    "lon": -122.7141049
   },
   {
     "Ticker": "KMB",
@@ -3126,8 +3042,7 @@
     "Date added": "3/4/1957",
     "Founded": "1872",
     "lat": 32.8295183,
-    "lon": -96.9442177,
-    "marketCap": 32807540736
+    "lon": -96.9442177
   },
   {
     "Ticker": "KIM",
@@ -3138,8 +3053,7 @@
     "Date added": "4/4/2006",
     "Founded": "1958",
     "lat": 40.7352157,
-    "lon": -73.6883239,
-    "marketCap": 16313814016
+    "lon": -73.6883239
   },
   {
     "Ticker": "KMI",
@@ -3150,8 +3064,7 @@
     "Date added": "5/25/2012",
     "Founded": "1997",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 71238705152
+    "lon": -95.3676974
   },
   {
     "Ticker": "KLAC",
@@ -3162,8 +3075,7 @@
     "Date added": "9/30/1997",
     "Founded": "1975/1977 (1997)",
     "lat": 37.4332273,
-    "lon": -121.8989248,
-    "marketCap": 235381473280
+    "lon": -121.8989248
   },
   {
     "Ticker": "KHC",
@@ -3172,8 +3084,7 @@
     "Sub-Industry": "Packaged Foods & Meats",
     "Headquarters Location": "Chicago, Illinois;�Pittsburgh, Pennsylvania",
     "Date added": "7/6/2015",
-    "Founded": "2015 (1869)",
-    "marketCap": 26598744064
+    "Founded": "2015 (1869)"
   },
   {
     "Ticker": "KR",
@@ -3184,8 +3095,7 @@
     "Date added": "3/4/1957",
     "Founded": "1883",
     "lat": 39.1014537,
-    "lon": -84.5124602,
-    "marketCap": 43153985536
+    "lon": -84.5124602
   },
   {
     "Ticker": "LHX",
@@ -3196,8 +3106,7 @@
     "Date added": "9/22/2008",
     "Founded": "2019 (1895)",
     "lat": 28.0785034,
-    "lon": -80.6077908,
-    "marketCap": 65440436224
+    "lon": -80.6077908
   },
   {
     "Ticker": "LH",
@@ -3208,8 +3117,7 @@
     "Date added": "11/1/2004",
     "Founded": "1978",
     "lat": 36.0956918,
-    "lon": -79.4377991,
-    "marketCap": 22304030720
+    "lon": -79.4377991
   },
   {
     "Ticker": "LRCX",
@@ -3220,8 +3128,7 @@
     "Date added": "6/29/2012",
     "Founded": "1980",
     "lat": 37.5482697,
-    "lon": -121.988571,
-    "marketCap": 336113631232
+    "lon": -121.988571
   },
   {
     "Ticker": "LW",
@@ -3232,8 +3139,7 @@
     "Date added": "12/3/2018",
     "Founded": "2016 (1950)",
     "lat": 43.6954424,
-    "lon": -116.3540138,
-    "marketCap": 6224596480
+    "lon": -116.3540138
   },
   {
     "Ticker": "LVS",
@@ -3244,8 +3150,7 @@
     "Date added": "10/3/2019",
     "Founded": "1988",
     "lat": 36.1674263,
-    "lon": -115.1484131,
-    "marketCap": 38728933376
+    "lon": -115.1484131
   },
   {
     "Ticker": "LDOS",
@@ -3256,8 +3161,7 @@
     "Date added": "8/9/2019",
     "Founded": "1969",
     "lat": 38.953282,
-    "lon": -77.3464516,
-    "marketCap": 19612352512
+    "lon": -77.3464516
   },
   {
     "Ticker": "LEN",
@@ -3268,8 +3172,7 @@
     "Date added": "10/4/2005",
     "Founded": "1954",
     "lat": 25.7741566,
-    "lon": -80.1935973,
-    "marketCap": 22854019072
+    "lon": -80.1935973
   },
   {
     "Ticker": "LNC",
@@ -3280,8 +3183,7 @@
     "Date added": "6/30/1976",
     "Founded": "1905",
     "lat": 40.0463001,
-    "lon": -75.3595487,
-    "marketCap": 7053727744
+    "lon": -75.3595487
   },
   {
     "Ticker": "LIN",
@@ -3292,8 +3194,7 @@
     "Date added": "7/1/1992",
     "Founded": "1879",
     "lat": 51.2356068,
-    "lon": -0.5732063,
-    "marketCap": 228096507904
+    "lon": -0.5732063
   },
   {
     "Ticker": "LYV",
@@ -3304,8 +3205,7 @@
     "Date added": "12/23/2019",
     "Founded": "2010",
     "lat": 34.0696501,
-    "lon": -118.3963062,
-    "marketCap": 36760588288
+    "lon": -118.3963062
   },
   {
     "Ticker": "LKQ",
@@ -3316,8 +3216,7 @@
     "Date added": "5/23/2016",
     "Founded": "1998",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 7942108160
+    "lon": -87.6244212
   },
   {
     "Ticker": "LMT",
@@ -3328,8 +3227,7 @@
     "Date added": "3/4/1957",
     "Founded": "1995",
     "lat": 38.9812726,
-    "lon": -77.1233587,
-    "marketCap": 136477360128
+    "lon": -77.1233587
   },
   {
     "Ticker": "L",
@@ -3340,8 +3238,7 @@
     "Date added": "5/31/1995",
     "Founded": "1959",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 22943987712
+    "lon": -74.0060152
   },
   {
     "Ticker": "LOW",
@@ -3352,8 +3249,7 @@
     "Date added": "2/29/1984",
     "Founded": "1904/1946/1959",
     "lat": 35.5848596,
-    "lon": -80.8100724,
-    "marketCap": 140979159040
+    "lon": -80.8100724
   },
   {
     "Ticker": "LUMN",
@@ -3364,8 +3260,7 @@
     "Date added": "3/25/1999",
     "Founded": "1983 (1877)",
     "lat": 32.5025471,
-    "lon": -92.116219,
-    "marketCap": 8828457984
+    "lon": -92.116219
   },
   {
     "Ticker": "LYB",
@@ -3376,8 +3271,7 @@
     "Date added": "9/5/2012",
     "Founded": "2007",
     "lat": 51.9244424,
-    "lon": 4.47775,
-    "marketCap": 21389918208
+    "lon": 4.47775
   },
   {
     "Ticker": "MTB",
@@ -3388,8 +3282,18 @@
     "Date added": "2/23/2004",
     "Founded": "1856",
     "lat": 42.8864163,
-    "lon": -78.8781493,
-    "marketCap": 32491321344
+    "lon": -78.8781493
+  },
+  {
+    "Ticker": "MRO",
+    "Name": "Marathon Oil",
+    "Industry": "Energy",
+    "Sub-Industry": "Oil & Gas Exploration & Production",
+    "Headquarters Location": "Houston, Texas",
+    "Date added": "3/4/1957",
+    "Founded": "1887",
+    "lat": 29.7589382,
+    "lon": -95.3676974
   },
   {
     "Ticker": "MPC",
@@ -3400,8 +3304,7 @@
     "Date added": "7/1/2011",
     "Founded": "2009 (1887)",
     "lat": 41.0413873,
-    "lon": -83.6503982,
-    "marketCap": 62983024640
+    "lon": -83.6503982
   },
   {
     "Ticker": "MKTX",
@@ -3412,8 +3315,7 @@
     "Date added": "7/1/2019",
     "Founded": "2000",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 6281985024
+    "lon": -74.0060152
   },
   {
     "Ticker": "MAR",
@@ -3424,8 +3326,18 @@
     "Date added": "5/29/1998",
     "Founded": "1927",
     "lat": 38.9812726,
-    "lon": -77.1233587,
-    "marketCap": 100145610752
+    "lon": -77.1233587
+  },
+  {
+    "Ticker": "MMC",
+    "Name": "Marsh McLennan",
+    "Industry": "Financials",
+    "Sub-Industry": "Insurance Brokers",
+    "Headquarters Location": "New York City, New York",
+    "Date added": "8/31/1987",
+    "Founded": "1905",
+    "lat": 40.7127281,
+    "lon": -74.0060152
   },
   {
     "Ticker": "MLM",
@@ -3436,8 +3348,7 @@
     "Date added": "7/2/2014",
     "Founded": "1993",
     "lat": 35.7803977,
-    "lon": -78.6390989,
-    "marketCap": 37515300864
+    "lon": -78.6390989
   },
   {
     "Ticker": "MAS",
@@ -3448,8 +3359,7 @@
     "Date added": "6/30/1981",
     "Founded": "1929",
     "lat": 42.36837,
-    "lon": -83.3527097,
-    "marketCap": 13556160512
+    "lon": -83.3527097
   },
   {
     "Ticker": "MA",
@@ -3460,8 +3370,7 @@
     "Date added": "7/18/2008",
     "Founded": "1966",
     "lat": 40.9689871,
-    "lon": -73.71263,
-    "marketCap": 465227776000
+    "lon": -73.71263
   },
   {
     "Ticker": "MTCH",
@@ -3472,8 +3381,7 @@
     "Date added": "9/20/2021",
     "Founded": "1986",
     "lat": 32.7762719,
-    "lon": -96.7968559,
-    "marketCap": null
+    "lon": -96.7968559
   },
   {
     "Ticker": "MKC",
@@ -3484,8 +3392,7 @@
     "Date added": "3/20/2003",
     "Founded": "1889",
     "lat": 39.4962709,
-    "lon": -76.6542571,
-    "marketCap": 14606252032
+    "lon": -76.6542571
   },
   {
     "Ticker": "MCD",
@@ -3496,8 +3403,7 @@
     "Date added": "6/30/1970",
     "Founded": "1940",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 221323280384
+    "lon": -87.6244212
   },
   {
     "Ticker": "MCK",
@@ -3508,8 +3414,7 @@
     "Date added": "1/13/1999",
     "Founded": "1833",
     "lat": 32.8295183,
-    "lon": -96.9442177,
-    "marketCap": 106934378496
+    "lon": -96.9442177
   },
   {
     "Ticker": "MDT",
@@ -3520,8 +3425,7 @@
     "Date added": "10/31/1986",
     "Founded": "1949",
     "lat": 53.3493795,
-    "lon": -6.2605593,
-    "marketCap": 110658043904
+    "lon": -6.2605593
   },
   {
     "Ticker": "MRK",
@@ -3532,8 +3436,7 @@
     "Date added": "3/4/1957",
     "Founded": "1891",
     "lat": 40.6771374,
-    "lon": -74.2870715,
-    "marketCap": 294387712000
+    "lon": -74.2870715
   },
   {
     "Ticker": "META",
@@ -3544,8 +3447,7 @@
     "Date added": "12/23/2013",
     "Founded": "2004",
     "lat": 37.4519671,
-    "lon": -122.177992,
-    "marketCap": 1747831357440
+    "lon": -122.177992
   },
   {
     "Ticker": "MET",
@@ -3556,8 +3458,7 @@
     "Date added": "12/11/2000",
     "Founded": "1868",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 51446259712
+    "lon": -74.0060152
   },
   {
     "Ticker": "MTD",
@@ -3568,8 +3469,7 @@
     "Date added": "9/6/2016",
     "Founded": "1945",
     "lat": 39.9622601,
-    "lon": -83.0007065,
-    "marketCap": 27247622144
+    "lon": -83.0007065
   },
   {
     "Ticker": "MGM",
@@ -3580,8 +3480,7 @@
     "Date added": "7/26/2017",
     "Founded": "1986",
     "lat": 36.0724299,
-    "lon": -115.1474756,
-    "marketCap": 10554613760
+    "lon": -115.1474756
   },
   {
     "Ticker": "MCHP",
@@ -3592,8 +3491,7 @@
     "Date added": "9/7/2007",
     "Founded": "1989",
     "lat": 33.3062031,
-    "lon": -111.841185,
-    "marketCap": 42619830272
+    "lon": -111.841185
   },
   {
     "Ticker": "MU",
@@ -3604,8 +3502,7 @@
     "Date added": "9/27/1994",
     "Founded": "1978",
     "lat": 43.6166163,
-    "lon": -116.200886,
-    "marketCap": 513197932544
+    "lon": -116.200886
   },
   {
     "Ticker": "MSFT",
@@ -3616,8 +3513,7 @@
     "Date added": "6/1/1994",
     "Founded": "1975",
     "lat": 47.6694141,
-    "lon": -122.1238767,
-    "marketCap": 3142335070208
+    "lon": -122.1238767
   },
   {
     "Ticker": "MAA",
@@ -3628,8 +3524,7 @@
     "Date added": "12/2/2016",
     "Founded": "1977",
     "lat": 35.1460249,
-    "lon": -90.0517638,
-    "marketCap": 15332695040
+    "lon": -90.0517638
   },
   {
     "Ticker": "MRNA",
@@ -3640,8 +3535,7 @@
     "Date added": "7/21/2021",
     "Founded": "2010",
     "lat": 42.3656347,
-    "lon": -71.1040018,
-    "marketCap": 21304645632
+    "lon": -71.1040018
   },
   {
     "Ticker": "MHK",
@@ -3652,8 +3546,7 @@
     "Date added": "12/23/2013",
     "Founded": "1878",
     "lat": 31.5311784,
-    "lon": -84.614328,
-    "marketCap": 6688731136
+    "lon": -84.614328
   },
   {
     "Ticker": "MOH",
@@ -3664,8 +3557,7 @@
     "Date added": "3/2/2022",
     "Founded": "1980",
     "lat": 33.7690164,
-    "lon": -118.191604,
-    "marketCap": 7760007168
+    "lon": -118.191604
   },
   {
     "Ticker": "TAP",
@@ -3676,8 +3568,7 @@
     "Date added": "6/30/1976",
     "Founded": "2005 (Molson 1786, Coors 1873)",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 8395641856
+    "lon": -87.6244212
   },
   {
     "Ticker": "MDLZ",
@@ -3688,8 +3579,7 @@
     "Date added": "10/2/2012",
     "Founded": "2012",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 73477890048
+    "lon": -87.6244212
   },
   {
     "Ticker": "MPWR",
@@ -3700,8 +3590,7 @@
     "Date added": "2/12/2021",
     "Founded": "1997",
     "lat": 47.6765382,
-    "lon": -122.2070775,
-    "marketCap": 72122417152
+    "lon": -122.2070775
   },
   {
     "Ticker": "MNST",
@@ -3712,8 +3601,7 @@
     "Date added": "6/28/2012",
     "Founded": "2012 (1935)",
     "lat": 33.8752945,
-    "lon": -117.566444,
-    "marketCap": 75052933120
+    "lon": -117.566444
   },
   {
     "Ticker": "MCO",
@@ -3724,8 +3612,7 @@
     "Date added": "7/1/1998",
     "Founded": "1909",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 81054064640
+    "lon": -74.0060152
   },
   {
     "Ticker": "MS",
@@ -3736,8 +3623,7 @@
     "Date added": "7/29/1993",
     "Founded": "1935",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 299819794432
+    "lon": -74.0060152
   },
   {
     "Ticker": "MOS",
@@ -3748,8 +3634,7 @@
     "Date added": "9/26/2011",
     "Founded": "2004 (1865 / 1909)",
     "lat": 27.9449854,
-    "lon": -82.4583107,
-    "marketCap": 7809492480
+    "lon": -82.4583107
   },
   {
     "Ticker": "MSI",
@@ -3760,8 +3645,7 @@
     "Date added": "3/4/1957",
     "Founded": "1928 (2011)",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 73455345664
+    "lon": -87.6244212
   },
   {
     "Ticker": "MSCI",
@@ -3772,8 +3656,7 @@
     "Date added": "4/4/2018",
     "Founded": "1969",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 41773666304
+    "lon": -74.0060152
   },
   {
     "Ticker": "NDAQ",
@@ -3784,8 +3667,7 @@
     "Date added": "10/22/2008",
     "Founded": "1971",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 50595909632
+    "lon": -74.0060152
   },
   {
     "Ticker": "NTAP",
@@ -3796,8 +3678,7 @@
     "Date added": "6/25/1999",
     "Founded": "1992",
     "lat": 37.3361663,
-    "lon": -121.890591,
-    "marketCap": 20703248384
+    "lon": -121.890591
   },
   {
     "Ticker": "NFLX",
@@ -3808,8 +3689,7 @@
     "Date added": "12/20/2010",
     "Founded": "1997",
     "lat": 37.226611,
-    "lon": -121.9746797,
-    "marketCap": 410858586112
+    "lon": -121.9746797
   },
   {
     "Ticker": "NWL",
@@ -3820,8 +3700,7 @@
     "Date added": "4/30/1989",
     "Founded": "1903",
     "lat": 33.7544657,
-    "lon": -84.3898151,
-    "marketCap": 1839937280
+    "lon": -84.3898151
   },
   {
     "Ticker": "NEM",
@@ -3832,8 +3711,7 @@
     "Date added": "6/30/1969",
     "Founded": "1921",
     "lat": 39.7392364,
-    "lon": -104.984862,
-    "marketCap": 126737342464
+    "lon": -104.984862
   },
   {
     "Ticker": "NWSA",
@@ -3844,8 +3722,7 @@
     "Date added": "8/1/2013",
     "Founded": "2013 (1980)",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 14987316224
+    "lon": -74.0060152
   },
   {
     "Ticker": "NWS",
@@ -3856,8 +3733,7 @@
     "Date added": "9/18/2015",
     "Founded": "2013 (1980)",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 16439382016
+    "lon": -74.0060152
   },
   {
     "Ticker": "NEE",
@@ -3868,8 +3744,7 @@
     "Date added": "6/30/1976",
     "Founded": "1984 (1925)",
     "lat": 26.8815475,
-    "lon": -80.0539253,
-    "marketCap": 191806160896
+    "lon": -80.0539253
   },
   {
     "Ticker": "NKE",
@@ -3880,8 +3755,7 @@
     "Date added": "11/30/1988",
     "Founded": "1964",
     "lat": 45.5601883,
-    "lon": -123.0587907,
-    "marketCap": 68165230592
+    "lon": -123.0587907
   },
   {
     "Ticker": "NI",
@@ -3892,8 +3766,7 @@
     "Date added": "11/2/2000",
     "Founded": "1912",
     "lat": 41.4828144,
-    "lon": -87.3328139,
-    "marketCap": 23117938688
+    "lon": -87.3328139
   },
   {
     "Ticker": "NDSN",
@@ -3904,8 +3777,7 @@
     "Date added": "2/15/2022",
     "Founded": "1935",
     "lat": 41.4553232,
-    "lon": -81.9179174,
-    "marketCap": 15724839936
+    "lon": -81.9179174
   },
   {
     "Ticker": "NSC",
@@ -3916,8 +3788,7 @@
     "Date added": "3/4/1957",
     "Founded": "1881/1894 (1980)",
     "lat": 33.7544657,
-    "lon": -84.3898151,
-    "marketCap": 67906093056
+    "lon": -84.3898151
   },
   {
     "Ticker": "NTRS",
@@ -3928,8 +3799,7 @@
     "Date added": "1/30/1998",
     "Founded": "1889",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 30099922944
+    "lon": -87.6244212
   },
   {
     "Ticker": "NOC",
@@ -3940,8 +3810,7 @@
     "Date added": "3/4/1957",
     "Founded": "1994 (Northrop 1939, Grumman 1930)",
     "lat": 38.8629185,
-    "lon": -77.188257,
-    "marketCap": 94488977408
+    "lon": -77.188257
   },
   {
     "Ticker": "NCLH",
@@ -3952,8 +3821,7 @@
     "Date added": "10/13/2017",
     "Founded": "2011 (1966)",
     "lat": 25.7741566,
-    "lon": -80.1935973,
-    "marketCap": 9561903104
+    "lon": -80.1935973
   },
   {
     "Ticker": "NRG",
@@ -3964,8 +3832,7 @@
     "Date added": "1/29/2010",
     "Founded": "1992",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 35621859328
+    "lon": -95.3676974
   },
   {
     "Ticker": "NUE",
@@ -3976,8 +3843,7 @@
     "Date added": "4/30/1985",
     "Founded": "1940",
     "lat": 35.2272086,
-    "lon": -80.8430827,
-    "marketCap": 44614209536
+    "lon": -80.8430827
   },
   {
     "Ticker": "NVDA",
@@ -3988,8 +3854,7 @@
     "Date added": "11/30/2001",
     "Founded": "1993",
     "lat": 37.3541132,
-    "lon": -121.955174,
-    "marketCap": 4901832228864
+    "lon": -121.955174
   },
   {
     "Ticker": "NVR",
@@ -4000,8 +3865,7 @@
     "Date added": "9/26/2019",
     "Founded": "1980",
     "lat": 38.953282,
-    "lon": -77.3464516,
-    "marketCap": 19558889472
+    "lon": -77.3464516
   },
   {
     "Ticker": "NXPI",
@@ -4012,8 +3876,7 @@
     "Date added": "3/22/2021",
     "Founded": "1953",
     "lat": 51.4392648,
-    "lon": 5.478633,
-    "marketCap": 54589235200
+    "lon": 5.478633
   },
   {
     "Ticker": "ORLY",
@@ -4024,8 +3887,7 @@
     "Date added": "3/27/2009",
     "Founded": "1957",
     "lat": 37.2081729,
-    "lon": -93.2922715,
-    "marketCap": 78574616576
+    "lon": -93.2922715
   },
   {
     "Ticker": "OXY",
@@ -4036,8 +3898,7 @@
     "Date added": "3/4/1957",
     "Founded": "1920",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 53343285248
+    "lon": -95.3676974
   },
   {
     "Ticker": "ODFL",
@@ -4048,8 +3909,7 @@
     "Date added": "12/9/2019",
     "Founded": "1934",
     "lat": 35.8831786,
-    "lon": -80.081817,
-    "marketCap": 45533274112
+    "lon": -80.081817
   },
   {
     "Ticker": "OMC",
@@ -4060,8 +3920,7 @@
     "Date added": "12/31/1997",
     "Founded": "1986",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 24414160896
+    "lon": -74.0060152
   },
   {
     "Ticker": "ON",
@@ -4072,8 +3931,7 @@
     "Date added": "6/21/2022",
     "Founded": "1999",
     "lat": 33.4484367,
-    "lon": -112.074141,
-    "marketCap": 32707645440
+    "lon": -112.074141
   },
   {
     "Ticker": "OKE",
@@ -4084,8 +3942,7 @@
     "Date added": "3/15/2010",
     "Founded": "1906",
     "lat": 36.1563122,
-    "lon": -95.9927516,
-    "marketCap": 52613857280
+    "lon": -95.9927516
   },
   {
     "Ticker": "ORCL",
@@ -4096,8 +3953,7 @@
     "Date added": "8/31/1989",
     "Founded": "1977",
     "lat": 30.2711286,
-    "lon": -97.7436995,
-    "marketCap": 503480614912
+    "lon": -97.7436995
   },
   {
     "Ticker": "OGN",
@@ -4108,8 +3964,7 @@
     "Date added": "6/3/2021",
     "Founded": "2021",
     "lat": 40.7215682,
-    "lon": -74.047455,
-    "marketCap": 2540680704
+    "lon": -74.047455
   },
   {
     "Ticker": "OTIS",
@@ -4120,8 +3975,7 @@
     "Date added": "4/3/2020",
     "Founded": "2020 (1853)",
     "lat": 41.7198216,
-    "lon": -72.8320435,
-    "marketCap": 31734560768
+    "lon": -72.8320435
   },
   {
     "Ticker": "PCAR",
@@ -4132,8 +3986,7 @@
     "Date added": "12/31/1980",
     "Founded": "1905",
     "lat": 47.6144219,
-    "lon": -122.192337,
-    "marketCap": 66394173440
+    "lon": -122.192337
   },
   {
     "Ticker": "PKG",
@@ -4144,8 +3997,18 @@
     "Date added": "7/26/2017",
     "Founded": "1959",
     "lat": 42.2586461,
-    "lon": -87.8407055,
-    "marketCap": 19037245440
+    "lon": -87.8407055
+  },
+  {
+    "Ticker": "PARA",
+    "Name": "Paramount Global",
+    "Industry": "Communication Services",
+    "Sub-Industry": "Movies & Entertainment",
+    "Headquarters Location": "New York City, New York",
+    "Date added": "9/30/1994",
+    "Founded": "2019 (1952)",
+    "lat": 40.7127281,
+    "lon": -74.0060152
   },
   {
     "Ticker": "PH",
@@ -4156,8 +4019,7 @@
     "Date added": "11/30/1985",
     "Founded": "1917",
     "lat": 41.4996574,
-    "lon": -81.6936772,
-    "marketCap": 124802899968
+    "lon": -81.6936772
   },
   {
     "Ticker": "PAYX",
@@ -4168,8 +4030,7 @@
     "Date added": "10/1/1998",
     "Founded": "1971",
     "lat": 43.1301133,
-    "lon": -77.4759588,
-    "marketCap": 32948428800
+    "lon": -77.4759588
   },
   {
     "Ticker": "PAYC",
@@ -4180,8 +4041,7 @@
     "Date added": "1/28/2020",
     "Founded": "1998",
     "lat": 35.4729886,
-    "lon": -97.5170536,
-    "marketCap": 6889138176
+    "lon": -97.5170536
   },
   {
     "Ticker": "PYPL",
@@ -4192,8 +4052,7 @@
     "Date added": "7/20/2015",
     "Founded": "1998",
     "lat": 37.3361663,
-    "lon": -121.890591,
-    "marketCap": 46778966016
+    "lon": -121.890591
   },
   {
     "Ticker": "PNR",
@@ -4204,8 +4063,7 @@
     "Date added": "10/1/2012",
     "Founded": "1966",
     "lat": 53.4999331,
-    "lon": -2.3783778,
-    "marketCap": 14867509248
+    "lon": -2.3783778
   },
   {
     "Ticker": "PEP",
@@ -4216,8 +4074,18 @@
     "Date added": "3/4/1957",
     "Founded": "1898",
     "lat": 41.0409305,
-    "lon": -73.7145746,
-    "marketCap": 215525572608
+    "lon": -73.7145746
+  },
+  {
+    "Ticker": "PKI",
+    "Name": "PerkinElmer",
+    "Industry": "Health Care",
+    "Sub-Industry": "Health Care Equipment",
+    "Headquarters Location": "Waltham, Massachusetts",
+    "Date added": "5/31/1985",
+    "Founded": "1937",
+    "lat": 42.3762385,
+    "lon": -71.2355644
   },
   {
     "Ticker": "PFE",
@@ -4228,8 +4096,7 @@
     "Date added": "3/4/1957",
     "Founded": "1849",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 156771090432
+    "lon": -74.0060152
   },
   {
     "Ticker": "PCG",
@@ -4240,8 +4107,7 @@
     "Date added": "10/3/2022",
     "Founded": "1905",
     "lat": 37.7879363,
-    "lon": -122.4075201,
-    "marketCap": 38010322944
+    "lon": -122.4075201
   },
   {
     "Ticker": "PM",
@@ -4252,8 +4118,7 @@
     "Date added": "3/31/2008",
     "Founded": "2008 (1847)",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 245920481280
+    "lon": -74.0060152
   },
   {
     "Ticker": "PSX",
@@ -4264,8 +4129,7 @@
     "Date added": "5/1/2012",
     "Founded": "2012 (1917)",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 62701645824
+    "lon": -95.3676974
   },
   {
     "Ticker": "PNW",
@@ -4276,8 +4140,18 @@
     "Date added": "10/4/1999",
     "Founded": "1985",
     "lat": 33.4484367,
-    "lon": -112.074141,
-    "marketCap": 12591508480
+    "lon": -112.074141
+  },
+  {
+    "Ticker": "PXD",
+    "Name": "Pioneer Natural Resources",
+    "Industry": "Energy",
+    "Sub-Industry": "Oil & Gas Exploration & Production",
+    "Headquarters Location": "Irving, Texas",
+    "Date added": "9/24/2008",
+    "Founded": "1997",
+    "lat": 32.8295183,
+    "lon": -96.9442177
   },
   {
     "Ticker": "PNC",
@@ -4288,8 +4162,7 @@
     "Date added": "4/30/1988",
     "Founded": "1845",
     "lat": 40.4406968,
-    "lon": -80.0025666,
-    "marketCap": 90681810944
+    "lon": -80.0025666
   },
   {
     "Ticker": "POOL",
@@ -4300,8 +4173,7 @@
     "Date added": "10/7/2020",
     "Founded": "1993",
     "lat": 30.4753525,
-    "lon": -90.1010474,
-    "marketCap": 8373643264
+    "lon": -90.1010474
   },
   {
     "Ticker": "PPG",
@@ -4312,8 +4184,7 @@
     "Date added": "3/4/1957",
     "Founded": "1883",
     "lat": 40.4406968,
-    "lon": -80.0025666,
-    "marketCap": 25703274496
+    "lon": -80.0025666
   },
   {
     "Ticker": "PPL",
@@ -4324,8 +4195,7 @@
     "Date added": "10/1/2001",
     "Founded": "1920",
     "lat": 40.6022552,
-    "lon": -75.4716115,
-    "marketCap": 29349482496
+    "lon": -75.4716115
   },
   {
     "Ticker": "PFG",
@@ -4336,8 +4206,7 @@
     "Date added": "7/22/2002",
     "Founded": "1879",
     "lat": 41.5868654,
-    "lon": -93.6249494,
-    "marketCap": 20853035008
+    "lon": -93.6249494
   },
   {
     "Ticker": "PG",
@@ -4348,8 +4217,7 @@
     "Date added": "3/4/1957",
     "Founded": "1837",
     "lat": 39.1014537,
-    "lon": -84.5124602,
-    "marketCap": 343336222720
+    "lon": -84.5124602
   },
   {
     "Ticker": "PGR",
@@ -4360,8 +4228,7 @@
     "Date added": "8/4/1997",
     "Founded": "1937",
     "lat": 41.5595437,
-    "lon": -81.4439274,
-    "marketCap": 118501769216
+    "lon": -81.4439274
   },
   {
     "Ticker": "PLD",
@@ -4372,8 +4239,7 @@
     "Date added": "7/17/2003",
     "Founded": "1983",
     "lat": 37.7879363,
-    "lon": -122.4075201,
-    "marketCap": 135266672640
+    "lon": -122.4075201
   },
   {
     "Ticker": "PRU",
@@ -4384,8 +4250,7 @@
     "Date added": "7/22/2002",
     "Founded": "1875",
     "lat": 40.735657,
-    "lon": -74.1723667,
-    "marketCap": 35374198784
+    "lon": -74.1723667
   },
   {
     "Ticker": "PEG",
@@ -4396,8 +4261,7 @@
     "Date added": "3/4/1957",
     "Founded": "1903",
     "lat": 40.735657,
-    "lon": -74.1723667,
-    "marketCap": 40720982016
+    "lon": -74.1723667
   },
   {
     "Ticker": "PTC",
@@ -4408,8 +4272,7 @@
     "Date added": "4/20/2021",
     "Founded": "1985",
     "lat": 42.3588336,
-    "lon": -71.0578303,
-    "marketCap": 16628516864
+    "lon": -71.0578303
   },
   {
     "Ticker": "PSA",
@@ -4420,8 +4283,7 @@
     "Date added": "8/19/2005",
     "Founded": "1972",
     "lat": 34.1469416,
-    "lon": -118.2478471,
-    "marketCap": 54281183232
+    "lon": -118.2478471
   },
   {
     "Ticker": "PHM",
@@ -4432,8 +4294,7 @@
     "Date added": "4/30/1984",
     "Founded": "1956",
     "lat": 33.7544657,
-    "lon": -84.3898151,
-    "marketCap": 24311672832
+    "lon": -84.3898151
   },
   {
     "Ticker": "QRVO",
@@ -4444,8 +4305,7 @@
     "Date added": "6/11/2015",
     "Founded": "2015",
     "lat": 36.0726355,
-    "lon": -79.7919754,
-    "marketCap": 7592595456
+    "lon": -79.7919754
   },
   {
     "Ticker": "PWR",
@@ -4456,8 +4316,7 @@
     "Date added": "7/1/2009",
     "Founded": "1997",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 90316136448
+    "lon": -95.3676974
   },
   {
     "Ticker": "QCOM",
@@ -4468,8 +4327,7 @@
     "Date added": "7/22/1999",
     "Founded": "1985",
     "lat": 32.7174202,
-    "lon": -117.162772,
-    "marketCap": 145467736064
+    "lon": -117.162772
   },
   {
     "Ticker": "DGX",
@@ -4480,8 +4338,7 @@
     "Date added": "12/12/2002",
     "Founded": "1967",
     "lat": 40.7899291,
-    "lon": -74.0566735,
-    "marketCap": 21585707008
+    "lon": -74.0566735
   },
   {
     "Ticker": "RL",
@@ -4492,8 +4349,7 @@
     "Date added": "2/2/2007",
     "Founded": "1967",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 23460659200
+    "lon": -74.0060152
   },
   {
     "Ticker": "RJF",
@@ -4504,8 +4360,7 @@
     "Date added": "3/20/2017",
     "Founded": "1962",
     "lat": 27.7712264,
-    "lon": -82.6340259,
-    "marketCap": 29966057472
+    "lon": -82.6340259
   },
   {
     "Ticker": "RTX",
@@ -4516,8 +4371,7 @@
     "Date added": "3/4/1957",
     "Founded": "1922",
     "lat": 42.3762385,
-    "lon": -71.2355644,
-    "marketCap": 264376270848
+    "lon": -71.2355644
   },
   {
     "Ticker": "O",
@@ -4528,8 +4382,7 @@
     "Date added": "4/7/2015",
     "Founded": "1969",
     "lat": 32.7174202,
-    "lon": -117.162772,
-    "marketCap": 60693209088
+    "lon": -117.162772
   },
   {
     "Ticker": "REG",
@@ -4540,8 +4393,7 @@
     "Date added": "3/2/2017",
     "Founded": "1963",
     "lat": 30.3262247,
-    "lon": -81.6579179,
-    "marketCap": 15127561216
+    "lon": -81.6579179
   },
   {
     "Ticker": "REGN",
@@ -4552,8 +4404,7 @@
     "Date added": "5/1/2013",
     "Founded": "1988",
     "lat": 41.0762077,
-    "lon": -73.8587461,
-    "marketCap": 79350120448
+    "lon": -73.8587461
   },
   {
     "Ticker": "RF",
@@ -4564,8 +4415,7 @@
     "Date added": "8/28/1998",
     "Founded": "1971",
     "lat": 33.5206824,
-    "lon": -86.8024326,
-    "marketCap": 24031916032
+    "lon": -86.8024326
   },
   {
     "Ticker": "RSG",
@@ -4576,8 +4426,7 @@
     "Date added": "12/5/2008",
     "Founded": "1998 (1981)",
     "lat": 33.4484367,
-    "lon": -112.074141,
-    "marketCap": 64157843456
+    "lon": -112.074141
   },
   {
     "Ticker": "RMD",
@@ -4588,8 +4437,7 @@
     "Date added": "7/26/2017",
     "Founded": "1989",
     "lat": 32.7174202,
-    "lon": -117.162772,
-    "marketCap": 33297829888
+    "lon": -117.162772
   },
   {
     "Ticker": "RHI",
@@ -4600,8 +4448,7 @@
     "Date added": "12/5/2000",
     "Founded": "1948",
     "lat": 37.4519671,
-    "lon": -122.177992,
-    "marketCap": 2809724928
+    "lon": -122.177992
   },
   {
     "Ticker": "ROK",
@@ -4612,8 +4459,7 @@
     "Date added": "",
     "Founded": "1903",
     "lat": 43.0386475,
-    "lon": -87.9090751,
-    "marketCap": 46741848064
+    "lon": -87.9090751
   },
   {
     "Ticker": "ROL",
@@ -4624,8 +4470,7 @@
     "Date added": "10/1/2018",
     "Founded": "1948",
     "lat": 33.7544657,
-    "lon": -84.3898151,
-    "marketCap": 26509385728
+    "lon": -84.3898151
   },
   {
     "Ticker": "ROP",
@@ -4636,8 +4481,7 @@
     "Date added": "12/23/2009",
     "Founded": "1981",
     "lat": 27.3365805,
-    "lon": -82.5308545,
-    "marketCap": 37305049088
+    "lon": -82.5308545
   },
   {
     "Ticker": "ROST",
@@ -4648,8 +4492,7 @@
     "Date added": "12/21/2009",
     "Founded": "1982",
     "lat": 37.7021521,
-    "lon": -121.9357918,
-    "marketCap": 73687228416
+    "lon": -121.9357918
   },
   {
     "Ticker": "RCL",
@@ -4660,8 +4503,7 @@
     "Date added": "12/5/2014",
     "Founded": "1997",
     "lat": 25.7741566,
-    "lon": -80.1935973,
-    "marketCap": 77854097408
+    "lon": -80.1935973
   },
   {
     "Ticker": "SPGI",
@@ -4672,8 +4514,7 @@
     "Date added": "3/4/1957",
     "Founded": "1917",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 132239917056
+    "lon": -74.0060152
   },
   {
     "Ticker": "CRM",
@@ -4684,8 +4525,7 @@
     "Date added": "9/15/2008",
     "Founded": "1999",
     "lat": 37.7879363,
-    "lon": -122.4075201,
-    "marketCap": 168115224576
+    "lon": -122.4075201
   },
   {
     "Ticker": "SBAC",
@@ -4696,8 +4536,7 @@
     "Date added": "9/1/2017",
     "Founded": "1989",
     "lat": 26.3586885,
-    "lon": -80.0830984,
-    "marketCap": 23666765824
+    "lon": -80.0830984
   },
   {
     "Ticker": "SLB",
@@ -4708,8 +4547,7 @@
     "Date added": "3/4/1957",
     "Founded": "1926",
     "lat": 12.4446043,
-    "lon": -69.9278869,
-    "marketCap": 79049678848
+    "lon": -69.9278869
   },
   {
     "Ticker": "STX",
@@ -4720,8 +4558,7 @@
     "Date added": "7/2/2012",
     "Founded": "1979",
     "lat": 53.3493795,
-    "lon": -6.2605593,
-    "marketCap": 122709901312
+    "lon": -6.2605593
   },
   {
     "Ticker": "SEE",
@@ -4732,8 +4569,7 @@
     "Date added": "3/4/1957",
     "Founded": "1960",
     "lat": 35.2272086,
-    "lon": -80.8430827,
-    "marketCap": null
+    "lon": -80.8430827
   },
   {
     "Ticker": "SRE",
@@ -4744,8 +4580,7 @@
     "Date added": "2001?",
     "Founded": "1998",
     "lat": 32.7174202,
-    "lon": -117.162772,
-    "marketCap": 61426323456
+    "lon": -117.162772
   },
   {
     "Ticker": "NOW",
@@ -4756,8 +4591,7 @@
     "Date added": "11/21/2019",
     "Founded": "2003",
     "lat": 37.3541132,
-    "lon": -121.955174,
-    "marketCap": 101106360320
+    "lon": -121.955174
   },
   {
     "Ticker": "SHW",
@@ -4768,8 +4602,7 @@
     "Date added": "6/30/1964",
     "Founded": "1866",
     "lat": 41.4996574,
-    "lon": -81.6936772,
-    "marketCap": 85618565120
+    "lon": -81.6936772
   },
   {
     "Ticker": "SPG",
@@ -4780,8 +4613,7 @@
     "Date added": "6/26/2002",
     "Founded": "2003",
     "lat": 39.7683331,
-    "lon": -86.1583502,
-    "marketCap": 78499995648
+    "lon": -86.1583502
   },
   {
     "Ticker": "SWKS",
@@ -4792,8 +4624,7 @@
     "Date added": "3/12/2015",
     "Founded": "2002",
     "lat": 33.6856969,
-    "lon": -117.825981,
-    "marketCap": 8872448000
+    "lon": -117.825981
   },
   {
     "Ticker": "SJM",
@@ -4804,8 +4635,7 @@
     "Date added": "11/6/2008",
     "Founded": "1897",
     "lat": 40.8436664,
-    "lon": -81.7640212,
-    "marketCap": 10189307904
+    "lon": -81.7640212
   },
   {
     "Ticker": "SNA",
@@ -4816,8 +4646,7 @@
     "Date added": "9/30/1982",
     "Founded": "1920",
     "lat": 42.5846773,
-    "lon": -87.8212263,
-    "marketCap": 19795845120
+    "lon": -87.8212263
   },
   {
     "Ticker": "SEDG",
@@ -4828,8 +4657,7 @@
     "Date added": "12/20/2021",
     "Founded": "2006",
     "lat": 32.1676842,
-    "lon": 34.8308279,
-    "marketCap": 2312028928
+    "lon": 34.8308279
   },
   {
     "Ticker": "SO",
@@ -4840,8 +4668,7 @@
     "Date added": "3/4/1957",
     "Founded": "1945",
     "lat": 33.7544657,
-    "lon": -84.3898151,
-    "marketCap": 106541506560
+    "lon": -84.3898151
   },
   {
     "Ticker": "LUV",
@@ -4852,8 +4679,7 @@
     "Date added": "7/1/1994",
     "Founded": "1967",
     "lat": 32.7762719,
-    "lon": -96.7968559,
-    "marketCap": 20979277824
+    "lon": -96.7968559
   },
   {
     "Ticker": "SWK",
@@ -4864,8 +4690,7 @@
     "Date added": "9/30/1982",
     "Founded": "1843",
     "lat": 41.6612104,
-    "lon": -72.7795419,
-    "marketCap": 11078133760
+    "lon": -72.7795419
   },
   {
     "Ticker": "SBUX",
@@ -4876,8 +4701,7 @@
     "Date added": "6/7/2000",
     "Founded": "1971",
     "lat": 47.6038321,
-    "lon": -122.330062,
-    "marketCap": 113929994240
+    "lon": -122.330062
   },
   {
     "Ticker": "STT",
@@ -4888,8 +4712,7 @@
     "Date added": "3/14/2003",
     "Founded": "1792",
     "lat": 42.3588336,
-    "lon": -71.0578303,
-    "marketCap": 40535445504
+    "lon": -71.0578303
   },
   {
     "Ticker": "STLD",
@@ -4900,8 +4723,7 @@
     "Date added": "12/22/2022",
     "Founded": "1993",
     "lat": 41.0799898,
-    "lon": -85.1386015,
-    "marketCap": 29022842880
+    "lon": -85.1386015
   },
   {
     "Ticker": "STE",
@@ -4912,8 +4734,7 @@
     "Date added": "12/23/2019",
     "Founded": "1985",
     "lat": 53.3493795,
-    "lon": -6.2605593,
-    "marketCap": 22160611328
+    "lon": -6.2605593
   },
   {
     "Ticker": "SYK",
@@ -4924,8 +4745,7 @@
     "Date added": "12/12/2000",
     "Founded": "1941",
     "lat": 42.291707,
-    "lon": -85.5872286,
-    "marketCap": 131486154752
+    "lon": -85.5872286
   },
   {
     "Ticker": "SYF",
@@ -4936,8 +4756,7 @@
     "Date added": "11/18/2015",
     "Founded": "2003",
     "lat": 41.0534302,
-    "lon": -73.5387341,
-    "marketCap": 28215803904
+    "lon": -73.5387341
   },
   {
     "Ticker": "SNPS",
@@ -4948,8 +4767,7 @@
     "Date added": "3/16/2017",
     "Founded": "1986",
     "lat": 37.3893889,
-    "lon": -122.0832101,
-    "marketCap": 86122455040
+    "lon": -122.0832101
   },
   {
     "Ticker": "SYY",
@@ -4960,8 +4778,7 @@
     "Date added": "12/31/1986",
     "Founded": "1969",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 36528037888
+    "lon": -95.3676974
   },
   {
     "Ticker": "TMUS",
@@ -4972,8 +4789,7 @@
     "Date added": "7/15/2019",
     "Founded": "1994",
     "lat": 47.6144219,
-    "lon": -122.192337,
-    "marketCap": 221095198720
+    "lon": -122.192337
   },
   {
     "Ticker": "TROW",
@@ -4984,8 +4800,7 @@
     "Date added": "",
     "Founded": "1937",
     "lat": 39.2908816,
-    "lon": -76.610759,
-    "marketCap": 21148710912
+    "lon": -76.610759
   },
   {
     "Ticker": "TTWO",
@@ -4996,8 +4811,7 @@
     "Date added": "3/19/2018",
     "Founded": "1993",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 39264604160
+    "lon": -74.0060152
   },
   {
     "Ticker": "TPR",
@@ -5008,8 +4822,7 @@
     "Date added": "9/1/2004",
     "Founded": "2017",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 31894667264
+    "lon": -74.0060152
   },
   {
     "Ticker": "TRGP",
@@ -5020,8 +4833,7 @@
     "Date added": "10/12/2022",
     "Founded": "2005",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 50621145088
+    "lon": -95.3676974
   },
   {
     "Ticker": "TGT",
@@ -5032,8 +4844,7 @@
     "Date added": "12/31/1976",
     "Founded": "1902",
     "lat": 44.9772995,
-    "lon": -93.2654692,
-    "marketCap": 57893056512
+    "lon": -93.2654692
   },
   {
     "Ticker": "TEL",
@@ -5044,8 +4855,7 @@
     "Date added": "10/17/2011",
     "Founded": "2007",
     "lat": 47.6960491,
-    "lon": 8.634513,
-    "marketCap": 72250826752
+    "lon": 8.634513
   },
   {
     "Ticker": "TDY",
@@ -5056,8 +4866,7 @@
     "Date added": "6/22/2020",
     "Founded": "1960",
     "lat": 34.1705609,
-    "lon": -118.8375937,
-    "marketCap": 29449918464
+    "lon": -118.8375937
   },
   {
     "Ticker": "TFX",
@@ -5068,8 +4877,7 @@
     "Date added": "1/18/2019",
     "Founded": "1943",
     "lat": 41.6264414,
-    "lon": -75.3045103,
-    "marketCap": 5824439296
+    "lon": -75.3045103
   },
   {
     "Ticker": "TER",
@@ -5080,8 +4888,7 @@
     "Date added": "9/21/2020",
     "Founded": "1960",
     "lat": 42.5750939,
-    "lon": -71.0786653,
-    "marketCap": 59552075776
+    "lon": -71.0786653
   },
   {
     "Ticker": "TSLA",
@@ -5092,8 +4899,7 @@
     "Date added": "12/21/2020",
     "Founded": "2003",
     "lat": 30.2711286,
-    "lon": -97.7436995,
-    "marketCap": 1503299239936
+    "lon": -97.7436995
   },
   {
     "Ticker": "TXN",
@@ -5104,8 +4910,7 @@
     "Date added": "",
     "Founded": "1930",
     "lat": 32.7762719,
-    "lon": -96.7968559,
-    "marketCap": 209242701824
+    "lon": -96.7968559
   },
   {
     "Ticker": "TXT",
@@ -5116,8 +4921,7 @@
     "Date added": "12/31/1978",
     "Founded": "1923",
     "lat": 41.8239891,
-    "lon": -71.4128343,
-    "marketCap": 15955020800
+    "lon": -71.4128343
   },
   {
     "Ticker": "TMO",
@@ -5128,8 +4932,7 @@
     "Date added": "8/3/2004",
     "Founded": "2006 (1902)",
     "lat": 42.3762385,
-    "lon": -71.2355644,
-    "marketCap": 195695804416
+    "lon": -71.2355644
   },
   {
     "Ticker": "TJX",
@@ -5140,8 +4943,7 @@
     "Date added": "9/30/1985",
     "Founded": "1987",
     "lat": 42.2773177,
-    "lon": -71.4165905,
-    "marketCap": 178429837312
+    "lon": -71.4165905
   },
   {
     "Ticker": "TSCO",
@@ -5152,8 +4954,7 @@
     "Date added": "1/24/2014",
     "Founded": "1938",
     "lat": 36.0325687,
-    "lon": -86.7825235,
-    "marketCap": 23691071488
+    "lon": -86.7825235
   },
   {
     "Ticker": "TT",
@@ -5164,8 +4965,7 @@
     "Date added": "11/17/2010",
     "Founded": "1871",
     "lat": 53.3493795,
-    "lon": -6.2605593,
-    "marketCap": 105572155392
+    "lon": -6.2605593
   },
   {
     "Ticker": "TDG",
@@ -5176,8 +4976,7 @@
     "Date added": "6/3/2016",
     "Founded": "1993",
     "lat": 41.4996574,
-    "lon": -81.6936772,
-    "marketCap": 71488757760
+    "lon": -81.6936772
   },
   {
     "Ticker": "TRV",
@@ -5188,8 +4987,7 @@
     "Date added": "8/21/2002",
     "Founded": "1853",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 63965646848
+    "lon": -74.0060152
   },
   {
     "Ticker": "TRMB",
@@ -5200,8 +4998,7 @@
     "Date added": "1/21/2021",
     "Founded": "1978",
     "lat": 39.8366528,
-    "lon": -105.0372046,
-    "marketCap": 16208968704
+    "lon": -105.0372046
   },
   {
     "Ticker": "TFC",
@@ -5212,8 +5009,7 @@
     "Date added": "12/4/1997",
     "Founded": "1872",
     "lat": 35.2272086,
-    "lon": -80.8430827,
-    "marketCap": 64691486720
+    "lon": -80.8430827
   },
   {
     "Ticker": "TYL",
@@ -5224,8 +5020,7 @@
     "Date added": "6/22/2020",
     "Founded": "1966",
     "lat": 33.0136764,
-    "lon": -96.6925096,
-    "marketCap": 14727206912
+    "lon": -96.6925096
   },
   {
     "Ticker": "TSN",
@@ -5236,8 +5031,7 @@
     "Date added": "8/10/2005",
     "Founded": "1935",
     "lat": 36.1867442,
-    "lon": -94.1288142,
-    "marketCap": 22821758976
+    "lon": -94.1288142
   },
   {
     "Ticker": "USB",
@@ -5248,8 +5042,7 @@
     "Date added": "",
     "Founded": "1968",
     "lat": 44.9772995,
-    "lon": -93.2654692,
-    "marketCap": 88526151680
+    "lon": -93.2654692
   },
   {
     "Ticker": "UDR",
@@ -5260,8 +5053,7 @@
     "Date added": "3/7/2016",
     "Founded": "1972",
     "lat": 39.548359,
-    "lon": -105.0004504,
-    "marketCap": 13282533376
+    "lon": -105.0004504
   },
   {
     "Ticker": "ULTA",
@@ -5272,8 +5064,7 @@
     "Date added": "4/18/2016",
     "Founded": "1990",
     "lat": 41.7003302,
-    "lon": -88.0717708,
-    "marketCap": 24548251648
+    "lon": -88.0717708
   },
   {
     "Ticker": "UNP",
@@ -5284,8 +5075,7 @@
     "Date added": "3/4/1957",
     "Founded": "1862",
     "lat": 41.2587459,
-    "lon": -95.9383758,
-    "marketCap": 149096366080
+    "lon": -95.9383758
   },
   {
     "Ticker": "UAL",
@@ -5296,8 +5086,7 @@
     "Date added": "9/3/2015",
     "Founded": "1967",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 33049307136
+    "lon": -87.6244212
   },
   {
     "Ticker": "UPS",
@@ -5308,8 +5097,7 @@
     "Date added": "7/22/2002",
     "Founded": "1907",
     "lat": 33.9242688,
-    "lon": -84.3785379,
-    "marketCap": 90439188480
+    "lon": -84.3785379
   },
   {
     "Ticker": "URI",
@@ -5320,8 +5108,7 @@
     "Date added": "9/20/2014",
     "Founded": "1997",
     "lat": 41.0534302,
-    "lon": -73.5387341,
-    "marketCap": 50155978752
+    "lon": -73.5387341
   },
   {
     "Ticker": "UNH",
@@ -5332,8 +5119,7 @@
     "Date added": "7/1/1994",
     "Founded": "1977",
     "lat": 44.9405086,
-    "lon": -93.4638936,
-    "marketCap": 294658801664
+    "lon": -93.4638936
   },
   {
     "Ticker": "UHS",
@@ -5344,8 +5130,7 @@
     "Date added": "9/20/2014",
     "Founded": "1979",
     "lat": 40.0947624,
-    "lon": -75.3851334,
-    "marketCap": 11142814720
+    "lon": -75.3851334
   },
   {
     "Ticker": "VLO",
@@ -5356,8 +5141,7 @@
     "Date added": "12/20/2002",
     "Founded": "1980",
     "lat": 29.4246002,
-    "lon": -98.4951405,
-    "marketCap": 66877214720
+    "lon": -98.4951405
   },
   {
     "Ticker": "VTR",
@@ -5368,8 +5152,7 @@
     "Date added": "3/4/2009",
     "Founded": "1998",
     "lat": 41.8755616,
-    "lon": -87.6244212,
-    "marketCap": 40461914112
+    "lon": -87.6244212
   },
   {
     "Ticker": "VRSN",
@@ -5380,8 +5163,7 @@
     "Date added": "2/1/2006",
     "Founded": "1995",
     "lat": 38.9646244,
-    "lon": -77.4463445,
-    "marketCap": 25130383360
+    "lon": -77.4463445
   },
   {
     "Ticker": "VRSK",
@@ -5392,8 +5174,7 @@
     "Date added": "10/8/2015",
     "Founded": "1971",
     "lat": 40.7215682,
-    "lon": -74.047455,
-    "marketCap": 24563312640
+    "lon": -74.047455
   },
   {
     "Ticker": "VZ",
@@ -5404,8 +5185,7 @@
     "Date added": "11/30/1983",
     "Founded": "1983 (1877)",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 196333191168
+    "lon": -74.0060152
   },
   {
     "Ticker": "VRTX",
@@ -5416,8 +5196,7 @@
     "Date added": "9/23/2013",
     "Founded": "1989",
     "lat": 42.3656347,
-    "lon": -71.1040018,
-    "marketCap": 112223518720
+    "lon": -71.1040018
   },
   {
     "Ticker": "VFC",
@@ -5428,8 +5207,7 @@
     "Date added": "6/30/1979",
     "Founded": "1899",
     "lat": 39.7392364,
-    "lon": -104.984862,
-    "marketCap": 8216529920
+    "lon": -104.984862
   },
   {
     "Ticker": "VTRS",
@@ -5440,8 +5218,7 @@
     "Date added": "4/23/2004",
     "Founded": "1961",
     "lat": 40.4406968,
-    "lon": -80.0025666,
-    "marketCap": 17093698560
+    "lon": -80.0025666
   },
   {
     "Ticker": "VICI",
@@ -5452,8 +5229,7 @@
     "Date added": "6/8/2022",
     "Founded": "2017",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 31011371008
+    "lon": -74.0060152
   },
   {
     "Ticker": "V",
@@ -5464,8 +5240,7 @@
     "Date added": "12/21/2009",
     "Founded": "1958",
     "lat": 37.7879363,
-    "lon": -122.4075201,
-    "marketCap": 611227074560
+    "lon": -122.4075201
   },
   {
     "Ticker": "VMC",
@@ -5476,8 +5251,7 @@
     "Date added": "6/30/1999",
     "Founded": "1909",
     "lat": 33.5206824,
-    "lon": -86.8024326,
-    "marketCap": 38091603968
+    "lon": -86.8024326
   },
   {
     "Ticker": "WAB",
@@ -5488,8 +5262,18 @@
     "Date added": "2/27/2019",
     "Founded": "1999 (1869)",
     "lat": 40.4406968,
-    "lon": -80.0025666,
-    "marketCap": 44909109248
+    "lon": -80.0025666
+  },
+  {
+    "Ticker": "WBA",
+    "Name": "Walgreens Boots Alliance",
+    "Industry": "Consumer Staples",
+    "Sub-Industry": "Drug Retail",
+    "Headquarters Location": "Deerfield, Illinois",
+    "Date added": "12/31/1979",
+    "Founded": "2014",
+    "lat": 42.1711365,
+    "lon": -87.8445119
   },
   {
     "Ticker": "WMT",
@@ -5500,8 +5284,7 @@
     "Date added": "8/31/1982",
     "Founded": "1962",
     "lat": 36.3728608,
-    "lon": -94.208787,
-    "marketCap": 1016481316864
+    "lon": -94.208787
   },
   {
     "Ticker": "WBD",
@@ -5512,8 +5295,7 @@
     "Date added": "4/11/2022",
     "Founded": "2022",
     "lat": 40.7127281,
-    "lon": -74.0060152,
-    "marketCap": 68860928000
+    "lon": -74.0060152
   },
   {
     "Ticker": "WM",
@@ -5524,8 +5306,7 @@
     "Date added": "",
     "Founded": "1968",
     "lat": 29.7589382,
-    "lon": -95.3676974,
-    "marketCap": 90327048192
+    "lon": -95.3676974
   },
   {
     "Ticker": "WAT",
@@ -5536,8 +5317,7 @@
     "Date added": "1/2/2002",
     "Founded": "1958",
     "lat": 42.1428913,
-    "lon": -71.5164618,
-    "marketCap": 32175699968
+    "lon": -71.5164618
   },
   {
     "Ticker": "WEC",
@@ -5548,8 +5328,7 @@
     "Date added": "10/31/2008",
     "Founded": "1896",
     "lat": 43.0386475,
-    "lon": -87.9090751,
-    "marketCap": 37738815488
+    "lon": -87.9090751
   },
   {
     "Ticker": "WFC",
@@ -5560,8 +5339,7 @@
     "Date added": "6/30/1976",
     "Founded": "1852",
     "lat": 37.7879363,
-    "lon": -122.4075201,
-    "marketCap": 250332069888
+    "lon": -122.4075201
   },
   {
     "Ticker": "WELL",
@@ -5572,8 +5350,7 @@
     "Date added": "1/30/2009",
     "Founded": "1970",
     "lat": 41.6529143,
-    "lon": -83.5378173,
-    "marketCap": 148317765632
+    "lon": -83.5378173
   },
   {
     "Ticker": "WST",
@@ -5584,8 +5361,7 @@
     "Date added": "5/22/2020",
     "Founded": "1923",
     "lat": 40.0289955,
-    "lon": -75.6207651,
-    "marketCap": 19730898944
+    "lon": -75.6207651
   },
   {
     "Ticker": "WDC",
@@ -5596,8 +5372,18 @@
     "Date added": "7/1/2009",
     "Founded": "1970",
     "lat": 37.3361663,
-    "lon": -121.890591,
-    "marketCap": 127364325376
+    "lon": -121.890591
+  },
+  {
+    "Ticker": "WRK",
+    "Name": "WestRock",
+    "Industry": "Materials",
+    "Sub-Industry": "Paper Packaging",
+    "Headquarters Location": "Atlanta, Georgia",
+    "Date added": "3/4/1957",
+    "Founded": "2015",
+    "lat": 33.7544657,
+    "lon": -84.3898151
   },
   {
     "Ticker": "WY",
@@ -5608,8 +5394,7 @@
     "Date added": "",
     "Founded": "1900",
     "lat": 47.6038321,
-    "lon": -122.330062,
-    "marketCap": 18148642816
+    "lon": -122.330062
   },
   {
     "Ticker": "WHR",
@@ -5620,8 +5405,7 @@
     "Date added": "",
     "Founded": "1911",
     "lat": 42.1167065,
-    "lon": -86.4541894,
-    "marketCap": 3662051328
+    "lon": -86.4541894
   },
   {
     "Ticker": "WMB",
@@ -5632,8 +5416,7 @@
     "Date added": "3/31/1975",
     "Founded": "1908",
     "lat": 36.1563122,
-    "lon": -95.9927516,
-    "marketCap": 87006273536
+    "lon": -95.9927516
   },
   {
     "Ticker": "WTW",
@@ -5644,8 +5427,7 @@
     "Date added": "1/5/2016",
     "Founded": "2016",
     "lat": 51.5074456,
-    "lon": -0.1277653,
-    "marketCap": 28140644352
+    "lon": -0.1277653
   },
   {
     "Ticker": "GWW",
@@ -5656,8 +5438,7 @@
     "Date added": "6/30/1981",
     "Founded": "1927",
     "lat": 42.2586461,
-    "lon": -87.8407055,
-    "marketCap": 55091982336
+    "lon": -87.8407055
   },
   {
     "Ticker": "WYNN",
@@ -5668,8 +5449,7 @@
     "Date added": "11/14/2008",
     "Founded": "2002",
     "lat": 36.0724299,
-    "lon": -115.1474756,
-    "marketCap": 11386693632
+    "lon": -115.1474756
   },
   {
     "Ticker": "XEL",
@@ -5680,8 +5460,7 @@
     "Date added": "3/4/1957",
     "Founded": "1909",
     "lat": 44.9772995,
-    "lon": -93.2654692,
-    "marketCap": 50607071232
+    "lon": -93.2654692
   },
   {
     "Ticker": "XYL",
@@ -5692,8 +5471,7 @@
     "Date added": "11/1/2011",
     "Founded": "2011",
     "lat": 41.0339862,
-    "lon": -73.7629097,
-    "marketCap": 29446856704
+    "lon": -73.7629097
   },
   {
     "Ticker": "YUM",
@@ -5704,8 +5482,7 @@
     "Date added": "10/6/1997",
     "Founded": "1997",
     "lat": 38.2542376,
-    "lon": -85.759407,
-    "marketCap": 45000060928
+    "lon": -85.759407
   },
   {
     "Ticker": "ZBRA",
@@ -5716,8 +5493,7 @@
     "Date added": "12/23/2019",
     "Founded": "1969",
     "lat": 42.1900249,
-    "lon": -87.9084039,
-    "marketCap": 11532010496
+    "lon": -87.9084039
   },
   {
     "Ticker": "ZBH",
@@ -5728,8 +5504,7 @@
     "Date added": "8/7/2001",
     "Founded": "1927",
     "lat": 41.2381017,
-    "lon": -85.8530544,
-    "marketCap": 18543896576
+    "lon": -85.8530544
   },
   {
     "Ticker": "ZION",
@@ -5740,8 +5515,7 @@
     "Date added": "6/22/2001",
     "Founded": "1873",
     "lat": 40.7596198,
-    "lon": -111.886797,
-    "marketCap": 9277066240
+    "lon": -111.886797
   },
   {
     "Ticker": "ZTS",
@@ -5752,7 +5526,6 @@
     "Date added": "6/21/2013",
     "Founded": "1952",
     "lat": 40.8578772,
-    "lon": -74.4259866,
-    "marketCap": 51659988992
+    "lon": -74.4259866
   }
 ]
